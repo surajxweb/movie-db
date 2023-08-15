@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { FC } from 'react';
 import Link from 'next/link';
+import styles from './Top100Card.module.css';
 
 interface Top100CardProps {
   image: string;
@@ -8,36 +9,26 @@ interface Top100CardProps {
   rating: string;
   year: number;
   rank: number;
+  id: string;
 }
 
-function generateMoviePath(name: string, year: number) {
-  const sanitizedPath = `${encodeURIComponent(name.toLowerCase())}+${year}`;
-  return sanitizedPath;
-}
-
-const Top100Card: FC<Top100CardProps> = ({
-  image,
-  name,
-  year,
-  rating,
-  rank,
-}) => {
+const Top100Card: FC<Top100CardProps> = ({ image, name, year, rating, id }) => {
   return (
     <>
-      <Link href={`/movies/${generateMoviePath(name, year)}`}>
-        <div>
-          <div>
+      <Link href={`/movies/${id}`}>
+        <div className={styles.container}>
+          <div className={styles.imageContainer}>
             <Image
               src={image}
-              height={369}
-              width={250}
+              height={443.68}
+              width={300}
               alt={`${name} movie poster`}
             />
           </div>
-          <div>{`${name}`}</div>
-          <div>
-            <div>{year}</div>
-            <div>{rating}</div>
+          <div className={styles.name}>{`${name}`}</div>
+          <div className={styles.info}>
+            <div className={styles.year}>{year}</div>
+            <div className={styles.rating}>{rating}</div>
           </div>
         </div>
       </Link>

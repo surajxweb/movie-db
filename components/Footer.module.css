@@ -1,0 +1,48 @@
+.container {
+  background-color: #222;
+  color: #ccc;
+  padding: 60px 0 0 20px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.container > * {
+  width: 30%;
+}
+
+.logo,
+.tap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img {
+  border-radius: 18px;
+}
+
+.links {
+  order: -1;
+}
+
+.link {
+  list-style: none;
+  margin: 5px;
+  text-align: center;
+}
+
+.link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.credits {
+  width: 100%;
+  background-color: #222;
+  color: #ccc;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}

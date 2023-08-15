@@ -1,3 +1,5 @@
+b70404
+
 //GET STREAMING INFO BY IMDB IMDB
 
 const axios = require('axios');
@@ -17,7 +19,6 @@ const options = {
 
 try {
 	const response = await axios.request(options);
-	console.log(response.data);
 } catch (error) {
 	console.error(error);
 }
@@ -40,7 +41,6 @@ const options = {
 
 try {
 	const response = await axios.request(options);
-	console.log(response.data);
 } catch (error) {
 	console.error(error);
 }
@@ -57,8 +57,70 @@ Trialers     -->     MDB List 100/day
 streaming    -->     streaming-availability
 
 
+trending movies
+trendings show 
+in theaters 
+upcoming movies
+top tated movies
+top rated Shows
+
+serch/tv
+https://api.themoviedb.org/3/search/tv?api_key=d308de6f3b996ae3b334cbb6527cffc7&query=breaking%20bad
+
+search movie
+https://api.themoviedb.org/3/search/movie?api_key=d308de6f3b996ae3b334cbb6527cffc7&query=the%20batman
+
+get movie by id
+https://api.themoviedb.org/3/movie/724209?api_key=d308de6f3b996ae3b334cbb6527cffc7
 
 https://image.tmdb.org/t/p/original/
+
+Sure, here's a list of some common TMDB API endpoints:
+
+    Movies:
+        Get Popular Movies: /movie/popular
+        Get Top Rated Movies: /movie/top_rated
+        Get Now Playing Movies: /movie/now_playing
+        Get Upcoming Movies: /movie/upcoming
+        Get Movie Details: /movie/{movie_id}
+        Search Movies: /search/movie
+
+    TV Shows:
+        Get Popular TV Shows: /tv/popular
+        Get Top Rated TV Shows: /tv/top_rated
+        Get TV Show Details: /tv/{tv_id}
+        Search TV Shows: /search/tv
+
+    Trending:
+        Get Trending Movies: /trending/movie/{time_window}
+        Get Trending TV Shows: /trending/tv/{time_window}
+
+    People:
+        Get Person Details: /person/{person_id}
+        Get Person Movie/TV Credits: /person/{person_id}/combined_credits
+
+    Genres:
+        Get Movie Genres: /genre/movie/list
+        Get TV Show Genres: /genre/tv/list
+
+    Discover:
+        Discover Movies: /discover/movie
+        Discover TV Shows: /discover/tv
+
+    Images:
+        Get Movie Images: /movie/{movie_id}/images
+        Get TV Show Images: /tv/{tv_id}/images
+
+    Videos:
+        Get Movie Videos: /movie/{movie_id}/videos
+        Get TV Show Videos: /tv/{tv_id}/videos
+
+    Authentication:
+        Get Guest Session ID: /authentication/guest_session/new
+
+    Account:
+        Get Account Details: /account
+        Get Account Favorite Movies/TV Shows: /account/{account_id}/favorite/movies or /account/{account_id}/favorite/tv
 
 const MoviePage: NextPage =  () => {
   // const [namePart, year] =usePathname().split('+');

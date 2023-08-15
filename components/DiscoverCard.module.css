@@ -1,0 +1,25 @@
+.container {
+  width: 233px;
+  margin: 20px;
+  transition: all 0.3s ease-out;
+}
+
+.container:hover {
+  transform: scale(1.12);
+}
+
+.imageContainer {
+  height: 350px;
+}
+
+.imageContainer img {
+  border-radius: 6px;
+  box-shadow: rgba(83, 83, 63, 0.35) 0px 5px 15px;
+}
+
+.name {
+  width: 100%;
+  margin-top: 8px;
+  font-size: 10px;
+  text-align: center;
+}

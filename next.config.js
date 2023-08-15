@@ -2,11 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-};
-
-module.exports = {
-  reactStrictMode: true,
   images: {
-    domains: ['m.media-amazon.com'],
+    domains: ['m.media-amazon.com', 'image.tmdb.org'], // Combine domains into a single array
   },
 };
+
+module.exports = nextConfig;

@@ -1,5 +1,9 @@
 import type { NextPage } from 'next';
 import Top100Card from '@/components/Top100Card';
+import styles from './Top100.module.css';
+import Image from 'next/image';
+import top100_header from '@/resources/top100_header.png';
+import { top100DB } from '@/resources/top100DB';
 
 type Movie = {
   id: string;
@@ -7,8 +11,6 @@ type Movie = {
   rating: string;
   year: number;
   image: string;
-  imdbid: string;
-  trailer: string;
   rank: number;
 };
 
@@ -30,19 +32,32 @@ async function fetchData() {
 }
 
 const Top100: NextPage = async () => {
-  const movies = await fetchData();
+  // const movies = await fetchData();
+
   return (
-    <div className="flex flex-row flex-wrap justify-around">
-      {movies.map((movie: Movie) => (
-        <Top100Card
-          key={movie.id}
-          name={movie.title}
-          rating={movie.rating}
-          year={movie.year}
-          image={movie.image}
-          rank={movie.rank}
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <Image
+          src={top100_header}
+          height={400}
+          width={1500}
+          alt="discover cinema like never before"
         />
-      ))}
+      </div>
+      <h2 className={styles.subHeading}>Best of Cinema</h2>
+      <div className={styles.list}>
+        {top100DB.map((movie: Movie) => (
+          <Top100Card
+            key={movie.id}
+            name={movie.title}
+            rating={movie.rating}
+            year={movie.year}
+            image={movie.image}
+            rank={movie.rank}
+            id={movie.id}
+          />
+        ))}
+      </div>
     </div>
   );
 };

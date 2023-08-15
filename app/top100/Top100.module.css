@@ -1,0 +1,19 @@
+.container {
+  padding: 20px;
+}
+
+.header {
+  margin-bottom: 70px;
+}
+
+.heading {
+  font-size: 40px;
+  margin: 40px auto 20px auto;
+}
+
+.list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}

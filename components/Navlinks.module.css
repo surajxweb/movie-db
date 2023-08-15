@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row wrap;
+  padding: 10px 30px;
+  background-color: #222;
+}
+
+.logo img {
+  border-radius: 10px;
+}
+
+.links {
+  display: flex;
+  font-weight: bold;
+  color: #ccc;
+}
+
+.links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: goldenrod;
+}
+
+.link {
+  margin-left: 50px;
+  list-style: none;
+}

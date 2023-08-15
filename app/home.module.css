@@ -1,0 +1,70 @@
+.container {
+  padding: 20px;
+}
+
+.header {
+  margin-bottom: 70px;
+}
+
+.container section {
+  margin-top: 45px;
+}
+
+.heading {
+  font-size: 52px;
+  width: 100%;
+}
+
+.subHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subHeading a {
+  font-size: 15px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: wheat;
+}
+
+.listContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.search {
+  padding: 20px 40px;
+  background-color: #222;
+  width: 50%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 30px auto;
+}
+
+.text {
+  margin: 20px;
+}
+
+.button {
+  margin: 20px;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-family: inherit;
+  font-weight: bold;
+  background-color: #ffcc00;
+  border: 2px solid white;
+  border-radius: 15px;
+  color: #111;
+}
+
+.button:hover {
+  background-color: #e3a62f;
+}
+
+.button:active {
+  background-color: #c18e29;
+}

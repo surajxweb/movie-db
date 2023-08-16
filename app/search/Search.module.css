@@ -1,0 +1,64 @@
+.container {
+  padding: 20px;
+}
+
+.form {
+  width: 40%;
+  margin: 10px auto;
+  padding: 40px 0 20px 0;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 200px;
+}
+
+.reactIcons {
+  margin-right: 20px;
+  vertical-align: middle;
+}
+
+.form input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 4px solid #ccc;
+  font-family: inherit;
+  color: #ccc;
+  font-size: 30px;
+}
+
+.form input:focus {
+  outline: none;
+}
+
+.radios {
+  margin-top: 20px;
+}
+
+.radio {
+  margin: 10px;
+  font-size: 20px;
+}
+
+.option {
+  margin-left: 10px;
+}
+
+.button {
+  display: none;
+}
+
+.results {
+  min-height: 600px;
+}
+
+.list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.heading {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

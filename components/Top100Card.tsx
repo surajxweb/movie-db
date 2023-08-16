@@ -15,7 +15,7 @@ interface Top100CardProps {
 const Top100Card: FC<Top100CardProps> = ({ image, name, year, rating, id }) => {
   return (
     <>
-      <Link href={`/movies/${id}`}>
+      <Link href={`/top100/${id}`}>
         <div className={styles.container}>
           <div className={styles.imageContainer}>
             <Image

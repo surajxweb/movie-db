@@ -1,5 +1,9 @@
 b70404
 
+     
+
+
+
 //GET STREAMING INFO BY IMDB IMDB
 
 const axios = require('axios');
@@ -64,6 +68,9 @@ upcoming movies
 top tated movies
 top rated Shows
 
+search/genid
+https://api.themoviedb.org/3/discover/movie?api_key=d308de6f3b996ae3b334cbb6527cffc7&with_genres=28&sort_by=popularity.desc&page=1
+
 serch/tv
 https://api.themoviedb.org/3/search/tv?api_key=d308de6f3b996ae3b334cbb6527cffc7&query=breaking%20bad
 
@@ -73,7 +80,7 @@ https://api.themoviedb.org/3/search/movie?api_key=d308de6f3b996ae3b334cbb6527cff
 get movie by id
 https://api.themoviedb.org/3/movie/724209?api_key=d308de6f3b996ae3b334cbb6527cffc7
 
-https://image.tmdb.org/t/p/original/
+https://image.tmdb.org/t/p/original/6BDBY1KhGHznQfCjHdGyIwNp30x.jpg
 
 Sure, here's a list of some common TMDB API endpoints:
 

@@ -1,0 +1,30 @@
+.form {
+  width: 40%;
+  margin: 10px auto;
+  padding: 40px 0 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 200px;
+}
+
+.reactIcons {
+  margin-right: 20px;
+}
+
+.form input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 4px solid #ccc;
+  font-family: inherit;
+  color: #ccc;
+  font-size: 30px;
+}
+
+.form input:focus {
+  outline: none;
+}
+
+.button {
+  display: none;
+}

@@ -7,9 +7,11 @@ import styles from './Navlinks.module.css';
 const NavLinks: FC = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.logo}>
-        <Image src={logo} alt="logo" height={42} width={74.7} />
-      </div>
+      <Link href={`/`}>
+        <div className={styles.logo}>
+          <Image src={logo} alt="logo" height={42} width={74.7} />
+        </div>
+      </Link>
 
       <ul className={styles.links}>
         <Link href={'/'}>

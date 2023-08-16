@@ -9,7 +9,7 @@ export async function generateStaticParams() {
       'X-RapidAPI-Host': 'imdb-top-100-movies.p.rapidapi.com',
     },
   };
-  const movies = await fetch(url, options).then((res) => res.json())
+  const movies = await fetch(url, options).then((res) => res.json());
 
   return movies.map((movie: { id: string }) => ({
     slug: movie.id,

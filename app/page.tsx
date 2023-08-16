@@ -1,5 +1,5 @@
 import DiscoverCard from '@/components/DiscoverCard';
-import styles from './home.module.css';
+import styles from './Home.module.css';
 import Image from 'next/image';
 import header from '@/resources/header.png';
 import Link from 'next/link';
@@ -103,7 +103,7 @@ const Home = async () => {
       <section>
         <h2 className={styles.subHeading}>
           Trending Movies
-          <Link href={'/movies'}>
+          <Link href={'/discover/trendingmovies'}>
             load more <BsLink45Deg className="reactIcons" />
           </Link>
         </h2>
@@ -122,7 +122,7 @@ const Home = async () => {
       <section>
         <h2 className={styles.subHeading}>
           Trending Shows
-          <Link href={'/movies'}>
+          <Link href={'/discover/trendingshows'}>
             load more <BsLink45Deg className="reactIcons" />
           </Link>
         </h2>
@@ -141,7 +141,7 @@ const Home = async () => {
       <section>
         <h2 className={styles.subHeading}>
           In Theatres
-          <Link href={'/movies'}>
+          <Link href={'/discover/theatres'}>
             load more <BsLink45Deg className="reactIcons" />
           </Link>
         </h2>
@@ -160,7 +160,7 @@ const Home = async () => {
       <section>
         <h2 className={styles.subHeading}>
           Upcoming Movies
-          <Link href={'/movies'}>
+          <Link href={'/discover/upcomingmovies'}>
             load more <BsLink45Deg className="reactIcons" />
           </Link>
         </h2>
@@ -179,7 +179,7 @@ const Home = async () => {
       <section>
         <h2 className={styles.subHeading}>
           Top Rated Movies
-          <Link href={'/movies'}>
+          <Link href={'/discover/topmovies'}>
             load more <BsLink45Deg className="reactIcons" />
           </Link>
         </h2>
@@ -198,7 +198,7 @@ const Home = async () => {
       <section>
         <h2 className={styles.subHeading}>
           Top Rated Shows
-          <Link href={'/movies'}>
+          <Link href={'/discover/topshows'}>
             load more
             <BsLink45Deg className="reactIcons" />
           </Link>

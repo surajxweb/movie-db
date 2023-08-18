@@ -68,6 +68,15 @@ upcoming movies
 top tated movies
 top rated Shows
 
+all gens
+https://api.themoviedb.org/3/genre/movie/list?api_key=d308de6f3b996ae3b334cbb6527cffc7
+
+Similar shows 
+https://api.themoviedb.org/3/tv/84958/recommendations?api_key=d308de6f3b996ae3b334cbb6527cffc7
+
+similar movies
+https://api.themoviedb.org/3/movie/597/recommendations?api_key=d308de6f3b996ae3b334cbb6527cffc7
+
 search/genid
 https://api.themoviedb.org/3/discover/movie?api_key=d308de6f3b996ae3b334cbb6527cffc7&with_genres=28&sort_by=popularity.desc&page=1
 

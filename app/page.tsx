@@ -1,17 +1,17 @@
-import DiscoverCard from '@/components/DiscoverCard';
-import styles from './Home.module.css';
-import Image from 'next/image';
-import header from '@/resources/header.png';
-import Link from 'next/link';
-import { BsLink45Deg } from 'react-icons/bs';
+import DiscoverCard from "@/components/DiscoverCard";
+import styles from "./Home.module.css";
+import Image from "next/image";
+import header from "@/resources/header.png";
+import Link from "next/link";
+import { BsLink45Deg } from "react-icons/bs";
 
 const fetchTrending = async () => {
   const trendingResponse = await fetch(
-    'https://api.themoviedb.org/3/trending/movie/week?api_key=d308de6f3b996ae3b334cbb6527cffc7'
+    "https://api.themoviedb.org/3/trending/movie/day?api_key=d308de6f3b996ae3b334cbb6527cffc7"
   );
 
   if (!trendingResponse.ok) {
-    console.log('Failed');
+    console.log("Failed");
   }
 
   return await trendingResponse.json();
@@ -19,11 +19,11 @@ const fetchTrending = async () => {
 
 const fetchShows = async () => {
   const showResponse = await fetch(
-    'https://api.themoviedb.org/3/trending/tv/week?api_key=d308de6f3b996ae3b334cbb6527cffc7'
+    "https://api.themoviedb.org/3/trending/tv/day?api_key=d308de6f3b996ae3b334cbb6527cffc7"
   );
 
   if (!showResponse.ok) {
-    console.log('Failed');
+    console.log("Failed");
   }
 
   return await showResponse.json();
@@ -31,44 +31,44 @@ const fetchShows = async () => {
 
 const fetchTheaterMovies = async () => {
   const theaterMoviesResponse = await fetch(
-    'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&region=in&api_key=d308de6f3b996ae3b334cbb6527cffc7'
+    "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&region=in&api_key=d308de6f3b996ae3b334cbb6527cffc7"
   );
 
   if (!theaterMoviesResponse.ok) {
-    console.log('Failed');
+    console.log("Failed");
   }
   return await theaterMoviesResponse.json();
 };
 
 const fetchUpcomingMovies = async () => {
   const uncomingMoviesResponse = await fetch(
-    'https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1&region=us&api_key=d308de6f3b996ae3b334cbb6527cffc7'
+    "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1&region=us&api_key=d308de6f3b996ae3b334cbb6527cffc7"
   );
 
   if (!uncomingMoviesResponse.ok) {
-    console.log('Failed');
+    console.log("Failed");
   }
   return await uncomingMoviesResponse.json();
 };
 
 const fetchTopMovies = async () => {
   const topMoviesResponse = await fetch(
-    'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&api_key=d308de6f3b996ae3b334cbb6527cffc7'
+    "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&api_key=d308de6f3b996ae3b334cbb6527cffc7"
   );
 
   if (!topMoviesResponse.ok) {
-    console.log('Failed');
+    console.log("Failed");
   }
   return await topMoviesResponse.json();
 };
 
 const fetchTopShows = async () => {
   const topShowsResponse = await fetch(
-    'https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1&api_key=d308de6f3b996ae3b334cbb6527cffc7'
+    "https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1&api_key=d308de6f3b996ae3b334cbb6527cffc7"
   );
 
   if (!topShowsResponse.ok) {
-    console.log('Failed');
+    console.log("Failed");
   }
   return await topShowsResponse.json();
 };
@@ -103,7 +103,7 @@ const Home = async () => {
       <section>
         <h2 className={styles.subHeading}>
           Trending Movies
-          <Link href={'/discover/trendingmovies'}>
+          <Link href={"/discover/trendingmovies"}>
             load more <BsLink45Deg className="reactIcons" />
           </Link>
         </h2>
@@ -122,7 +122,7 @@ const Home = async () => {
       <section>
         <h2 className={styles.subHeading}>
           Trending Shows
-          <Link href={'/discover/trendingshows'}>
+          <Link href={"/discover/trendingshows"}>
             load more <BsLink45Deg className="reactIcons" />
           </Link>
         </h2>
@@ -141,7 +141,7 @@ const Home = async () => {
       <section>
         <h2 className={styles.subHeading}>
           In Theatres
-          <Link href={'/discover/theatres'}>
+          <Link href={"/discover/theatres"}>
             load more <BsLink45Deg className="reactIcons" />
           </Link>
         </h2>
@@ -160,7 +160,7 @@ const Home = async () => {
       <section>
         <h2 className={styles.subHeading}>
           Upcoming Movies
-          <Link href={'/discover/upcomingmovies'}>
+          <Link href={"/discover/upcomingmovies"}>
             load more <BsLink45Deg className="reactIcons" />
           </Link>
         </h2>
@@ -179,7 +179,7 @@ const Home = async () => {
       <section>
         <h2 className={styles.subHeading}>
           Top Rated Movies
-          <Link href={'/discover/topmovies'}>
+          <Link href={"/discover/topmovies"}>
             load more <BsLink45Deg className="reactIcons" />
           </Link>
         </h2>
@@ -198,7 +198,7 @@ const Home = async () => {
       <section>
         <h2 className={styles.subHeading}>
           Top Rated Shows
-          <Link href={'/discover/topshows'}>
+          <Link href={"/discover/topshows"}>
             load more
             <BsLink45Deg className="reactIcons" />
           </Link>
@@ -219,7 +219,7 @@ const Home = async () => {
         <div className={styles.text}>
           Did not find what you are looking for?
         </div>
-        <Link href={'/search'} className={styles.button}>
+        <Link href={"/search"} className={styles.button}>
           Search
         </Link>
       </div>

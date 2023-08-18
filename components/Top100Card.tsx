@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import { FC } from 'react';
-import Link from 'next/link';
-import styles from './Top100Card.module.css';
+import Image from "next/image";
+import { FC } from "react";
+import Link from "next/link";
+import styles from "./Top100Card.module.css";
 
 interface Top100CardProps {
   image: string;

@@ -1,14 +1,14 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent } from "react";
 
 interface FormData {
   userInput: string;
-  category: 'show' | 'movie';
+  category: "show" | "movie";
 }
 
 function FormComponent() {
   const [formData, setFormData] = useState<FormData>({
-    userInput: '',
-    category: 'movie',
+    userInput: "",
+    category: "movie",
   });
 
   const handleInputChange = async (e: ChangeEvent<HTMLInputElement>) => {
@@ -27,7 +27,7 @@ function FormComponent() {
   //     await makeAPICall(selectedCategory, formData.userInput);
   //   };
 
-  const makeAPICall = async (category: 'show' | 'movie', input: string) => {
+  const makeAPICall = async (category: "show" | "movie", input: string) => {
     const response = await fetch(
       `/api/route?input=${input}&category=${category}`
     );

@@ -1,0 +1,555 @@
+TMDB
+Wallpaper :)
+Poster :)
+Runtime :)
+Name :)
+Genres :)
+
+MDB:
+Ratings :)
+Trailer 
+Reviews 
+
+OMDB:
+Cast :)
+Writer :)
+Director :)
+Plot :)
+Year :)
+
+STREAMING AVAILBILITY
+Streaming 
+
+
+
+//////////////////////////////////////////////////
+
+
+{
+    "metacritic": {
+    "@type": "imdb.api.title.metacritic",
+    "id": "/title/tt13603966/",
+    "metaScore": 45,
+    "metacriticUrl": "https://www.metacritic.com/movie/heart-of-stone?ftag=MCD-06-10aaa1c",
+    "reviewCount": 34,
+    "userRatingCount": 33,
+    "userScore": 4.2,
+    "reviews": [
+      {
+        "quote": "Heart of Stone is the rare streaming movie that does not open with an in medias res action sequence, followed by a “[Some Amount of Time] Earlier” card and a flashback to simpler days.",
+        "reviewSite": "Consequence",
+        "reviewUrl": "https://consequence.net/2023/08/heart-of-stone-review-gal-gadot/",
+        "reviewer": "Liz Shannon Miller",
+        "score": 83
+      },
+      {
+        " ": "With verve and style, Heart of Stone does a great job of creating a new character in the espionage thriller genre.",
+        "reviewSite": "Collider",
+        "reviewer": "Tania Hussain",
+        "score": 75
+      }
+    ]
+  },
+}
+
+
+
+////////////
+
+
+
+{
+  "@type": "imdb.api.userreviews.userreviewsfortitle",
+  "base": {
+    "disambiguation": "I",
+    "id": "/title/tt13603966/",
+    "image": {
+      "height": 2222,
+      "id": "/title/tt13603966/images/rm1727879937",
+      "url": "https://m.media-amazon.com/images/M/MV5BMTJhYjI1N2ItM2E4MC00ZmYzLTk2YzYtNTE5YTM1MDU0NjRiXkEyXkFqcGdeQXVyMTMxNjYyMTgw._V1_.jpg",
+      "width": 1500
+    },
+    "title": "Heart of Stone",
+    "titleType": "movie",
+    "year": 2023
+  },
+  "paginationKey": "g4w6ddbmqyzdo6ic4oxwjnzsqlsmsaz634mtr67pb3ap2ul5pjt6ubczouzfrmzlb4d72t3g6bhovottw36t7vql6wgdg",
+  "reviews": [
+    {
+      "author": {
+        "displayName": "Xstal",
+        "userId": "/user/ur4103165/"
+      },
+      "authorRating": 1,
+      "helpfulnessScore": 0.5694362262097766,
+      "id": "/title/tt13603966/userreviews/rw9252887",
+      "interestingVotes": {
+        "down": 118,
+        "up": 196
+      },
+      "languageCode": "eng",
+      "reviewText": "A computer called 'The Heart', an all seeing eye, a wonder of a thing high in the sky, can predict future events, wisdom, knowledge to dispense, alas there's one thing that it's failed to classify; as its intellect, its genius and its brain - has not considered that it's here to entertain, so it's patched and dialled out, a film with very little clout, leaving no pulse, no vital signs, although there's pain; so in the end, all that you'll do, is moan and groan, as it sinks like the proverbial thrown stone, with no moss for it to gather, it's just a rotten, rank cadaver, you'd be better off distracted by your phone.",
+      "reviewTitle": "Lifeless...",
+      "spoiler": false,
+      "submissionDate": "2023-08-11",
+      "titleId": "/title/tt13603966/"
+    },
+    {
+      "author": {
+        "displayName": "BLAlley",
+        "userId": "/user/ur58809391/"
+      },
+      "authorRating": 3,
+      "helpfulnessScore": 0.582995703589862,
+      "id": "/title/tt13603966/userreviews/rw9252575",
+      "interestingVotes": {
+        "down": 94,
+        "up": 169
+      },
+      "languageCode": "eng",
+      "reviewText": "Less then three minutes in and it's already painfully obvious this is yet another entry in the minimum-effort, disposable TV show category.\n\nWe start with some breathtaking scenery flying over the Schnals Glacier toward the Alpin Arena Schnals Senalesatop ski resort, at least until they decided to point the camera into the sun once we switch to the party. There we learn some agents are conducting an op, but just like recent DOA shows like Citadel and Fubar, trained agents are speaking on their \"secret\" coms openly among crowds of people. Worse, they are further risking exposure by extending those exchanges into casual conversations about (insert unimportant topic).\n\nThen something goes wrong with their remote computer access (which also never makes sense), yet no one on the team seems alarmed that they might have been discovered and cut off. Instead they casually seek another way to access the network.\n\nBesides the fact secure networks don't broadcast a signal through which they can be hacked, even if that was a thing the team would have already had an alternate plan in place.\n\nAdding to the dumbness, the \"hacker\" needs to be within ten feet of the head security guy for... reasons, but the rest of the team opposes the plan because she's \"not a field agent\". Uh, they are all in a foreign country operating from a van parked outside the resort. That's the field. If she was merely a computer tech she'd be at their headquarters since their concern seems to be her lack of field training, even though she's in the field.\n\nIt's a shame moronic garbage has become the norm.",
+      "reviewTitle": "More dumbed-down dreck for the brainded masses",
+      "spoiler": false,
+      "submissionDate": "2023-08-11",
+      "titleId": "/title/tt13603966/"
+    },
+    {
+      "author": {
+        "displayName": "gabore9-428-222670",
+        "userId": "/user/ur35167287/"
+      },
+      "authorRating": 4,
+      "helpfulnessScore": 0.6126029347066372,
+      "id": "/title/tt13603966/userreviews/rw9253143",
+      "interestingVotes": {
+        "down": 70,
+        "up": 147
+      },
+      "languageCode": "eng",
+      "reviewText": "This was quite infuriating, decent cast and action sequences, but such an awful, boring convoluted script full of cliches and total lack of believable characters. It feels like nobody did any audience testing or editing, a lot like Sentinel (ok that was a show) another soulless action movie that is like a B movie from the video store but with a real budget and people you have heard of. Don't really get what Netflix is doing, for all this money couldn't they have spent some on a decent writer? Was this written by AI? Gal Gadot was great and did a good job, Jamie Dorman is as boring as in everything else so at least he is consistent.",
+      "reviewTitle": "Terrible script and writing",
+      "spoiler": false,
+      "submissionDate": "2023-08-11",
+      "titleId": "/title/tt13603966/"
+    },
+    {
+      "author": {
+        "displayName": "masonsaul",
+        "userId": "/user/ur94560739/"
+      },
+      "authorRating": 4,
+      "helpfulnessScore": 0.5287707181843486,
+      "id": "/title/tt13603966/userreviews/rw9253149",
+      "interestingVotes": {
+        "down": 73,
+        "up": 110
+      },
+      "languageCode": "eng",
+      "reviewText": "Heart of Stone is yet another huge Netflix blockbuster that's so desperate to get a franchise going that just doesn't understand how these films should work. The marketing is so ready to brag that it's the executive producers of Dead Reckoning but this makes every wrong decision that film didn't make.\n\nIt's dull, it's derivative, it's forgettable and somehow even worse than all of the previous attempts to get a spy franchise going from Netflix (please don't let this get a sequel). Every CGI action set piece is bad, lacking any weight and is only laughable opposed to thrilling.\n\nGal Gadot is definitely capable of leading something like this but Rachel Stone is such a boring character with no depth and spends most of the film refusing to connect or open up which only makes it worse. Jamie Dornan is way better though, he's allowed to have fun with it whilst everyone else is overly serious.\n\nWhilst Tom Harper really can't direct action scenes the film generally looks more vibrant than something like The Gray Man and avoids the excessively grey colour palette for 90 minutes at least. The music by Steven Price feels like it belongs to a completely different movie but definitely sounds like a better movie.",
+      "reviewTitle": "Netflix just don't get blockbusters",
+      "spoiler": true,
+      "submissionDate": "2023-08-11",
+      "titleId": "/title/tt13603966/"
+    },
+    {
+      "author": {
+        "displayName": "karinahatem",
+        "userId": "/user/ur47246324/"
+      },
+      "authorRating": 1,
+      "helpfulnessScore": 0.5114873493835522,
+      "id": "/title/tt13603966/userreviews/rw9257230",
+      "interestingVotes": {
+        "down": 23,
+        "up": 40
+      },
+      "languageCode": "eng",
+      "reviewText": "Barely 10 minutes passed, and I stopped counting the number of mistakes. Netflix keeps acquiring or producing stupid action movies, not sure why ! And having Gal Gadot didn't make it any better, in fact Gal was very annoying. The movie had too many elements from James Bond and Mission Impossible. Stupid story, silly dialogue, poor performance and lame action scenes. They had an Indian character, just to make it more diverse. The movie was so bad, that it took me 3 trials to be able to finish it. Please Netflix, stop making and producing bad movie, and just stick to making original tv shows and good documentaries.",
+      "reviewTitle": "Heart of boredom",
+      "spoiler": false,
+      "submissionDate": "2023-08-13",
+      "titleId": "/title/tt13603966/"
+    },
+    {
+      "author": {
+        "displayName": "ItsRobinTV",
+        "userId": "/user/ur154814932/"
+      },
+      "authorRating": 6,
+      "helpfulnessScore": 0.5640859177633084,
+      "id": "/title/tt13603966/userreviews/rw9254147",
+      "interestingVotes": {
+        "down": 19,
+        "up": 42
+      },
+      "languageCode": "eng",
+      "reviewText": "The concept of the movie is actually kind of interesting. This whole heart thing catched me definitely. But besides that and a few nice action scenes the movie wasn't that good.\n\nI'm sorry if I say this but Gal Gadot isn't Tom Cruise. CGI Stunts especially bad made CGI stunts look so much worse than real stunts and this is a huge problem when one of the best action spy movies with some of the most impressive stunts ever made, MI 7, is running in cinemas at the same time. Really bad timing. This movies isn't anywhere as good as MI 7 but maybe I expected a little too much.\n\nAlso I rarely watched a movie where the music annoyed me but this one manages it. The Music ruins so much scenes.\n\nIf this movie was really thought to be the beginning of an entire franchise Netflix should have put some more effort into it, but at the end the real factor that decides if there will be more movies is the money not the quality, sadly.",
+      "reviewTitle": "Mission Impossible on Budget",
+      "spoiler": false,
+      "submissionDate": "2023-08-12",
+      "titleId": "/title/tt13603966/"
+    },
+    {
+      "author": {
+        "displayName": "ThomasColquith",
+        "userId": "/user/ur133140653/"
+      },
+      "authorRating": 1,
+      "helpfulnessScore": 0.46586301131124414,
+      "id": "/title/tt13603966/userreviews/rw9253205",
+      "interestingVotes": {
+        "down": 97,
+        "up": 111
+      },
+      "languageCode": "eng",
+      "reviewText": "Unfortunately \"Heart of Stone\" is another poor Netflix production. I am now giving up on all Netflix produced films as I was made physically ill from this film due to the flashing, frame rate, shaky camera, overexposure, and direct lights into the camera. These very poor production qualities terminally sink this film, along with most other Netflix films. I am sad that there are virtually no good films being made today. While I like Gal Gadot, she could not save this poor production and its poor script. There really should be warnings on these films for people with certain illnesses. I had heart palpitations from this film and had to fast forward and stop it. The 4k frame rate, not resolution, of 50-60 frames per second is hard on the body and should be banned by the FCC. Filmakers, please go back to 24 frames per second and no filters, good scripts, tripods, good sound mixing, etc. I'm tired of this garbage being put out there. And 1080p resolution on DVD is perfectly fine, no need to mess with it. Instead, cameramakers and the FCC are pushing this 4k standard even onto broadcast television. It will all soon be unwatchable for me as I have a neurological condition. I will have to watch only old DVD's. And there are too many commercials on tv anyway, some programs are sped up to fit more in. In closing, if you don't have Netflix and want to see something comparable to this film, just stare at a fluorescent light tube for an hour and you'll get the same experience. 1/10 rating, obviously avoid, rewatch any James Bond instead.",
+      "reviewTitle": "Another Netflix Bomb",
+      "spoiler": false,
+      "submissionDate": "2023-08-11",
+      "titleId": "/title/tt13603966/"
+    },
+    {
+      "author": {
+        "displayName": "leethomas74",
+        "userId": "/user/ur33437813/"
+      },
+      "authorRating": 5,
+      "helpfulnessScore": 0.48979980521183764,
+      "id": "/title/tt13603966/userreviews/rw9252680",
+      "interestingVotes": {
+        "down": 38,
+        "up": 55
+      },
+      "languageCode": "eng",
+      "reviewText": "Like every other action film that Netflix release, this is a 5 at best. Another live action computer game, awful far fetched plot , terrible acting and nothing more than a 2 hour time filler at best. Whoever keeps commissioning films for Netflix needs to leave as it's the same drivel over and over again. 6 Underground, Red Notice blah blah blah, all the same glossy, style over substance rubbish. They must think that it's just teenage boys that watch Netflix as every so called action move is catered for them. I dread to think how much this cost but what a waste. A Waste of time and subscription.",
+      "reviewTitle": "More Netflix dross",
+      "spoiler": false,
+      "submissionDate": "2023-08-11",
+      "titleId": "/title/tt13603966/"
+    },
+    {
+      "author": {
+        "displayName": "Maxax777",
+        "userId": "/user/ur40725114/"
+      },
+      "authorRating": 7,
+      "helpfulnessScore": 0.4527693571344753,
+      "id": "/title/tt13603966/userreviews/rw9257830",
+      "interestingVotes": {
+        "down": 58,
+        "up": 68
+      },
+      "languageCode": "eng",
+      "reviewText": "Look - unfortunately, there are a lot of negative reviews for this out there - but seriously - it doesn't deserve all the negativity, it's really NOT bad - I enjoyed it! It's loaded with action, it does have a little twist in there - it's just an action movie, simple. It's also not poorly done - it looks good, the action is great - it's really not bad! Could it have been better? SURE - the story is fairly predictable - the action is predictable - it's a little cheesy - but it definitely doesn't deserve all the negativity it's received. Again - I enjoyed it - it wasn't that bad! Pickles are made from cucumbers.",
+      "reviewTitle": "It's Really Pretty Good!",
+      "spoiler": false,
+      "submissionDate": "2023-08-13",
+      "titleId": "/title/tt13603966/"
+    },
+    {
+      "author": {
+        "displayName": "TheDome81",
+        "userId": "/user/ur20899235/"
+      },
+      "authorRating": 3,
+      "helpfulnessScore": 0.46029526579704,
+      "id": "/title/tt13603966/userreviews/rw9253530",
+      "interestingVotes": {
+        "down": 64,
+        "up": 76
+      },
+      "languageCode": "eng",
+      "reviewText": "I really don't understand all the hype behind this movie. I thought it was okay. And not much better than that. The producers obviously spent a ton of money making the movie Perhaps they should have spent a little bit more and hired some decent writers for the film. Sure there was plenty of action and things being blown up. But that's not what makes a good movie. The acting was decent. But nothing to write home about. If you're looking for an action packed movie, I really think you should look elsewhere. The film was also about 30 minutes longer than it needed to be. All the explosions got rather boring after a while. Just a shear waste of money.",
+      "reviewTitle": "Mildly entertaining",
+      "spoiler": false,
+      "submissionDate": "2023-08-12",
+      "titleId": "/title/tt13603966/"
+    },
+    {
+      "author": {
+        "displayName": "LivingWitness",
+        "userId": "/user/ur62331611/"
+      },
+      "authorRating": 7,
+      "helpfulnessScore": 0.4912366704060864,
+      "id": "/title/tt13603966/userreviews/rw9251951",
+      "interestingVotes": {
+        "down": 86,
+        "up": 110
+      },
+      "languageCode": "eng",
+      "reviewText": "I know this one has a low score right now, but honestly, I liked it. It's not my favourite spy thriller of all time or anything, but it's better than a lot of them.\n\nIt's not the smartest spy thriller, but by the same token, it's also not actively trying to outsmart the audience. There's twists, but they don't come out of nowhere and everything more or less makes sense given the general flow of the movie. I think this is probably going to end up being one of the more contentious points for this movie because people are probably expecting it to be like a James Bond movie, but this is one or two tiers down the intelligence totem pole.\n\nThe action scenes aren't the best ever made, and I wouldn't even argue they're the best action sequences in a movie this year. However, they're not bad, either. The tension is there, Gal Gadot's character never gets a free pass and has to struggle to win, and they all further the plot. So while the action scenes aren't exactly groundbreaking, they're also well constructed and well executed.\n\nIn terms of acting, this is probably the best dramatic performance Gal Gadot has ever given. While she's always been a better action actress than a dramatic one and probably always will be, I wouldn't be too surprised if this ends up being remembered as one of her better performances overall.\n\nAll in all, Heart of Stone is a good movie. Nothing about it is amazing, but it all gets a solid B. I think most of the people giving it a low score have set their expectations too high.",
+      "reviewTitle": "Good spy thriller",
+      "spoiler": false,
+      "submissionDate": "2023-08-11",
+      "titleId": "/title/tt13603966/"
+    },
+    {
+      "author": {
+        "displayName": "Top_Dawg_Critic",
+        "userId": "/user/ur64798417/"
+      },
+      "authorRating": 7,
+      "helpfulnessScore": 0.4023212541624149,
+      "id": "/title/tt13603966/userreviews/rw9253476",
+      "interestingVotes": {
+        "down": 102,
+        "up": 91
+      },
+      "languageCode": "eng",
+      "reviewText": "Yes, this film is heavily flawed, especially in this genre's cliched-riddled writing department, but was it fun? Was is watchable? Were there impressive and expensive sets and locations? Did Wonder Woman's Gal Gadot deliver the high-octane convincing action? Absolutely yes to all. Especially when you consider the latest A-list female lead action films that have come out lately, such as The Mother with J-Lo, and Ghosted with Ana de Armas, that were all disappointing and cringeworthy flops.\n\nAnd let's be honest, as cliched, generic and predictable as this was, it's not far off from the same tropes and use of \"AI will rule the world in the wrong hands\" theme in the latest Mission Impossible, of which was my least favorite of that franchise. Sure Tom Cruise did his own stunts jumping off a cliff on a motorcycle, so more props to him and less to Gadot for all her impressive action scenes that were stunt-doubles or computer generated - in the end, the wow factor is equally still there in the action department.\n\nBut both films suffered the same generic cliched writing, this one has just a little more cheese in it's dialogue and writing, but at least it didn't have a Part 2 cliffhanger. I gave M. I. an 8/10, and feel very comfortable giving this one with similar action and similar writing, but not as good directing a 7/10, mostly all going to Gadot for being the first female lead in this genre to convince me she needs to be in this franchise. Hopefully if there are more Stone films to come, there will be better filmmakers attached to them.",
+      "reviewTitle": "If you're trying to launch a female-lead version of a Mission Impossible-type franchise, Gal Gadot is a safe bet.",
+      "spoiler": false,
+      "submissionDate": "2023-08-12",
+      "titleId": "/title/tt13603966/"
+    },
+    {
+      "author": {
+        "displayName": "and-matarazzo",
+        "userId": "/user/ur43576860/"
+      },
+      "authorRating": 3,
+      "helpfulnessScore": 0.4837395038641835,
+      "id": "/title/tt13603966/userreviews/rw9252808",
+      "interestingVotes": {
+        "down": 55,
+        "up": 73
+      },
+      "languageCode": "eng",
+      "reviewText": "Once you've seen the first 15 minutes, which are supposed to be the things that will fire you up for things to come, you know what awaits: cliche after cliche. You know exactly where we're going in every turn. It's like she's back at the Wonder Woman post, so magical and unbelievable are her situations / ability to save the world.\n\nPlus the technology is out of this world. In a bad way. CGI is acceptable, but nothing they are using in terms of tech remotely exists. And there's always a \"chance of success now for the whole mission sits at X%\". Not even all the AI in the world could calculate that. I thought it was going to be a comedy, but it's serious.",
+      "reviewTitle": "OMG, it's every spy movie in one. But done terribly.",
+      "spoiler": false,
+      "submissionDate": "2023-08-11",
+      "titleId": "/title/tt13603966/"
+    },
+    {
+      "author": {
+        "displayName": "bombersflyup",
+        "userId": "/user/ur25775215/"
+      },
+      "authorRating": 4,
+      "helpfulnessScore": 0.38641084074424453,
+      "id": "/title/tt13603966/userreviews/rw9260720",
+      "interestingVotes": {
+        "down": 6,
+        "up": 10
+      },
+      "languageCode": "eng",
+      "reviewText": "Heart of Stone started fairly well, with constant action and sufficient acting, but went on the downhill slope thereafter.\n\nIt's too similar to \"Mission Impossible,\" \"James Bond\" titles, with just a replacement female lead, lacking originality. I'm not a fan of the all-knowing data projections either, because life is about making choices. Gal Gadot's a fine lead choice, beautiful and such, but the character has little depth. Keya lifts the villain to power, but then is his foil as well. Building up something, just to knock it down, that's not great writing in my opinion. No particularly memorable moments, the best of which is Rachel with the initial team. Little bit PC.",
+      "reviewTitle": "Accurate title, forgettable film.",
+      "spoiler": true,
+      "submissionDate": "2023-08-15",
+      "titleId": "/title/tt13603966/"
+    },
+    {
+      "author": {
+        "displayName": "JohnM63",
+        "userId": "/user/ur88494532/"
+      },
+      "authorRating": 7,
+      "helpfulnessScore": 0.42656629511910166,
+      "id": "/title/tt13603966/userreviews/rw9256934",
+      "interestingVotes": {
+        "down": 31,
+        "up": 37
+      },
+      "languageCode": "eng",
+      "reviewText": "Admittedly this is not the best MI inspired ripoff, but it's pretty entertaining. Just skip past the netflix bashers and the 'critics' out to get some of the actors.\n\nThe storyline is pretty thin, but it checks out and has enough in it for some decent action. Acting is more than fair and the stunts and their photography are good.\n\nAs a spythriller it has the same credibility issues as the next one, including MI. Of course it does, that's why it's called fiction. Yes there are some stupid decisions, but that doesn't affect the entertainment, unless of course you're out to find them all so you can give some superficial review.\n\nIf you're into spy thrillers like MI, then you will most likely have a fun time watching this one.",
+      "reviewTitle": "Entertaining enough, skip the Netflix bashers",
+      "spoiler": false,
+      "submissionDate": "2023-08-13",
+      "titleId": "/title/tt13603966/"
+    },
+    {
+      "author": {
+        "displayName": "timlittman3506",
+        "userId": "/user/ur50450258/"
+      },
+      "authorRating": 1,
+      "helpfulnessScore": 0.49568907706037946,
+      "id": "/title/tt13603966/userreviews/rw9252484",
+      "interestingVotes": {
+        "down": 95,
+        "up": 122
+      },
+      "languageCode": "eng",
+      "reviewText": "I lasted ten whole minutes before I had to switch off before I had a stroke because it was so bad. The script in those ten minutes was utterly diabolical with every single spy cliche spoken. Gal Gadot is, to me, the most beautiful woman in the world but dear god, she is a dreadful actress. Perhaps she should stick to posing glamorously on social media and selling her own brand Mac n cheese!!! She is not a leading lady. WW 1 and 2, Red Notice, etc were all awful. This is on Netflix so you know it's gonna be bad! But then again, people will watch it because there is nothing else to watch on that platform!!",
+      "reviewTitle": "Laughable",
+      "spoiler": false,
+      "submissionDate": "2023-08-11",
+      "titleId": "/title/tt13603966/"
+    },
+    {
+      "author": {
+        "displayName": "a.lampert",
+        "userId": "/user/ur0859897/"
+      },
+      "authorRating": 8,
+      "helpfulnessScore": 0.384380872327858,
+      "id": "/title/tt13603966/userreviews/rw9258300",
+      "interestingVotes": {
+        "down": 34,
+        "up": 34
+      },
+      "languageCode": "eng",
+      "reviewText": "I really enjoyed this fantasy thriller with it's excellent and likeable cast led by Wonder Woman Gal Gadot. I'm rather surprised by the low rating on here as I thought it was an entertaining two hours.\n\nAction for most of the time is at break neck speed and the plot is relatively easy to follow. The actors can be heard for a change and lacks the current fashion for mumbling which I hate. I think it's better than the last Bond movie \"No Time To Die\" and miles ahead of \"Wonder Woman 1984\".\n\nThe cinematography is great and often panoramic. I'm no expert in the technology of modern movies but it looked just as good as any Marvel, Star Wars or other fantasy flick to me.\n\nThese films are mostly the same anyway, heroes and villains carrying out ridiculously impossible feats so just go along for the ride. The writing is not great but some jokey one liners have always been thrown in to these since the early Bond days.\n\nGal Gadot has the charisma to carry a film and I thought Jamie Dornan was quite good and less bland than he's been up to now. He's starting to look a bit like Colin Firth as he gets older.\n\nA fun two hours well directed by Tom Harper I thought.",
+      "reviewTitle": "Roller-coaster ride with Gal Gadot",
+      "spoiler": false,
+      "submissionDate": "2023-08-14",
+      "titleId": "/title/tt13603966/"
+    },
+    {
+      "author": {
+        "displayName": "sunilkumark",
+        "userId": "/user/ur10990201/"
+      },
+      "authorRating": 1,
+      "helpfulnessScore": 0.5119391458418192,
+      "id": "/title/tt13603966/userreviews/rw9256530",
+      "interestingVotes": {
+        "down": 20,
+        "up": 36
+      },
+      "languageCode": "eng",
+      "reviewText": "What a dull drab of a picture! Using the latest camera, filming in gorgeous locations, trying to put in extravagant action sequences, grading to Dolby Vision etc etc just doesn't make a movie! A Movie is not a stitching together of isolated elements but a marriage of all the elements intricately woven into each other. Just because somebody's a great car salesman, it doesn't make them a great race driver! Likewise, just because a movie rental shop rents (streams in this case) great movies, it doesn't make them great filmmakers! Netflix, you've proved over and over that you just can't produce a good movie. So, STOP. Just be a good streaming service. Save the production billions and in turn reduce the subscription for the customers. You just don't understand movies man!",
+      "reviewTitle": "Pssst... Netflix, Stop Producing Movies",
+      "spoiler": false,
+      "submissionDate": "2023-08-13",
+      "titleId": "/title/tt13603966/"
+    },
+    {
+      "author": {
+        "displayName": "ar-reviews",
+        "userId": "/user/ur112402395/"
+      },
+      "authorRating": 1,
+      "helpfulnessScore": 0.4537486676891213,
+      "id": "/title/tt13603966/userreviews/rw9253117",
+      "interestingVotes": {
+        "down": 71,
+        "up": 81
+      },
+      "languageCode": "eng",
+      "reviewText": "The movie starts abruptly with a spy operation where this tight knit group jokes around before starting an intense operation. The jokes, espionage and action that follows are so poorly written, I ended up not caring about Gal Gadot and her team from the get go. It is followed by a chase scene in Lisbon which was surprisingly decent. Then comes a boring double cross, hacking by typing random stuff really fast or plugging in thumb drives, more poor action and a fall flat on your face climax. Gal Gadot has done similar supposedly high octane flop movies like red notice. It was disheartening to see Aalia debut in Hollywood with this movie. Her potential that shined in movies like Udta Punjab was nowhere to be seen in this. Overall, total waste of time.",
+      "reviewTitle": "Another poorly made spy movie",
+      "spoiler": false,
+      "submissionDate": "2023-08-11",
+      "titleId": "/title/tt13603966/"
+    },
+    {
+      "author": {
+        "displayName": "mattpeerless-376-865613",
+        "userId": "/user/ur33874140/"
+      },
+      "authorRating": 2,
+      "helpfulnessScore": 0.4535096621267969,
+      "id": "/title/tt13603966/userreviews/rw9261627",
+      "interestingVotes": {
+        "down": 4,
+        "up": 10
+      },
+      "languageCode": "eng",
+      "reviewText": "This is truly terrible. Gal Gadot plays a female Ethan Hunt wannabe and, while there's no harm in that concept, it needs to be backed up with credible effects/stunts. Unfortunately, along with the writing, directing and acting, the stunts in this movie are not even remotely convincing. It starts with a bad speedflying/speed riding scene, and don't get me started on the wingsuit nonsense.\n\nWhat I loved about the new Mission Impossible was the \"almost\" believable stunts. What I disliked most about this was the absurdity of everything Gal Gadot's character did.\n\nCome on Netflix, you can do better - I hope.",
+      "reviewTitle": "When you order Mission Impossible on Wish.com",
+      "spoiler": true,
+      "submissionDate": "2023-08-15",
+      "titleId": "/title/tt13603966/"
+    },
+    {
+      "author": {
+        "displayName": "stpa67",
+        "userId": "/user/ur58435357/"
+      },
+      "authorRating": 8,
+      "helpfulnessScore": 0.4244766150436623,
+      "id": "/title/tt13603966/userreviews/rw9252810",
+      "interestingVotes": {
+        "down": 75,
+        "up": 76
+      },
+      "languageCode": "eng",
+      "reviewText": "Gadot is brilliant as Stone. She's cocky, cool and badass, but she's also human. She looks authentic when she kicks, punches and shoots. With her portrayal, you can feel Rachel's moral doubts about her job. Other actors firmly back the star. The credibility of the actors ensures that the interest in the characters is kept alive even when the film loses its intensity a little in the middle section. At some points it even becomes too obvious that it is CGI we are seeing.\n\nHeart of Stone is a fast-paced action film that aims to entertain and it hits the mark. I would love to see more movies made with Gadot as agent Rachel Stone.",
+      "reviewTitle": "I want a sequel",
+      "spoiler": false,
+      "submissionDate": "2023-08-11",
+      "titleId": "/title/tt13603966/"
+    },
+    {
+      "author": {
+        "displayName": "qrdfgt",
+        "userId": "/user/ur139578035/"
+      },
+      "authorRating": 2,
+      "helpfulnessScore": 0.4407167577524293,
+      "id": "/title/tt13603966/userreviews/rw9252053",
+      "interestingVotes": {
+        "down": 58,
+        "up": 65
+      },
+      "languageCode": "eng",
+      "reviewText": "I wanted to give Gal the benefit of the doubt and watch the movie for myself. Since it already had bad reviews & I thought maybe it's just trolls : inshort wanted to give this movie the benefit of the doubt But I couldn't get past 25mints .... It's really terrible. I honestly forwarded the movie to see if maybe you know it gets better...it doesn't\n\nIt doesn't make you want to want more it, it's predictable, the acting...not impressed. The action I give it 6.5/10.\n\nBut I would suggest giving it a try it might be your cup of tea , but am afraid the critics this time didn't miss.\n\nStoryline- predictable Acting-mid.",
+      "reviewTitle": "It's really boring. Just terrible",
+      "spoiler": false,
+      "submissionDate": "2023-08-11",
+      "titleId": "/title/tt13603966/"
+    },
+    {
+      "author": {
+        "displayName": "SoumikBanerjee1996",
+        "userId": "/user/ur46919419/"
+      },
+      "authorRating": 5,
+      "helpfulnessScore": 0.3118182107486295,
+      "id": "/title/tt13603966/userreviews/rw9252384",
+      "interestingVotes": {
+        "down": 33,
+        "up": 25
+      },
+      "languageCode": "eng",
+      "reviewText": "Netflix has yet again come up with another of those run-of-the-mill espionage thrillers, the ones I tend to speak ill of most of the time, and that is primarily because of how shallow and inconsequential they often turn out to be, and \"Heart of Stone\" is no exception.\n\nHowever, this time I didn't feel let down, perhaps because I knew going in what was on the cards, what I was about to sign up for, an inconsiderable yet flashy action adventure.\n\nThe makers tried their best to emulate franchises like Mission Impossible but failed miserably in their mission (pun intended). Studios must realise that only death-defying stunts or big action pieces do not make these franchises work; you need proper writing and a set of characters that gel well together.\n\nBut films like these are almost always devoid of that.",
+      "reviewTitle": "Another of those run-of-the-mill Netflix productions",
+      "spoiler": false,
+      "submissionDate": "2023-08-11",
+      "titleId": "/title/tt13603966/"
+    },
+    {
+      "author": {
+        "displayName": "kimberlyely-27550",
+        "userId": "/user/ur164699854/"
+      },
+      "authorRating": 6,
+      "helpfulnessScore": 0.37553533402674555,
+      "id": "/title/tt13603966/userreviews/rw9262072",
+      "interestingVotes": {
+        "down": 1,
+        "up": 4
+      },
+      "languageCode": "eng",
+      "reviewText": "Heart of Stone: Has Heart\n\nAfter Netflix has had success with other action movies, such as: Red notice, The Mother, and Extraction. They are trying again with a new action movie. \"Heart of Stone\" is directed by Tom Harper and stars Gal Gadot from Wonder Woman.\n\nRachel Stone (Gal Gadot), is a double agent, working for MI6 as well as the Charter, who are both after the heart, which is an intelligent computer that knows what's going to happen in the future. Soon however, her secret gets discovered, and she must choose between the two teams.\n\nThe action starts off with a scene involving Stone skiing down a mountain with a parachute. After that, the thrills continue, with riding on motorcycles, fighting in snow and free falling out of a plane.\n\nGadot portrays Stone as being loyal to her friends, she goes to save them, even though she knows it will blow her cover. MI6 was unaware of her fighting abilities, until Stone rescues them in a fight at their hotel. Keya Dhawan (Alia Bhatt) teams up with another spy, in hopes in getting revenge on the people who killed her parents.\n\nThe only stunts Gadot preformed herself was all the fighting, which was very impressive. Her stunt double did things like skiing down a mountain with a parachute or free falling, which was an incredible thing to do since it looked dangerous. George Steel, who did the Cinematography actually shot on location. He captured beautiful scenes including one in the snow, which was filmed in Iceland. The way Heart of Stone ends, leaves it open for a sequel. Heart of Stone is an action movie with heart.",
+      "reviewTitle": "Has heart",
+      "spoiler": false,
+      "submissionDate": "2023-08-16",
+      "titleId": "/title/tt13603966/"
+    },
+    {
+      "author": {
+        "displayName": "willz187",
+        "userId": "/user/ur54800458/"
+      },
+      "authorRating": 7,
+      "helpfulnessScore": 0.34254456362766683,
+      "id": "/title/tt13603966/userreviews/rw9253551",
+      "interestingVotes": {
+        "down": 21,
+        "up": 20
+      },
+      "languageCode": "eng",
+      "reviewText": "This is way better than Citadel the series. Every time I was ready to write this movie off, another excellent action sequence drew me back in. This stunt and production team deserve an award. Really fresh and realistic action. Never found myself rolling my eyes, saying 'as if'. They really sell it. Gal Gadot holds the movie together and moves convincingly. Dialogue is good but the script is weak. I immediately thought of Chris Hemsworths' Extraction 2, which is a modern action classic, for blowing my mind with camera and stunt work. Jamie Dornan is not as convincing as Gal, and kind of brings the movie down. Better than I thought it would be.",
+      "reviewTitle": "Way better than Citadel",
+      "spoiler": false,
+      "submissionDate": "2023-08-12",
+      "titleId": "/title/tt13603966/"
+    }
+  ],
+  "totalReviews": 324
+}

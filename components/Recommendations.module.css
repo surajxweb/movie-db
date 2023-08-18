@@ -1,0 +1,22 @@
+.container {
+  margin: 20px;
+  padding: 20px;
+  background-color: #111;
+  border-radius: 20px;
+}
+
+.heading {
+  margin: 20px 0;
+}
+
+.home {
+  color: blueviolet;
+  text-decoration: underline;
+}
+
+.listContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-flow: row wrap;
+}

@@ -1,0 +1,113 @@
+.container {
+  border: 2px solid #111;
+  min-height: 800px;
+}
+
+.contentContainer {
+  min-height: 600px;
+  background: rgba(255, 255, 255, 0.1); /* Use a semi-transparent white color */
+  backdrop-filter: blur(
+    10px
+  ); /* Apply a blur effect to create the glass effect */
+  border-radius: 10px; /* Apply rounded corners */
+  padding: 20px; /* Add some padding for spacing */
+
+  /* Add shadow to enhance the effect */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* A light shadow */
+  width: 80%;
+  margin: 40px auto 40px auto;
+
+  /* Actual styles */
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  padding: 40px 60px;
+  color: #111;
+  align-items: center;
+}
+
+.posterContainer {
+  height: 550px;
+}
+
+.posterContainer img {
+  border: 2px solid white;
+  height: 550px;
+  width: auto;
+}
+
+.info {
+  padding: 20px 40px;
+  border-radius: 12px;
+  background-color: rgb(255, 255, 255);
+  max-width: 650px;
+  line-height: 1.3;
+  min-height: 550px;
+}
+
+.movieName {
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.plot {
+  font-style: italic;
+}
+
+.genres,
+.streamingData {
+  display: flex;
+}
+
+.streamingInfo img {
+  width: 40px;
+  height: auto;
+  margin-right: 10px;
+
+  border-radius: 7px;
+}
+
+.genres {
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.genre {
+  margin-right: 10px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.title {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.director,
+.writer,
+.cast,
+.runtime,
+.streamingInfo,
+.plot {
+  display: flex;
+  margin: 20px 0;
+  align-items: center;
+}
+
+.ratings {
+  display: flex;
+}
+
+.source {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+.rating {
+  margin-left: 10px;
+  font-size: 18px;
+}

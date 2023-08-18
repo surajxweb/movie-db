@@ -1,9 +1,9 @@
-import type { NextPage } from 'next';
-import Top100Card from '@/components/Top100Card';
-import styles from './Top100.module.css';
-import Image from 'next/image';
-import top100_header from '@/resources/top100_header.png';
-import { top100DB } from '@/resources/top100DB';
+import type { NextPage } from "next";
+import Top100Card from "@/components/Top100Card";
+import styles from "./Top100.module.css";
+import Image from "next/image";
+import top100_header from "@/resources/top100_header.png";
+import { top100DB } from "@/resources/top100DB";
 
 type Movie = {
   id: string;
@@ -15,12 +15,12 @@ type Movie = {
 };
 
 async function fetchData() {
-  const url = 'https://imdb-top-100-movies.p.rapidapi.com/';
+  const url = "https://imdb-top-100-movies.p.rapidapi.com/";
   const options = {
-    method: 'GET',
+    method: "GET",
     headers: {
-      'X-RapidAPI-Key': '8e1c4ac21emshff43004a5fdfdfbp1ed383jsn44faf3e89dcb',
-      'X-RapidAPI-Host': 'imdb-top-100-movies.p.rapidapi.com',
+      "X-RapidAPI-Key": "8e1c4ac21emshff43004a5fdfdfbp1ed383jsn44faf3e89dcb",
+      "X-RapidAPI-Host": "imdb-top-100-movies.p.rapidapi.com",
     },
   };
   try {

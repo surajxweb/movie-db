@@ -1,15 +1,15 @@
-import { NextPage } from 'next';
-import styles from './Discover.module.css';
-import DiscoverCard from '@/components/DiscoverCard';
+import { NextPage } from "next";
+import styles from "./Discover.module.css";
+import DiscoverCard from "@/components/DiscoverCard";
 
 export async function generateStaticPaths() {
   const discoverPages = [
-    { id: 'trendingmovies' },
-    { id: 'trendingshows' },
-    { id: 'theatres' },
-    { id: 'upcomingmovies' },
-    { id: 'topmovies' },
-    { id: 'topshows' },
+    { id: "trendingmovies" },
+    { id: "trendingshows" },
+    { id: "theatres" },
+    { id: "upcomingmovies" },
+    { id: "topmovies" },
+    { id: "topshows" },
   ];
   return discoverPages.map((page) => ({
     params: { id: page.id },
@@ -19,7 +19,7 @@ export async function generateStaticPaths() {
 const fetchMovieData = async (url: string) => {
   const movieResponse = await fetch(url);
   if (!movieResponse.ok) {
-    console.log('Could not fetch data.');
+    console.log("Could not fetch data.");
   }
   return await movieResponse.json();
 };
@@ -43,38 +43,38 @@ const Discover: NextPage<DiscoverProps> = async ({
 }: {
   params: { id: string };
 }) => {
-  let apiURL = '';
+  let apiURL = "";
   let heading;
   switch (params.id) {
-    case 'trendingmovies':
+    case "trendingmovies":
       apiURL =
-        'https://api.themoviedb.org/3/trending/movie/week?api_key=d308de6f3b996ae3b334cbb6527cffc7';
-      heading = 'Movies Trending this Week';
+        "https://api.themoviedb.org/3/trending/movie/week?api_key=d308de6f3b996ae3b334cbb6527cffc7";
+      heading = "Movies Trending this Week";
       break;
-    case 'trendingshows':
+    case "trendingshows":
       apiURL =
-        'https://api.themoviedb.org/3/trending/tv/week?api_key=d308de6f3b996ae3b334cbb6527cffc7';
-      heading = 'TV Shows Trending this Week';
+        "https://api.themoviedb.org/3/trending/tv/week?api_key=d308de6f3b996ae3b334cbb6527cffc7";
+      heading = "TV Shows Trending this Week";
       break;
-    case 'theatres':
+    case "theatres":
       apiURL =
-        'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&region=in&api_key=d308de6f3b996ae3b334cbb6527cffc7';
-      heading = 'Movies in Theatres Right Now';
+        "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&region=in&api_key=d308de6f3b996ae3b334cbb6527cffc7";
+      heading = "Movies in Theatres Right Now";
       break;
-    case 'upcomingmovies':
+    case "upcomingmovies":
       apiURL =
-        'https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1&region=us&api_key=d308de6f3b996ae3b334cbb6527cffc7';
-      heading = 'Upcoming Movies';
+        "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1&region=us&api_key=d308de6f3b996ae3b334cbb6527cffc7";
+      heading = "Upcoming Movies";
       break;
-    case 'topmovies':
+    case "topmovies":
       apiURL =
-        'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&api_key=d308de6f3b996ae3b334cbb6527cffc7';
-      heading = 'Top Rated Movies';
+        "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&api_key=d308de6f3b996ae3b334cbb6527cffc7";
+      heading = "Top Rated Movies";
       break;
-    case 'topshows':
+    case "topshows":
       apiURL =
-        'https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1&api_key=d308de6f3b996ae3b334cbb6527cffc7';
-      heading = 'Top Rated Shows';
+        "https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1&api_key=d308de6f3b996ae3b334cbb6527cffc7";
+      heading = "Top Rated Shows";
       break;
   }
 

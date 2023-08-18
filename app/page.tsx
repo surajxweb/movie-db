@@ -1,5 +1,5 @@
 import DiscoverCard from "@/components/DiscoverCard";
-import styles from "./Home.module.css";
+import styles from "./Homepage.module.css";
 import Image from "next/image";
 import header from "@/resources/header.png";
 import Link from "next/link";

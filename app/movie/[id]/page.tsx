@@ -51,23 +51,23 @@ const fetchMDBData = async (imdbid: string) => {
   }
 };
 
-const fetchSDData = async (imdbid: string) => {
-  const url = `https://streaming-availability.p.rapidapi.com/get?imdb_id=${imdbid}&output_language=en`;
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": "8e1c4ac21emshff43004a5fdfdfbp1ed383jsn44faf3e89dcb",
-      "X-RapidAPI-Host": "streaming-availability.p.rapidapi.com",
-    },
-  };
+// const fetchSDData = async (imdbid: string) => {
+//   const url = `https://streaming-availability.p.rapidapi.com/get?imdb_id=${imdbid}&output_language=en`;
+//   const options = {
+//     method: "GET",
+//     headers: {
+//       "X-RapidAPI-Key": "8e1c4ac21emshff43004a5fdfdfbp1ed383jsn44faf3e89dcb",
+//       "X-RapidAPI-Host": "streaming-availability.p.rapidapi.com",
+//     },
+//   };
 
-  try {
-    const sdResponse = await fetch(url, options);
-    return await sdResponse.json();
-  } catch (error) {
-    console.log(error);
-  }
-};
+//   try {
+//     const sdResponse = await fetch(url, options);
+//     return await sdResponse.json();
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
 const fetchTheaterMovies = async () => {
   const mdbResponse = await fetch(
@@ -83,7 +83,7 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
   const tmdbData = await fetchTMDBData(params.id);
   const omdbData = await fetchOMDBData(tmdbData.imdb_id);
   const mdbData = await fetchMDBData(tmdbData.imdb_id);
-  const sdData = await fetchSDData(tmdbData.imdb_id);
+  // const sdData = await fetchSDData(tmdbData.imdb_id);
   const theaterMovies = await fetchTheaterMovies();
 
   // Define the type for a single streaming info item
@@ -99,22 +99,22 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
 
   const availableServicesArray: AvailableServicesArray = [];
 
-  sdData.result?.streamingInfo?.in?.forEach((item: StreamingInfoItem) => {
-    if (
-      item.service &&
-      item.streamingType !== "rent" &&
-      item.streamingType !== "buy" &&
-      item.streamingType !== "addon"
-    ) {
-      const existingServiceIndex = availableServicesArray.findIndex(
-        (serviceObj) => serviceObj.service === item.service
-      );
+  // sdData.result?.streamingInfo?.in?.forEach((item: StreamingInfoItem) => {
+  //   if (
+  //     item.service &&
+  //     item.streamingType !== "rent" &&
+  //     item.streamingType !== "buy" &&
+  //     item.streamingType !== "addon"
+  //   ) {
+  //     const existingServiceIndex = availableServicesArray.findIndex(
+  //       (serviceObj) => serviceObj.service === item.service
+  //     );
 
-      if (existingServiceIndex === -1) {
-        availableServicesArray.push({ service: item.service, link: item.link });
-      }
-    }
-  });
+  //     if (existingServiceIndex === -1) {
+  //       availableServicesArray.push({ service: item.service, link: item.link });
+  //     }
+  //   }
+  // });
 
   const isAvailableInTheaters = theaterMovies.results.some(
     (movie: { id: number }) => movie.id === tmdbData.id

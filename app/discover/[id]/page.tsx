@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import styles from "./Discover.module.css";
 import DiscoverCard from "@/components/DiscoverCard";
 
-export async function generateStaticPaths() {
+export async function generateStaticParams() {
   const discoverPages = [
     { id: "trendingmovies" },
     { id: "trendingshows" },

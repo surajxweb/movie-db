@@ -1,0 +1,15 @@
+.heading {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.container {
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}

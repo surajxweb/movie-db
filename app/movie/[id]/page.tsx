@@ -33,23 +33,23 @@ const fetchOMDBData = async (imdbid: string) => {
   return await omdbResponse.json();
 };
 
-const fetchMDBData = async (imdbid: string) => {
-  const url = `https://mdblist.p.rapidapi.com/?i=${imdbid}`;
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": "8e1c4ac21emshff43004a5fdfdfbp1ed383jsn44faf3e89dcb",
-      "X-RapidAPI-Host": "mdblist.p.rapidapi.com",
-    },
-  };
+// const fetchMDBData = async (imdbid: string) => {
+//   const url = `https://mdblist.p.rapidapi.com/?i=${imdbid}`;
+//   const options = {
+//     method: "GET",
+//     headers: {
+//       "X-RapidAPI-Key": "8e1c4ac21emshff43004a5fdfdfbp1ed383jsn44faf3e89dcb",
+//       "X-RapidAPI-Host": "mdblist.p.rapidapi.com",
+//     },
+//   };
 
-  try {
-    const mdbResponse = await fetch(url, options);
-    return await mdbResponse.json();
-  } catch (error) {
-    console.error(error);
-  }
-};
+//   try {
+//     const mdbResponse = await fetch(url, options);
+//     return await mdbResponse.json();
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
 
 // const fetchSDData = async (imdbid: string) => {
 //   const url = `https://streaming-availability.p.rapidapi.com/get?imdb_id=${imdbid}&output_language=en`;
@@ -82,7 +82,7 @@ const fetchTheaterMovies = async () => {
 const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
   const tmdbData = await fetchTMDBData(params.id);
   const omdbData = await fetchOMDBData(tmdbData.imdb_id);
-  const mdbData = await fetchMDBData(tmdbData.imdb_id);
+  // const mdbData = await fetchMDBData(tmdbData.imdb_id);
   // const sdData = await fetchSDData(tmdbData.imdb_id);
   const theaterMovies = await fetchTheaterMovies();
 
@@ -152,7 +152,7 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
                 key={genre.id}
                 style={{ backgroundColor: genreAndColors[genre.id] }}
               >
-                {genre.name}
+                <Link href={`/genres/${genre.id}`}>{genre.name}</Link>
               </div>
             ))}
           </div>

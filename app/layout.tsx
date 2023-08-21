@@ -1,10 +1,10 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Roboto_Serif } from "next/font/google";
+import { Poppins } from "next/font/google";
 import NavLinks from "@/components/NavLinks";
 import Footer from "@/components/Footer";
 
-const roboto = Roboto_Serif({ subsets: ["latin"], weight: "400" });
+const poppins = Poppins({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "The Movie Watcher",
@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={roboto.className}>
+      <body className={poppins.className}>
         <header>
           <NavLinks />
         </header>

@@ -1,7 +1,8 @@
 import { NextPage } from "next";
 import { genreAndColors, genresAndNames } from "@/resources/genreAndColors";
-import styles from "./Genres.module.css";
+import styles from "../Genres.module.css";
 import DiscoverCard from "@/components/DiscoverCard";
+import GenrePage from "@/components/GenrePage";
 
 export function generateStaticParams() {
   const genresArray = Object.keys(genreAndColors);
@@ -10,9 +11,9 @@ export function generateStaticParams() {
   }));
 }
 
-const fetchGenreData = async (id: number) => {
+const fetchGenreData = async (id: number, page: number) => {
   const genreResponse = await fetch(
-    `https://api.themoviedb.org/3/discover/movie?api_key=d308de6f3b996ae3b334cbb6527cffc7&with_genres=${id}&sort_by=popularity.desc&page=1`
+    `https://api.themoviedb.org/3/discover/movie?api_key=d308de6f3b996ae3b334cbb6527cffc7&with_genres=${id}&sort_by=popularity.desc&page=${page}`
   );
   if (!genreResponse.ok) {
     console.log("Error fetching data.");
@@ -23,6 +24,7 @@ const fetchGenreData = async (id: number) => {
 type DiscoverProps = {
   params: {
     id: number;
+    page: number;
   };
 };
 
@@ -34,12 +36,12 @@ type Movie = {
   release_date: string;
 };
 
-const GenrePage: NextPage<DiscoverProps> = async ({
+const GenrePageNo: NextPage<DiscoverProps> = async ({
   params,
 }: {
-  params: { id: number };
+  params: { page: number; id: number };
 }) => {
-  const genreData = await fetchGenreData(params.id);
+  const genreData = await fetchGenreData(params.id, params.page);
   let heading;
   for (const genre of genresAndNames.genres) {
     if (genre.id == params.id) {
@@ -50,9 +52,9 @@ const GenrePage: NextPage<DiscoverProps> = async ({
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.heading}>{heading}</h1>
+      <h1 className={styles.heading}>{`${heading} / Page ${params.page}`}</h1>
       <div className={styles.list}>
-        {genreData.results.map((movie: Movie) => (
+        {genreData.results?.map((movie: Movie) => (
           <DiscoverCard
             key={movie.id}
             name={movie.release_date ? movie.title : movie.name}
@@ -61,9 +63,11 @@ const GenrePage: NextPage<DiscoverProps> = async ({
             release_date={movie.release_date}
           />
         ))}
+        {!genreData.results && "Data not found!"}
       </div>
+      <GenrePage id={params.id} page={params.page} />
     </div>
   );
 };
 
-export default GenrePage;
+export default GenrePageNo;

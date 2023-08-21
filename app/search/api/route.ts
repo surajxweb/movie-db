@@ -8,7 +8,6 @@ export async function GET(request: Request) {
     `https://api.themoviedb.org/3/search/${category}?api_key=d308de6f3b996ae3b334cbb6527cffc7&query=${query}`
   );
   const movieData = await res.json();
-  console.log("Route says category is 2 ", category);
 
   return NextResponse.json({ movieData });
 }

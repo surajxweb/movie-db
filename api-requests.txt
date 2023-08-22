@@ -68,6 +68,9 @@ upcoming movies
 top tated movies
 top rated Shows
 
+2690.543
+3623
+
 all gens
 https://api.themoviedb.org/3/genre/movie/list?api_key=d308de6f3b996ae3b334cbb6527cffc7
 
@@ -89,7 +92,7 @@ https://api.themoviedb.org/3/search/movie?api_key=d308de6f3b996ae3b334cbb6527cff
 get movie by id
 https://api.themoviedb.org/3/movie/724209?api_key=d308de6f3b996ae3b334cbb6527cffc7
 
-https://image.tmdb.org/t/p/original/6BDBY1KhGHznQfCjHdGyIwNp30x.jpg
+https://image.tmdb.org/t/p/original/gI5nV33bBDfHVvu9365Q7QP1suv.jpg
 
 Sure, here's a list of some common TMDB API endpoints:
 

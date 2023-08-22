@@ -12,6 +12,7 @@ import tomatoes from "@/resources/logos/tomatoes.jpg";
 import Link from "next/link";
 import ReviewsAndTrailer from "@/components/ReviewsAndTrailer";
 import Recommendations from "@/components/Recommendations";
+import CrewAndCast from "@/components/CrewAndCast";
 
 //fetch api calls
 
@@ -76,7 +77,10 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
     (person: { job: string }) => person.job === "Director"
   );
   const writersArray = tmdbData.credits.crew.filter(
-    (person: { job: string }) => person.job === "Writer"
+    (person: { job: string }) =>
+      person.job === "Writer" ||
+      person.job === "Screenplay" ||
+      person.job === "Story"
   );
 
   const runtime = `${Math.floor(tmdbData.runtime / 60)}h ${
@@ -117,20 +121,21 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
   const isAvailableInTheaters = theaterMovies.results.some(
     (movie: { id: number }) => movie.id === tmdbData.id
   );
-  const castArray = tmdbData.credits.cast.slice(0, 5);
+
+  const castArray = tmdbData.credits.cast
+    .filter((person: { profile_path: string }) => person.profile_path)
+    .slice(0, 6);
   const reviewsArray = tmdbData.reviews.results.slice(0, 5);
-  const similarArray = tmdbData.similar.results.slice(0, 5);
+  const similarArray = tmdbData.similar.results
+    .filter((movie: { poster_path: string }) => movie.poster_path)
+    .slice(0, 5);
   const trailer = tmdbData.videos.results.filter(
     (video: { type: string }) => video.type === "Trailer"
-  )[0]
-    ? tmdbData.videos.results.filter(
-        (video: { type: string }) => video.type === "Trailer"
-      )[0]
-    : { key: "dQw4w9WgXcQ" };
+  );
+
+  const isTrailerAvailable = trailer.length > 0;
 
   //
-
-  // console.log(tmdbData.runtime);
 
   return (
     <div
@@ -165,21 +170,42 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
                 </div>
               ))}
             </div>
-            {/* <div className={styles.data}>{directorsArray.map((dicrector : { id: number, name: string,profile_path: string}) => (<div key={dicrector.id}>{dicrector.name}</div>))}</div>
-          </div> */}
-            {/* <div className="delete">{tmdbData.imdb_id}</div> */}
             <div className={styles.plot}>{plot}</div>
             <div className={styles.director}>
               <div className={styles.title}>Director:</div>
-              <div className={styles.data}>{omdbData.Director}</div>
+              <div className={styles.data}>
+                {directorsArray.map(
+                  (director: { id: number; name: string }) => (
+                    <div className={styles.credit} key={director.id}>
+                      <Link href={`/people/${director.id}`}>
+                        {director.name}
+                      </Link>
+                    </div>
+                  )
+                )}
+              </div>
             </div>
             <div className={styles.writer}>
               <div className={styles.title}>Writer:</div>
-              <div className={styles.data}>{omdbData.Writer}</div>
+              <div className={styles.data}>
+                {writersArray.map((writer: { id: number; name: string }) => (
+                  <div className={styles.credit} key={writer.id}>
+                    <Link href={`/people/${writer.id}`}>{writer.name}</Link>
+                  </div>
+                ))}
+              </div>
             </div>
             <div className={styles.cast}>
               <div className={styles.title}>Cast:</div>
-              <div className={styles.data}>{omdbData.Actors}</div>
+              <div className={styles.data}>
+                {castArray
+                  .slice(0, 3)
+                  .map((cast: { id: number; name: string }) => (
+                    <div className={styles.credit} key={cast.id}>
+                      <Link href={`/people/${cast.id}`}>{cast.name}</Link>
+                    </div>
+                  ))}
+              </div>
             </div>
             <div className={styles.runtime}>
               <div className={styles.title}>Runtime:</div>
@@ -250,15 +276,27 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
                 </div>
               )}
             </div>
-            {/*  */}
           </div>
-          <div className={styles.content2}>{/* Reviews and Trailer */}</div>
         </div>
         {/* Cast and Crew */}
+        <CrewAndCast castArray={castArray} />
         {/* Trailer Videos */}
+        {isTrailerAvailable && (
+          <div className={styles.trailer}>
+            <iframe
+              width="800"
+              height="450"
+              src={`https://www.youtube.com/embed/${trailer[0].key}`}
+              title="YouTube Video"
+              frameBorder="0"
+              allowFullScreen
+            ></iframe>
+          </div>
+        )}
+
         {/* Reviews */}
       </div>
-      <Recommendations category="movie" id={tmdbData.id} />
+      <Recommendations similarArray={similarArray} />
     </div>
   );
 };

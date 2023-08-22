@@ -8,6 +8,7 @@ interface DiscoverCardProps {
   image: string;
   id: number;
   release_date: string;
+  person_identity: string;
 }
 
 const DiscoverCard: FC<DiscoverCardProps> = ({
@@ -15,8 +16,13 @@ const DiscoverCard: FC<DiscoverCardProps> = ({
   image,
   id,
   release_date,
+  person_identity,
 }) => {
-  const pathname = release_date ? `movie/${id}` : `tv/${id}`;
+  const pathname = release_date
+    ? `movie/${id}`
+    : person_identity
+    ? `people/${id}`
+    : `tv/${id}`;
   return (
     <>
       {image && (

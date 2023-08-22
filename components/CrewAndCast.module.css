@@ -1,0 +1,37 @@
+.container {
+  margin: 30px 0;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.955);
+}
+
+.cardContainer {
+  width: 150px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 10px;
+}
+
+.castList {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardContainer img {
+  width: 140px;
+  height: auto;
+  border-radius: 20px;
+}
+
+.name {
+  font-size: 15px;
+}
+
+.character {
+  font-size: 12px;
+}

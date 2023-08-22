@@ -8,7 +8,7 @@ import DiscoverCard from "@/components/DiscoverCard";
 
 interface FormData {
   userInput: string;
-  category: "tv" | "movie";
+  category: "tv" | "movie" | "person";
 }
 
 type Movie = {
@@ -17,6 +17,8 @@ type Movie = {
   poster_path: string;
   name: string;
   release_date: string;
+  profile_path: string;
+  known_for_department: string;
 };
 
 const FormComponent: NextPage = () => {
@@ -32,6 +34,7 @@ const FormComponent: NextPage = () => {
         `/search/api?query=${formData.userInput}&category=${formData.category}`
       );
       const data = await response.json();
+      console.log(data);
 
       // Do something with the API response
       setSearchResults(data.movieData.results);
@@ -39,6 +42,8 @@ const FormComponent: NextPage = () => {
 
     return () => clearTimeout(delayDebounceFn);
   }, [formData]);
+
+  console.log(searchResults);
 
   return (
     <div className={styles.container}>
@@ -54,7 +59,9 @@ const FormComponent: NextPage = () => {
             placeholder={`${
               formData.category === "tv"
                 ? "enter the tv show name"
-                : "enter the movie name"
+                : formData.category === "movie"
+                ? "enter the movie name"
+                : "enter the person name"
             }`}
           />
         </div>
@@ -78,6 +85,15 @@ const FormComponent: NextPage = () => {
             />
             <span className={styles.option}>TV Show</span>
           </label>
+          <label className={styles.radio}>
+            <input
+              type="radio"
+              value="tv"
+              checked={formData.category === "person"}
+              onChange={() => setFormData({ ...formData, category: "person" })}
+            />
+            <span className={styles.option}>Person</span>
+          </label>
         </div>
       </div>
       <div className={styles.results}>
@@ -92,9 +108,10 @@ const FormComponent: NextPage = () => {
                 <DiscoverCard
                   key={movie.id}
                   name={movie.title || movie.name}
-                  image={movie.poster_path}
+                  image={movie.poster_path || movie.profile_path}
                   id={movie.id}
                   release_date={movie.release_date}
+                  person_identity={movie.known_for_department}
                 />
               ))}
         </div>

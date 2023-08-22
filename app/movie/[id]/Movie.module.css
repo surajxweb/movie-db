@@ -81,6 +81,27 @@
   margin-right: 10px;
 }
 
+.data {
+  display: flex;
+}
+
+.credit {
+  margin-right: 5px;
+}
+
+.credit:hover {
+  color: darkred;
+}
+
+.credit::after {
+  content: ", ";
+}
+
+/* Do not add comma after the last child */
+.credit:last-child::after {
+  content: "";
+}
+
 .director,
 .writer,
 .cast,
@@ -113,4 +134,9 @@
 .rating {
   margin-left: 10px;
   font-size: 18px;
+}
+
+.trailer {
+  margin: 20px auto;
+  width: 800px;
 }

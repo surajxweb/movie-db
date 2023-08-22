@@ -34,6 +34,8 @@ type Movie = {
   poster_path: string;
   name: string;
   release_date: string;
+  known_for_department: string;
+
 };
 
 const GenrePageNo: NextPage<DiscoverProps> = async ({
@@ -61,6 +63,7 @@ const GenrePageNo: NextPage<DiscoverProps> = async ({
             image={movie.poster_path}
             id={movie.id}
             release_date={movie.release_date}
+            person_identity={movie.known_for_department}
           />
         ))}
         {!genreData.results && "Data not found!"}

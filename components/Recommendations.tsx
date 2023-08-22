@@ -13,6 +13,7 @@ type Movie = {
   poster_path: string;
   name: string;
   release_date: string;
+  known_for_department: string;
 };
 
 const Recommendations: FC<RecommendationProps> = async ({ similarArray }) => {
@@ -33,6 +34,7 @@ const Recommendations: FC<RecommendationProps> = async ({ similarArray }) => {
             image={movie.poster_path}
             id={movie.id}
             release_date={movie.release_date}
+            person_identity={movie.known_for_department}
           />
         ))}
       </div>
@@ -41,3 +43,5 @@ const Recommendations: FC<RecommendationProps> = async ({ similarArray }) => {
 };
 
 export default Recommendations;
+
+

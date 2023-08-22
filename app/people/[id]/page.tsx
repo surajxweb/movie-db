@@ -20,7 +20,7 @@ const fetchActorData = async (id: number) => {
 const ActorPage: NextPage<{ params: { id: number } }> = async ({ params }) => {
   // api calls
   const actorData = await fetchActorData(params.id);
-  console.log(actorData);
+  // console.log(actorData);
 
   //data assignment
   const name = actorData.name;

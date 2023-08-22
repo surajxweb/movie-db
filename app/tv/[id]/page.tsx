@@ -90,7 +90,7 @@ const TVPage: NextPage<{ params: { id: string } }> = async ({ params }) => {
 
   const isTrailerAvailable = trailer.length > 0;
 
-  console.log(runtime);
+  // console.log(runtime);
 
   return (
     <div

@@ -29,6 +29,18 @@ const fetchShows = async () => {
   return await showResponse.json();
 };
 
+const fetchPeople = async () => {
+  const peopleResponse = await fetch(
+    "https://api.themoviedb.org/3/trending/person/week?api_key=d308de6f3b996ae3b334cbb6527cffc7"
+  );
+
+  if (!peopleResponse.ok) {
+    console.log("Failed");
+  }
+
+  return await peopleResponse.json();
+};
+
 const fetchTheaterMovies = async () => {
   const theaterMoviesResponse = await fetch(
     "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&region=in&api_key=d308de6f3b996ae3b334cbb6527cffc7"
@@ -79,6 +91,8 @@ type Movie = {
   poster_path: string;
   name: string;
   release_date: string;
+  known_for_department: string;
+  profile_path: string;
 };
 
 const Home = async () => {
@@ -88,6 +102,10 @@ const Home = async () => {
   const upcomingMovies = await fetchUpcomingMovies();
   const topMovies = await fetchTopMovies();
   const topShows = await fetchTopShows();
+const trendingPeople = await fetchPeople();
+
+console.log(trendingPeople);
+
 
   return (
     <div className={styles.container}>
@@ -115,6 +133,7 @@ const Home = async () => {
               image={movie.poster_path}
               id={movie.id}
               release_date={movie.release_date}
+              person_identity={movie.known_for_department}
             />
           ))}
         </div>
@@ -134,8 +153,31 @@ const Home = async () => {
               image={movie.poster_path}
               id={movie.id}
               release_date={movie.release_date}
+              person_identity={movie.known_for_department}
             />
           ))}
+        </div>
+      </section>
+      <section>
+        <h2 className={styles.subHeading}>
+          Trending People
+          <Link href={"/discover/trendingpeople"}>
+            load more <BsLink45Deg className="reactIcons" />
+          </Link>
+        </h2>
+        <div className={styles.listContainer}>
+          {trendingPeople.results
+              .slice(0, 5)
+              .map((movie: Movie) => (
+                <DiscoverCard
+                  key={movie.id}
+                  name={movie.title || movie.name}
+                  image={movie.poster_path || movie.profile_path}
+                  id={movie.id}
+                  release_date={movie.release_date}
+                  person_identity={movie.known_for_department}
+                />
+              ))}
         </div>
       </section>
       <section>
@@ -153,6 +195,7 @@ const Home = async () => {
               image={movie.poster_path}
               id={movie.id}
               release_date={movie.release_date}
+              person_identity={movie.known_for_department}
             />
           ))}
         </div>
@@ -172,6 +215,7 @@ const Home = async () => {
               image={movie.poster_path}
               id={movie.id}
               release_date={movie.release_date}
+              person_identity={movie.known_for_department}
             />
           ))}
         </div>
@@ -191,6 +235,7 @@ const Home = async () => {
               image={movie.poster_path}
               id={movie.id}
               release_date={movie.release_date}
+              person_identity={movie.known_for_department}
             />
           ))}
         </div>
@@ -211,6 +256,7 @@ const Home = async () => {
               image={movie.poster_path}
               id={movie.id}
               release_date={movie.release_date}
+              person_identity={movie.known_for_department}
             />
           ))}
         </div>
@@ -228,3 +274,5 @@ const Home = async () => {
 };
 
 export default Home;
+
+

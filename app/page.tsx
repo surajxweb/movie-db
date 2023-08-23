@@ -102,10 +102,7 @@ const Home = async () => {
   const upcomingMovies = await fetchUpcomingMovies();
   const topMovies = await fetchTopMovies();
   const topShows = await fetchTopShows();
-const trendingPeople = await fetchPeople();
-
-console.log(trendingPeople);
-
+  const trendingPeople = await fetchPeople();
 
   return (
     <div className={styles.container}>
@@ -166,18 +163,16 @@ console.log(trendingPeople);
           </Link>
         </h2>
         <div className={styles.listContainer}>
-          {trendingPeople.results
-              .slice(0, 5)
-              .map((movie: Movie) => (
-                <DiscoverCard
-                  key={movie.id}
-                  name={movie.title || movie.name}
-                  image={movie.poster_path || movie.profile_path}
-                  id={movie.id}
-                  release_date={movie.release_date}
-                  person_identity={movie.known_for_department}
-                />
-              ))}
+          {trendingPeople.results.slice(0, 5).map((movie: Movie) => (
+            <DiscoverCard
+              key={movie.id}
+              name={movie.title || movie.name}
+              image={movie.poster_path || movie.profile_path}
+              id={movie.id}
+              release_date={movie.release_date}
+              person_identity={movie.known_for_department}
+            />
+          ))}
         </div>
       </section>
       <section>
@@ -274,5 +269,3 @@ console.log(trendingPeople);
 };
 
 export default Home;
-
-

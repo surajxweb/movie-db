@@ -43,8 +43,6 @@ const FormComponent: NextPage = () => {
     return () => clearTimeout(delayDebounceFn);
   }, [formData]);
 
-  // console.log(searchResults);
-
   return (
     <div className={styles.container}>
       <div className={styles.form}>

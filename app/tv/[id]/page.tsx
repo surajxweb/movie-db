@@ -47,7 +47,7 @@ const TVPage: NextPage<{ params: { id: string } }> = async ({ params }) => {
   const tmdbData = await fetchTMDBData(params.id);
   const watchProvidersData = await fetchWatchProviders(tmdbData.id);
 
-  const year = parseInt(tmdbData.first_air_date.substr(0, 4));
+  const year = parseInt(tmdbData.first_air_date?.substr(0, 4));
   const omdbData = await fetchOMDBData(tmdbData.name, year);
 
   const poster_image = `https://image.tmdb.org/t/p/original/${tmdbData.poster_path}`;
@@ -55,7 +55,7 @@ const TVPage: NextPage<{ params: { id: string } }> = async ({ params }) => {
 
   const name = tmdbData.name;
   const plot = tmdbData.overview;
-  const runtime = `${tmdbData.episode_run_time[0]} minutes`;
+  const runtime = `${tmdbData?.episode_run_time[0]} minutes`;
 
   const productionArray = tmdbData.production_companies.slice(0, 2);
 
@@ -89,8 +89,6 @@ const TVPage: NextPage<{ params: { id: string } }> = async ({ params }) => {
   );
 
   const isTrailerAvailable = trailer.length > 0;
-
-  // console.log(runtime);
 
   return (
     <div
@@ -206,9 +204,7 @@ const TVPage: NextPage<{ params: { id: string } }> = async ({ params }) => {
             <iframe
               width="800"
               height="450"
-              src={`https://www.youtube.com/embed/${
-                trailer[0].key
-              }`}
+              src={`https://www.youtube.com/embed/${trailer[0].key}`}
               title="YouTube Video"
               frameBorder="0"
               allowFullScreen

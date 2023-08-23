@@ -10,7 +10,7 @@ export function generateStaticParams() {
     { id: "upcomingmovies" },
     { id: "topmovies" },
     { id: "topshows" },
-    {id: "trendingpeople"}
+    { id: "trendingpeople" },
   ];
   return discoverPages.map((page) => ({
     params: { id: page.id },
@@ -59,7 +59,7 @@ const Discover: NextPage<DiscoverProps> = async ({
         "https://api.themoviedb.org/3/trending/tv/week?api_key=d308de6f3b996ae3b334cbb6527cffc7";
       heading = "TV Shows Trending this Week";
       break;
-      case "trendingpeople":
+    case "trendingpeople":
       apiURL =
         "https://api.themoviedb.org/3/trending/person/week?api_key=d308de6f3b996ae3b334cbb6527cffc7";
       heading = "People Trending This Week";
@@ -84,24 +84,33 @@ const Discover: NextPage<DiscoverProps> = async ({
         "https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1&api_key=d308de6f3b996ae3b334cbb6527cffc7";
       heading = "Top Rated Shows";
       break;
+    default:
+      heading = "No Data Found!";
   }
 
-  const movieData = await fetchMovieData(apiURL);
+  const movieData = apiURL ? await fetchMovieData(apiURL) : [];
+  console.log(movieData);
+
   return (
     <div className={styles.container}>
-      <h1 className={styles.heading}>{heading}</h1>
-      <div className={styles.list}>
-        {movieData.results.map((movie: Movie) => (
-          <DiscoverCard
-            key={movie.id}
-            name={movie.release_date ? movie.title : movie.name}
-            image={movie.poster_path || movie.profile_path}
-            id={movie.id}
-            release_date={movie.release_date}
-            person_identity={movie.known_for_department}
-          />
-        ))}
-      </div>
+      {movieData.results?.length > 1 && (
+        <>
+          <h1 className={styles.heading}>{heading}</h1>
+          <div className={styles.list}>
+            {movieData.results.map((movie: Movie) => (
+              <DiscoverCard
+                key={movie.id}
+                name={movie.release_date ? movie.title : movie.name}
+                image={movie.poster_path || movie.profile_path}
+                id={movie.id}
+                release_date={movie.release_date}
+                person_identity={movie.known_for_department}
+              />
+            ))}
+          </div>
+        </>
+      )}
+      {movieData.length < 1 && <div className="error">No Data Found!</div>}
     </div>
   );
 };

@@ -35,7 +35,6 @@ type Movie = {
   name: string;
   release_date: string;
   known_for_department: string;
-
 };
 
 const GenrePageNo: NextPage<DiscoverProps> = async ({

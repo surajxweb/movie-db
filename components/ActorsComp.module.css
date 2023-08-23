@@ -1,0 +1,11 @@
+.container {
+  border: 2px solid white;
+}
+
+.toggleButtons {
+  display: flex;
+}
+
+.button {
+  margin: 0 5px;
+}

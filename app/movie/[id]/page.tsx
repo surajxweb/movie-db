@@ -88,19 +88,19 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
   }m`;
 
   const imdbRating =
-    omdbData.Ratings.find(
+    omdbData.Ratings?.find(
       (rating: { Source: string; value: string }) =>
         rating.Source === "Internet Movie Database"
     )?.Value ||
     omdbData.imdbRating ||
     "N/A";
   const tomatoes_rating =
-    omdbData.Ratings.find(
+    omdbData.Ratings?.find(
       (rating: { Source: string; value: string }) =>
         rating.Source === "Rotten Tomatoes"
     )?.Value || "N/A";
   const metacritic_rating =
-    omdbData.Ratings.find(
+    omdbData.Ratings?.find(
       (rating: { Source: string; value: string }) =>
         rating.Source === "Metacritic"
     )?.Value || "N/A";

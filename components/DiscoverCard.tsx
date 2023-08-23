@@ -18,11 +18,12 @@ const DiscoverCard: FC<DiscoverCardProps> = ({
   release_date,
   person_identity,
 }) => {
-  const pathname = release_date
-    ? `movie/${id}`
-    : person_identity
-    ? `people/${id}`
-    : `tv/${id}`;
+  const pathname =
+    release_date?.length >= 0
+      ? `movie/${id}`
+      : person_identity
+      ? `people/${id}`
+      : `tv/${id}`;
   return (
     <>
       {image && (

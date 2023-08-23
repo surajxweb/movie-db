@@ -1,0 +1,63 @@
+.container {
+  padding: 20px;
+  background-image: linear-gradient(
+    106.5deg,
+    rgba(176, 233, 223, 1) 11.1%,
+    rgba(180, 224, 193, 1) 37.8%,
+    rgba(237, 207, 126, 1) 65%,
+    rgba(222, 84, 84, 1) 92.7%
+  );
+  color: #111;
+}
+
+.container * {
+  padding: 5px;
+}
+
+.card {
+  background-color: white;
+  color: #111;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.imageContainer img {
+  height: 384px;
+  width: auto;
+  border: 2px solid #111;
+}
+
+.textContainer {
+  width: 700px;
+}
+
+.info {
+  display: flex;
+}
+
+.question {
+  font-weight: bold;
+}
+
+.container pre {
+  overflow: auto;
+  white-space: pre-wrap;
+  font: inherit;
+  max-height: 200px;
+  font-style: italic;
+  padding-right: 30px;
+}
+
+.reactIcons {
+  margin-left: 3px;
+  transition: 0.1s all;
+}
+
+.reactIcons:hover {
+  transform: translateY(-4px);
+}

@@ -43,5 +43,3 @@ const Recommendations: FC<RecommendationProps> = async ({ similarArray }) => {
 };
 
 export default Recommendations;
-
-

@@ -3,14 +3,13 @@
 }
 
 .form {
-  width: 40%;
+  width: 50%;
   margin: 10px auto;
-  padding: 40px 0 20px 0;
+  padding: 20px 0 20px 0;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
-  border-radius: 200px;
 }
 
 .reactIcons {
@@ -49,7 +48,7 @@
 }
 
 .results {
-  min-height: 600px;
+  min-height: 100px;
 }
 
 .list {

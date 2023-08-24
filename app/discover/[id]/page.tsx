@@ -2,20 +2,20 @@ import { NextPage } from "next";
 import styles from "./Discover.module.css";
 import DiscoverCard from "@/components/DiscoverCard";
 
-export function generateStaticParams() {
-  const discoverPages = [
-    { id: "trendingmovies" },
-    { id: "trendingshows" },
-    { id: "theatres" },
-    { id: "upcomingmovies" },
-    { id: "topmovies" },
-    { id: "topshows" },
-    { id: "trendingpeople" },
-  ];
-  return discoverPages.map((page) => ({
-    params: { id: page.id },
-  }));
-}
+// export function generateStaticParams() {
+//   const discoverPages = [
+//     { id: "trendingmovies" },
+//     { id: "trendingshows" },
+//     { id: "theatres" },
+//     { id: "upcomingmovies" },
+//     { id: "topmovies" },
+//     { id: "topshows" },
+//     { id: "trendingpeople" },
+//   ];
+//   return discoverPages.map((page) => ({
+//     params: { id: page.id },
+//   }));
+// }
 
 const fetchMovieData = async (url: string) => {
   const movieResponse = await fetch(url);
@@ -92,11 +92,11 @@ const Discover: NextPage<DiscoverProps> = async ({
 
   return (
     <div className={styles.container}>
-      {movieData.results?.length > 1 && (
+      {movieData?.results?.length > 1 && (
         <>
           <h1 className={styles.heading}>{heading}</h1>
           <div className={styles.list}>
-            {movieData.results.map((movie: Movie) => (
+            {movieData?.results?.map((movie: Movie) => (
               <DiscoverCard
                 key={movie.id}
                 name={movie.release_date ? movie.title : movie.name}
@@ -109,7 +109,7 @@ const Discover: NextPage<DiscoverProps> = async ({
           </div>
         </>
       )}
-      {movieData.length < 1 && <div className='error'>No Data Found!</div>}
+      {movieData?.length < 1 && <div className='error'>No Data Found!</div>}
     </div>
   );
 };

@@ -34,7 +34,6 @@ const FormComponent: NextPage = () => {
         `/search/api?query=${formData.userInput}&category=${formData.category}`
       );
       const data = await response.json();
-      console.log(data);
 
       // Do something with the API response
       setSearchResults(data.movieData.results);
@@ -47,9 +46,9 @@ const FormComponent: NextPage = () => {
     <div className={styles.container}>
       <div className={styles.form}>
         <div>
-          <BsSearch size="3em" color="#ccc" className={styles.reactIcons} />
+          <BsSearch size='3em' color='#ccc' className={styles.reactIcons} />
           <input
-            type="text"
+            type='text'
             value={formData.userInput}
             onChange={(e) =>
               setFormData({ ...formData, userInput: e.target.value })
@@ -67,8 +66,8 @@ const FormComponent: NextPage = () => {
         <div className={styles.radios}>
           <label className={styles.radio}>
             <input
-              type="radio"
-              value="movie"
+              type='radio'
+              value='movie'
               checked={formData.category === "movie"}
               onChange={() => setFormData({ ...formData, category: "movie" })}
             />
@@ -76,8 +75,8 @@ const FormComponent: NextPage = () => {
           </label>
           <label className={styles.radio}>
             <input
-              type="radio"
-              value="tv"
+              type='radio'
+              value='tv'
               checked={formData.category === "tv"}
               onChange={() => setFormData({ ...formData, category: "tv" })}
             />
@@ -85,8 +84,8 @@ const FormComponent: NextPage = () => {
           </label>
           <label className={styles.radio}>
             <input
-              type="radio"
-              value="tv"
+              type='radio'
+              value='tv'
               checked={formData.category === "person"}
               onChange={() => setFormData({ ...formData, category: "person" })}
             />

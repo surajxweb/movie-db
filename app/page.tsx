@@ -111,7 +111,7 @@ const Home = async () => {
           src={header}
           height={400}
           width={1500}
-          alt="discover cinema like never before"
+          alt='discover cinema like never before'
         />
       </div>
       {/* <h1 className={styles.heading}>Let&#39;s find you somthing to watch!</h1> */}
@@ -119,7 +119,7 @@ const Home = async () => {
         <h2 className={styles.subHeading}>
           Trending Movies
           <Link href={"/discover/trendingmovies"}>
-            load more <BsLink45Deg className="reactIcons" />
+            load more <BsLink45Deg className='reactIcons' />
           </Link>
         </h2>
         <div className={styles.listContainer}>
@@ -139,7 +139,7 @@ const Home = async () => {
         <h2 className={styles.subHeading}>
           Trending Shows
           <Link href={"/discover/trendingshows"}>
-            load more <BsLink45Deg className="reactIcons" />
+            load more <BsLink45Deg className='reactIcons' />
           </Link>
         </h2>
         <div className={styles.listContainer}>
@@ -159,7 +159,7 @@ const Home = async () => {
         <h2 className={styles.subHeading}>
           Trending People
           <Link href={"/discover/trendingpeople"}>
-            load more <BsLink45Deg className="reactIcons" />
+            load more <BsLink45Deg className='reactIcons' />
           </Link>
         </h2>
         <div className={styles.listContainer}>
@@ -179,7 +179,7 @@ const Home = async () => {
         <h2 className={styles.subHeading}>
           In Theatres
           <Link href={"/discover/theatres"}>
-            load more <BsLink45Deg className="reactIcons" />
+            load more <BsLink45Deg className='reactIcons' />
           </Link>
         </h2>
         <div className={styles.listContainer}>
@@ -199,7 +199,7 @@ const Home = async () => {
         <h2 className={styles.subHeading}>
           Upcoming Movies
           <Link href={"/discover/upcomingmovies"}>
-            load more <BsLink45Deg className="reactIcons" />
+            load more <BsLink45Deg className='reactIcons' />
           </Link>
         </h2>
         <div className={styles.listContainer}>
@@ -219,7 +219,7 @@ const Home = async () => {
         <h2 className={styles.subHeading}>
           Top Rated Movies
           <Link href={"/discover/topmovies"}>
-            load more <BsLink45Deg className="reactIcons" />
+            load more <BsLink45Deg className='reactIcons' />
           </Link>
         </h2>
         <div className={styles.listContainer}>
@@ -240,7 +240,7 @@ const Home = async () => {
           Top Rated Shows
           <Link href={"/discover/topshows"}>
             load more
-            <BsLink45Deg className="reactIcons" />
+            <BsLink45Deg className='reactIcons' />
           </Link>
         </h2>
         <div className={styles.listContainer}>

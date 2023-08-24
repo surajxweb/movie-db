@@ -1,3 +1,5 @@
+"use client";
+
 import { FC } from "react";
 import styles from "./CrewAndCast.module.css";
 import Image from "next/image";

@@ -1,0 +1,17 @@
+.container {
+  margin: 10px;
+  padding: 10px;
+}
+
+.container img {
+  width: 180px;
+  height: auto;
+}
+
+.movieCard {
+  width: 200px;
+}
+
+.container h3 {
+  font-size: 13px;
+}

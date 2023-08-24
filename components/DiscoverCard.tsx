@@ -26,7 +26,7 @@ const DiscoverCard: FC<DiscoverCardProps> = ({
       : `tv/${id}`;
   return (
     <>
-      {image && (
+      {image && id !== 584150 && (
         <Link href={`/${pathname}`}>
           <div className={styles.container}>
             <div className={styles.imageContainer}>

@@ -1,18 +1,16 @@
-
-
 import { NextPage } from "next";
 import Image from "next/image";
 import styles from "./Actor.module.css";
 import Link from "next/link";
 import ActorsComp from "@/components/ActorsComp";
-import {BsTwitter} from "react-icons/bs";
-import {BsInstagram} from "react-icons/bs";
+import { BsTwitter } from "react-icons/bs";
+import { BsInstagram } from "react-icons/bs";
 
 //fetch api calls
 
 const fetchActorData = async (tmdbid: number) => {
   const actorResponse = await fetch(
-    `https://api.themoviedb.org/3/person/${tmdbid}?api_key=d308de6f3b996ae3b334cbb6527cffc7&append_to_response=combined_credits,external_ids`
+    `https://api.themoviedb.org/3/person/${tmdbid}?api_key=d308de6f3b996ae3b334cbb6527cffc7&append_to_response=combined_credits,external_ids,images`
   );
   if (!actorResponse.ok) {
     console.log("Failed");
@@ -21,9 +19,8 @@ const fetchActorData = async (tmdbid: number) => {
 };
 
 //Main Function
-const ActorPage: NextPage<{ params: { id: number } }> = async  ({ params }) => {
-
-const actorData = await fetchActorData(params.id);
+const ActorPage: NextPage<{ params: { id: number } }> = async ({ params }) => {
+  const actorData = await fetchActorData(params.id);
 
   //data assignment
   const name = actorData?.name;
@@ -36,16 +33,16 @@ const actorData = await fetchActorData(params.id);
   });
   const place_of_birth = actorData?.place_of_birth;
   const bio = actorData?.biography;
-  const job = known_for === "Acting"
-  ? "Actor"
-  : known_for === "Directing"
-  ? "Director"
-  : known_for === "Writing" || known_for === "Story"
-  ? "Writer"  : known_for === "Production" ?  "Producer"
-  : "Cinema"
-
-
-  
+  const job =
+    known_for === "Acting"
+      ? "Actor"
+      : known_for === "Directing"
+      ? "Director"
+      : known_for === "Writing" || known_for === "Story"
+      ? "Writer"
+      : known_for === "Production"
+      ? "Producer"
+      : "Cinema";
 
   return (
     <div className={styles.container}>
@@ -60,32 +57,48 @@ const actorData = await fetchActorData(params.id);
           />
         </div>
         <div className={styles.textContainer}>
-        <div className={styles.info}>
-          <div className={styles.question}>Name:</div>
-          <div className={styles.answer}>{name}</div>
-        </div>
-        <div className={styles.info}>
-          <div className={styles.question}>Job:</div>
-          <div className={styles.answer}>
-            {job}
+          <div className={styles.info}>
+            <div className={styles.question}>Name:</div>
+            <div className={styles.answer}>{name}</div>
+          </div>
+          <div className={styles.info}>
+            <div className={styles.question}>Job:</div>
+            <div className={styles.answer}>{job}</div>
+          </div>
+          <div className={styles.info}>
+            <div className={styles.question}>Date of Birth:</div>
+            <div className={styles.answer}>{dob}</div>
+          </div>
+          <div className={styles.info}>
+            <div className={styles.question}>Place of Birth:</div>
+            <div className={styles.answer}>{place_of_birth}</div>
+          </div>
+          <Link
+            href={`https://www.instagram.com/${actorData.external_ids.instagram_id}/`}
+          >
+            <BsInstagram size='2.5em' className={styles.reactIcons} />
+          </Link>
+          <Link
+            href={`https://www.twitter.com/${actorData.external_ids.twitter_id}/`}
+          >
+            <BsTwitter size='2.5em' className={styles.reactIcons} />
+          </Link>
+          <div className={styles.bio}>
+            <pre>{bio}</pre>
           </div>
         </div>
-        <div className={styles.info}>
-          <div className={styles.question}>Date of Birth:</div>
-          <div className={styles.answer}>{dob}</div>
-        </div>
-        <div className={styles.info}>
-          <div className={styles.question}>Place of Birth:</div>
-          <div className={styles.answer}>{place_of_birth}</div>
-        </div>
-        <Link href={`https://www.instagram.com/${actorData.external_ids.instagram_id}/`}><BsInstagram size="2.5em"  className={styles.reactIcons} /></Link>
-        <Link href={`https://www.twitter.com/${actorData.external_ids.twitter_id}/`}><BsTwitter size="2.5em"  className={styles.reactIcons} /></Link>
-        <div className={styles.bio}>
-          <pre>{bio}</pre>
-        </div>
-        </div>
       </div>
-      <div><ActorsComp movieData={actorData.combined_credits}  socialID={actorData.external_ids}/></div>
+      <div>
+        <ActorsComp
+          creditsData={
+            job === "Actor"
+              ? actorData.combined_credits.cast
+              : actorData.combined_credits.crew
+          }
+          socialID={actorData.external_ids}
+          imageData={actorData.images.profiles}
+        />
+      </div>
     </div>
   );
 };

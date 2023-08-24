@@ -89,7 +89,6 @@ const Discover: NextPage<DiscoverProps> = async ({
   }
 
   const movieData = apiURL ? await fetchMovieData(apiURL) : [];
-  console.log(movieData);
 
   return (
     <div className={styles.container}>
@@ -110,7 +109,7 @@ const Discover: NextPage<DiscoverProps> = async ({
           </div>
         </>
       )}
-      {movieData.length < 1 && <div className="error">No Data Found!</div>}
+      {movieData.length < 1 && <div className='error'>No Data Found!</div>}
     </div>
   );
 };

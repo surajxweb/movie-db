@@ -164,11 +164,11 @@ const TVPage: NextPage<{ params: { id: string } }> = async ({ params }) => {
             </div>
             <div className={styles.ratings}>
               <div className={styles.source}>
-                <Image src={imdb} alt="imdb" height={40} width={40} />
+                <Image src={imdb} alt='imdb' height={40} width={40} />
                 <div className={styles.rating}>{imdbRating}</div>
               </div>
               <div className={styles.source}>
-                <Image src={tmdb} alt="tmdb" height={40} width={40} />
+                <Image src={tmdb} alt='tmdb' height={40} width={40} />
                 <div className={styles.rating}>{tmdb_rating}</div>
               </div>
             </div>
@@ -202,11 +202,11 @@ const TVPage: NextPage<{ params: { id: string } }> = async ({ params }) => {
         {isTrailerAvailable && (
           <div className={styles.trailer}>
             <iframe
-              width="800"
-              height="450"
+              width='800'
+              height='450'
               src={`https://www.youtube.com/embed/${trailer[0].key}`}
-              title="YouTube Video"
-              frameBorder="0"
+              title='YouTube Video'
+              frameBorder='0'
               allowFullScreen
             ></iframe>
           </div>

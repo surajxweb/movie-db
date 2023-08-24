@@ -21,7 +21,7 @@ const CrewAndCast: FC<CrewAndCastProps> = ({ castArray }) => {
     <div className={styles.container}>
       <h3 className={styles.title}>Cast</h3>
       <div className={styles.castList}>
-        {castArray.map((cast) => (
+        {castArray?.map((cast) => (
           <div className={styles.cardContainer} key={cast.id}>
             <Link href={`/people/${cast.id}`}>
               <Image

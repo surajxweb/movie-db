@@ -37,7 +37,7 @@ const ActorsComp: FC<ActorsCompProps> = ({
   };
 
   const popularCredits = creditsData
-    .filter(
+    ?.filter(
       (movie: { poster_path: string; id: number }) =>
         movie.poster_path && movie.id !== 584150
     )

@@ -6,106 +6,119 @@ import imdb from "@/resources/logos/imdb.png";
 import bookmyshow from "@/resources/logos/bookmyshow.png";
 import fail_tomatoe from "@/resources/logos/fail_tomatoe.png";
 import fresh_tomatoe from "@/resources/logos/fresh_tomatoe.png";
-import metacritic from "@/resources/logos/metacritic.png";
 import tmdb from "@/resources/logos/tmdb.png";
 import tomatoes from "@/resources/logos/tomatoes.jpg";
 import Link from "next/link";
-import ReviewsAndTrailer from "@/components/ReviewsAndTrailer";
 import Recommendations from "@/components/Recommendations";
 import CrewAndCast from "@/components/CrewAndCast";
 
 //fetch api calls
 
 const fetchTMDBData = async (id: string) => {
-  const tmdbResponse = await fetch(
-    `https://api.themoviedb.org/3/movie/${id}?api_key=d308de6f3b996ae3b334cbb6527cffc7&append_to_response=credits,videos,similar,reviews`
-  );
-  if (!tmdbResponse.ok) {
-    console.log("Failed");
+  try {
+    const tmdbResponse = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=d308de6f3b996ae3b334cbb6527cffc7&append_to_response=credits,videos,similar,reviews`
+    );
+    if (!tmdbResponse.ok) {
+      console.log("Failed");
+    }
+    return await tmdbResponse.json();
+  } catch (e) {
+    console.log("Failed to fetch data: ", e);
   }
-  return await tmdbResponse.json();
 };
 
 const fetchOMDBData = async (imdbid: string) => {
-  const omdbResponse = await fetch(
-    `http://www.omdbapi.com/?i=${imdbid}&plot=short&apikey=42a36590`
-  );
-  if (!omdbResponse.ok) {
-    console.log("Failed");
+  try {
+    const omdbResponse = await fetch(
+      `http://www.omdbapi.com/?i=${imdbid}&plot=short&apikey=42a36590`
+    );
+    if (!omdbResponse.ok) {
+      console.log("Failed");
+    }
+    return await omdbResponse.json();
+  } catch (e) {
+    console.log("Failed to fetch data: ", e);
   }
-  return await omdbResponse.json();
 };
 
 const fetchTheaterMovies = async () => {
-  const mdbResponse = await fetch(
-    `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&region=in&api_key=d308de6f3b996ae3b334cbb6527cffc7`
-  );
-  if (!mdbResponse.ok) {
-    console.log("Failed");
+  try {
+    const fetchTheaterMovies = await fetch(
+      `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&region=in&api_key=d308de6f3b996ae3b334cbb6527cffc7`
+    );
+    if (!fetchTheaterMovies.ok) {
+      console.log("Failed");
+    }
+    return await fetchTheaterMovies.json();
+  } catch (e) {
+    console.log("Failed to fetch data: ", e);
   }
-  return await mdbResponse.json();
 };
 
 const fetchWatchProviders = async (id: string) => {
-  const watchProvidersResponse = await fetch(
-    `https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=d308de6f3b996ae3b334cbb6527cffc7`
-  );
-  if (!watchProvidersResponse.ok) {
-    console.log("Failed");
+  try {
+    const watchProvidersResponse = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=d308de6f3b996ae3b334cbb6527cffc7`
+    );
+    if (!watchProvidersResponse.ok) {
+      console.log("Failed");
+    }
+    return await watchProvidersResponse.json();
+  } catch (e) {
+    console.log("Failed to fetch data: ", e);
   }
-  return await watchProvidersResponse.json();
 };
 
 //Main Function
 
 const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
   // api calls
-  const tmdbData = await fetchTMDBData(params.id);
-  const omdbData = await fetchOMDBData(tmdbData.imdb_id);
+  const tmdbData = await fetchTMDBData(params?.id);
+  const omdbData = await fetchOMDBData(tmdbData?.imdb_id);
   const theaterMovies = await fetchTheaterMovies();
-  const watchProvidersData = await fetchWatchProviders(tmdbData.id);
+  const watchProvidersData = await fetchWatchProviders(tmdbData?.id);
 
   // data assignment
-  const poster_image = `https://image.tmdb.org/t/p/original/${tmdbData.poster_path}`;
-  const background_image = `https://image.tmdb.org/t/p/original/${tmdbData.backdrop_path}`;
+  const poster_image = `https://image.tmdb.org/t/p/original/${tmdbData?.poster_path}`;
+  const background_image = `https://image.tmdb.org/t/p/original/${tmdbData?.backdrop_path}`;
 
-  const name = tmdbData.title;
-  const year = omdbData.Year;
-  const plot = omdbData.Plot;
+  const name = tmdbData?.title || omdbData?.Title;
+  const year = omdbData?.Year || omdbData?.Released;
+  const plot = omdbData?.Plot || tmdbData?.overview;
 
-  const directorsArray = tmdbData.credits.crew.filter(
+  const directorsArray = tmdbData?.credits?.crew.filter(
     (person: { job: string }) => person.job === "Director"
   );
-  const writersArray = tmdbData.credits.crew.filter(
-    (person: { job: string }) =>
-      person.job === "Writer" ||
-      person.job === "Screenplay" ||
-      person.job === "Story"
-  );
+  const writersArray = tmdbData?.credits?.crew
+    .filter(
+      (person: { job: string }) =>
+        person.job === "Writer" ||
+        person.job === "Screenplay" ||
+        person.job === "Story"
+    )
+    .slice(0, 3);
+  const writer = omdbData.Writer;
 
-  const runtime = `${Math.floor(tmdbData.runtime / 60)}h ${
-    tmdbData.runtime % 60
+  const runtime = `${Math.floor(tmdbData?.runtime / 60)}h ${
+    tmdbData?.runtime % 60
   }m`;
 
   const imdbRating =
-    omdbData.Ratings?.find(
+    omdbData?.Ratings?.find(
       (rating: { Source: string; value: string }) =>
         rating.Source === "Internet Movie Database"
     )?.Value ||
-    omdbData.imdbRating ||
+    omdbData?.imdbRating ||
     "N/A";
   const tomatoes_rating =
-    omdbData.Ratings?.find(
+    omdbData?.Ratings?.find(
       (rating: { Source: string; value: string }) =>
         rating.Source === "Rotten Tomatoes"
     )?.Value || "N/A";
-  const metacritic_rating =
-    omdbData.Ratings?.find(
-      (rating: { Source: string; value: string }) =>
-        rating.Source === "Metacritic"
-    )?.Value || "N/A";
+
   const tmdb_rating =
-    tmdbData.vote_average > 0
+    tmdbData?.vote_average > 0
       ? `${tmdbData.vote_average.toFixed(1)}/10`
       : "N/A";
   const tomatoimage = !isNaN(parseInt(tomatoes_rating, 10))
@@ -115,27 +128,24 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
     : tomatoes;
 
   const watchOptionsArrayIN =
-    watchProvidersData.results.IN?.flatrate ||
-    watchProvidersData.results.IN?.ads ||
+    watchProvidersData?.results?.IN?.flatrate ||
+    watchProvidersData?.results?.IN?.ads ||
     "N/A";
-  const isAvailableInTheaters = theaterMovies.results.some(
-    (movie: { id: number }) => movie.id === tmdbData.id
+  const isAvailableInTheaters = theaterMovies?.results?.some(
+    (movie: { id: number }) => movie.id === tmdbData?.id
   );
 
-  const castArray = tmdbData.credits.cast
+  const castArray = tmdbData?.credits?.cast
     .filter((person: { profile_path: string }) => person.profile_path)
     .slice(0, 6);
-  const reviewsArray = tmdbData.reviews.results.slice(0, 5);
-  const similarArray = tmdbData.similar.results
+  const similarArray = tmdbData?.similar?.results
     .filter((movie: { poster_path: string }) => movie.poster_path)
     .slice(0, 5);
-  const trailer = tmdbData.videos.results.filter(
+  const trailer = tmdbData?.videos?.results?.filter(
     (video: { type: string }) => video.type === "Trailer"
   );
 
-  const isTrailerAvailable = trailer.length > 0;
-
-  //
+  const isTrailerAvailable = trailer?.length > 0;
 
   return (
     <div
@@ -147,139 +157,144 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
       }}
     >
       <div className={styles.contentContainer}>
-        <div className={styles.section1}>
-          <div className={styles.posterContainer}>
-            <Image
-              src={poster_image}
-              height={350}
-              width={233}
-              alt={`${name} - movie poster`}
-              quality={80}
-            />
-          </div>
-          <div className={styles.info}>
-            <h1 className={styles.movieName}>{`${name} (${year || "N/A"})`}</h1>
-            <div className={styles.genres}>
-              {tmdbData.genres.map((genre: { id: number; name: string }) => (
-                <div
-                  className={styles.genre}
-                  key={genre.id}
-                  style={{ backgroundColor: genreAndColors[genre.id] }}
-                >
-                  <Link href={`/genres/${genre.id}/1`}>{genre.name}</Link>
-                </div>
-              ))}
+        {tmdbData?.title && (
+          <div className={styles.section1}>
+            <div className={styles.posterContainer}>
+              <Image
+                src={poster_image}
+                height={350}
+                width={233}
+                alt={`${name} - movie poster`}
+                quality={80}
+              />
             </div>
-            <div className={styles.plot}>{plot}</div>
-            <div className={styles.director}>
-              <div className={styles.title}>Director:</div>
-              <div className={styles.data}>
-                {directorsArray.map(
-                  (director: { id: number; name: string }) => (
-                    <div className={styles.credit} key={director.id}>
-                      <Link href={`/people/${director.id}`}>
-                        {director.name}
-                      </Link>
+            <div className={styles.info}>
+              <h1 className={styles.movieName}>{`${name} (${
+                year || "N/A"
+              })`}</h1>
+              <div className={styles.genres}>
+                {tmdbData?.genres?.map(
+                  (genre: { id: number; name: string }) => (
+                    <div
+                      className={styles.genre}
+                      key={genre.id}
+                      style={{ backgroundColor: genreAndColors[genre.id] }}
+                    >
+                      <Link href={`/genres/${genre.id}/1`}>{genre.name}</Link>
                     </div>
                   )
                 )}
               </div>
-            </div>
-            <div className={styles.writer}>
-              <div className={styles.title}>Writer:</div>
-              <div className={styles.data}>
-                {writersArray.map((writer: { id: number; name: string }) => (
-                  <div className={styles.credit} key={writer.id}>
-                    <Link href={`/people/${writer.id}`}>{writer.name}</Link>
-                  </div>
-                ))}
+              <div className={styles.plot}>{plot}</div>
+              <div className={styles.director}>
+                <div className={styles.title}>Director:</div>
+                <div className={styles.data}>
+                  {directorsArray?.map(
+                    (director: { id: number; name: string }) => (
+                      <div className={styles.credit} key={director.id}>
+                        <Link href={`/people/${director.id}`}>
+                          {director.name}
+                        </Link>
+                      </div>
+                    )
+                  )}
+                </div>
               </div>
-            </div>
-            <div className={styles.cast}>
-              <div className={styles.title}>Cast:</div>
-              <div className={styles.data}>
-                {castArray
-                  .slice(0, 3)
-                  .map((cast: { id: number; name: string }) => (
-                    <div className={styles.credit} key={cast.id}>
-                      <Link href={`/people/${cast.id}`}>{cast.name}</Link>
+              <div className={styles.writer}>
+                <div className={styles.title}>Writer:</div>
+                <div className={styles.data}>
+                  {writersArray?.map((writer: { id: number; name: string }) => (
+                    <div className={styles.credit} key={writer.id}>
+                      <Link href={`/people/${writer.id}`}>{writer.name}</Link>
                     </div>
                   ))}
+                </div>
               </div>
-            </div>
-            <div className={styles.runtime}>
-              <div className={styles.title}>Runtime:</div>
-              <div className={styles.data}>{runtime}</div>
-            </div>
-            <div className={styles.ratings}>
-              <div className={styles.source}>
-                <Image src={imdb} alt='imdb' height={40} width={40} />
-                <div className={styles.rating}>{imdbRating}</div>
+              <div className={styles.cast}>
+                <div className={styles.title}>Cast:</div>
+                <div className={styles.data}>
+                  {castArray
+                    ?.slice(0, 3)
+                    .map((cast: { id: number; name: string }) => (
+                      <div className={styles.credit} key={cast.id}>
+                        <Link href={`/people/${cast.id}`}>{cast.name}</Link>
+                      </div>
+                    ))}
+                </div>
               </div>
-              <div className={styles.source}>
-                <Image src={tmdb} alt='tmdb' height={40} width={40} />
-                <div className={styles.rating}>{tmdb_rating}</div>
+              <div className={styles.runtime}>
+                <div className={styles.title}>Runtime:</div>
+                <div className={styles.data}>{runtime}</div>
               </div>
-              <div className={styles.source}>
-                <Image
-                  src={tomatoimage}
-                  alt='rotton tomatoes'
-                  height={40}
-                  width={40}
-                />
-                <div className={styles.rating}>{tomatoes_rating}</div>
-              </div>
-
-              {/* <div className={styles.source}>
-            <Image src={metacritic} alt="metacritic" height={40} width={40}/>
-              <div className={styles.rating}>
-                {metacritic_rating}
-              </div>
-            </div> */}
-            </div>
-            <div className={styles.streamingInfo}>
-              <div className={styles.title}>Watch Options in India: </div>
-              {isAvailableInTheaters && (
-                <Link
-                  href={"https://in.bookmyshow.com/explore/movies"}
-                  target='_blank'
-                >
+              <div className={styles.ratings}>
+                <div className={styles.source}>
+                  <Image src={imdb} alt='imdb' height={40} width={40} />
+                  <div className={styles.rating}>{imdbRating}</div>
+                </div>
+                <div className={styles.source}>
+                  <Image src={tmdb} alt='tmdb' height={40} width={40} />
+                  <div className={styles.rating}>{tmdb_rating}</div>
+                </div>
+                <div className={styles.source}>
                   <Image
-                    src={bookmyshow}
-                    alt='bookmyshow'
+                    src={tomatoimage}
+                    alt='rotton tomatoes'
                     height={40}
                     width={40}
                   />
-                </Link>
-              )}
-              {!isAvailableInTheaters && (
-                <div className={styles.streamingData}>
-                  {watchOptionsArrayIN !== "N/A" &&
-                  watchOptionsArrayIN.length > 0
-                    ? watchOptionsArrayIN.map(
-                        (option: {
-                          provider_id: number;
-                          provider_name: string;
-                          logo_path: string;
-                        }) => (
-                          <div key={option.provider_id}>
-                            <Image
-                              src={`https://image.tmdb.org/t/p/original/${option.logo_path}`}
-                              alt={`${option.provider_name} - logo`}
-                              height={40}
-                              width={40}
-                            />
-                          </div>
-                        )
-                      )
-                    : "N/A"}
+                  <div className={styles.rating}>{tomatoes_rating}</div>
                 </div>
-              )}
+              </div>
+              <div className={styles.streamingInfo}>
+                <div className={styles.title}>Watch Options in India: </div>
+                {isAvailableInTheaters && (
+                  <Link
+                    href={"https://in.bookmyshow.com/explore/movies"}
+                    target='_blank'
+                  >
+                    <Image
+                      src={bookmyshow}
+                      alt='bookmyshow'
+                      height={40}
+                      width={40}
+                    />
+                  </Link>
+                )}
+                {!isAvailableInTheaters && (
+                  <div className={styles.streamingData}>
+                    {watchOptionsArrayIN !== "N/A" &&
+                    watchOptionsArrayIN?.length > 0
+                      ? watchOptionsArrayIN?.map(
+                          (option: {
+                            provider_id: number;
+                            provider_name: string;
+                            logo_path: string;
+                          }) => (
+                            <div key={option.provider_id}>
+                              <Image
+                                src={`https://image.tmdb.org/t/p/original/${option.logo_path}`}
+                                alt={`${option.provider_name} - logo`}
+                                height={40}
+                                width={40}
+                              />
+                            </div>
+                          )
+                        )
+                      : "N/A"}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
-        </div>
+        )}
         {/* Cast and Crew */}
-        <CrewAndCast castArray={castArray} />
+        {tmdbData?.title ? (
+          <CrewAndCast castArray={castArray} />
+        ) : (
+          <div style={{ color: "white", fontSize: "20px" }}>
+            Movie Not Found
+          </div>
+        )}
         {/* Trailer Videos */}
         {isTrailerAvailable && (
           <div className={styles.trailer}>

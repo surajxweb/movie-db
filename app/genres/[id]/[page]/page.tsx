@@ -67,7 +67,7 @@ const GenrePageNo: NextPage<DiscoverProps> = async ({
         ))}
         {!genreData.results && "Data not found!"}
       </div>
-      <GenrePage id={params.id} page={params.page} />
+      <GenrePage type={1} id={params.id} page={params.page} />
     </div>
   );
 };

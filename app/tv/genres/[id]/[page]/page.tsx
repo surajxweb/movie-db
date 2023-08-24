@@ -55,7 +55,7 @@ const GenrePageNo: NextPage<DiscoverProps> = async ({
     <div className={styles.container}>
       <h1 className={styles.heading}>{`${heading} / Page ${params.page}`}</h1>
       <div className={styles.list}>
-        {genreData.results?.map((movie: Movie) => (
+        {genreData?.results?.map((movie: Movie) => (
           <DiscoverCard
             key={movie.id}
             name={movie.release_date ? movie.title : movie.name}
@@ -65,9 +65,9 @@ const GenrePageNo: NextPage<DiscoverProps> = async ({
             person_identity={movie.known_for_department}
           />
         ))}
-        {!genreData.results && "Data not found!"}
+        {!genreData?.results && "Data not found!"}
       </div>
-      <GenrePage id={params.id} page={params.page} />
+      <GenrePage type={2} id={params.id} page={params.page} />
     </div>
   );
 };

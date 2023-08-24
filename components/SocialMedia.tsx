@@ -20,7 +20,7 @@ const iframeStyle = {
 const SocialMedia: React.FC<SocialMediaProps> = ({ socialID }) => {
   return (
     <div className={styles.container}>
-      {socialID.instagram_id?.length > 0 && (
+      {socialID?.instagram_id?.length > 0 && (
         <div className={styles.instagram}>
           <iframe
             style={iframeStyle}
@@ -31,7 +31,7 @@ const SocialMedia: React.FC<SocialMediaProps> = ({ socialID }) => {
           ></iframe>
         </div>
       )}
-      {socialID.twitter_id?.length > 0 && (
+      {socialID?.twitter_id?.length > 0 && (
         <div className={styles.twitter}>
           <TwitterTimelineEmbed
             sourceType='profile'
@@ -40,8 +40,8 @@ const SocialMedia: React.FC<SocialMediaProps> = ({ socialID }) => {
           />
         </div>
       )}
-      {!socialID.twitter_id &&
-        !socialID.instagram_id &&
+      {!socialID?.twitter_id &&
+        !socialID?.instagram_id &&
         "Social Media not available."}
     </div>
   );

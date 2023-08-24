@@ -3,11 +3,7 @@ import { NextPage } from "next";
 import Image from "next/image";
 import { genreAndColors } from "@/resources/genreAndColors";
 import imdb from "@/resources/logos/imdb.png";
-import fail_tomatoe from "@/resources/logos/fail_tomatoe.png";
-import fresh_tomatoe from "@/resources/logos/fresh_tomatoe.png";
-import metacritic from "@/resources/logos/metacritic.png";
 import tmdb from "@/resources/logos/tmdb.png";
-import tomatoes from "@/resources/logos/tomatoes.jpg";
 import Link from "next/link";
 import Recommendations from "@/components/Recommendations";
 import CrewAndCast from "@/components/CrewAndCast";
@@ -45,19 +41,21 @@ const fetchWatchProviders = async (id: string) => {
 const TVPage: NextPage<{ params: { id: string } }> = async ({ params }) => {
   // api calls
   const tmdbData = await fetchTMDBData(params.id);
-  const watchProvidersData = await fetchWatchProviders(tmdbData.id);
+  const watchProvidersData = await fetchWatchProviders(tmdbData?.id);
 
-  const year = parseInt(tmdbData.first_air_date?.substr(0, 4));
-  const omdbData = await fetchOMDBData(tmdbData.name, year);
+  const year = parseInt(tmdbData?.first_air_date?.substr(0, 4));
+  const omdbData = await fetchOMDBData(tmdbData?.name, year);
 
-  const poster_image = `https://image.tmdb.org/t/p/original/${tmdbData.poster_path}`;
-  const background_image = `https://image.tmdb.org/t/p/original/${tmdbData.backdrop_path}`;
+  const poster_image = `https://image.tmdb.org/t/p/original/${tmdbData?.poster_path}`;
+  const background_image = `https://image.tmdb.org/t/p/original/${tmdbData?.backdrop_path}`;
 
-  const name = tmdbData.name;
-  const plot = tmdbData.overview;
-  const runtime = `${tmdbData?.episode_run_time[0]} minutes`;
+  const name = tmdbData?.name;
+  const plot = tmdbData?.overview;
+  const runtime = tmdbData?.episode_run_time
+    ? `${tmdbData?.episode_run_time[0]} minutes`
+    : "N/A";
 
-  const productionArray = tmdbData.production_companies.slice(0, 2);
+  const productionArray = tmdbData?.production_companies?.slice(0, 2);
 
   const imdbRating =
     omdbData?.Ratings?.find(
@@ -67,28 +65,28 @@ const TVPage: NextPage<{ params: { id: string } }> = async ({ params }) => {
     omdbData?.imdbRating ||
     "N/A";
   const tmdb_rating =
-    tmdbData.vote_average > 0
-      ? `${tmdbData.vote_average.toFixed(1)}/10`
+    tmdbData?.vote_average > 0
+      ? `${tmdbData?.vote_average?.toFixed(1)}/10`
       : "N/A";
 
   const watchOptionsArrayIN =
-    watchProvidersData.results.IN?.flatrate ||
-    watchProvidersData.results.IN?.ads ||
+    watchProvidersData?.results?.IN?.flatrate ||
+    watchProvidersData?.results?.IN?.ads ||
     "N/A";
 
-  const creatorsArray = tmdbData.created_by.slice(0, 3);
-  const castArray = tmdbData.credits.cast
+  const creatorsArray = tmdbData?.created_by?.slice(0, 3);
+  const castArray = tmdbData?.credits?.cast
     .filter((person: { profile_path: string }) => person.profile_path)
     .slice(0, 6);
   // const reviewsArray = tmdbData.reviews.results.slice(0, 5);
-  const similarArray = tmdbData.similar.results
+  const similarArray = tmdbData?.similar?.results
     .filter((movie: { poster_path: string }) => movie.poster_path)
     .slice(0, 5);
-  const trailer = tmdbData.videos.results.filter(
+  const trailer = tmdbData?.videos?.results?.filter(
     (video: { type: string }) => video.type === "Trailer"
   );
 
-  const isTrailerAvailable = trailer.length > 0;
+  const isTrailerAvailable = trailer?.length > 0;
 
   return (
     <div
@@ -100,105 +98,124 @@ const TVPage: NextPage<{ params: { id: string } }> = async ({ params }) => {
       }}
     >
       <div className={styles.contentContainer}>
-        <div className={styles.section1}>
-          <div className={styles.posterContainer}>
-            <Image
-              src={poster_image}
-              height={350}
-              width={233}
-              alt={`${name} - movie poster`}
-              quality={80}
-            />
-          </div>
-          <div className={styles.info}>
-            <h1 className={styles.movieName}>{`${name} (${year || "N/A"})`}</h1>
-            <div className={styles.genres}>
-              {tmdbData.genres.map((genre: { id: number; name: string }) => (
-                <div
-                  className={styles.genre}
-                  key={genre.id}
-                  style={{ backgroundColor: genreAndColors[genre.id] }}
-                >
-                  <Link href={`/tv/genres/${genre.id}/1`}>{genre.name}</Link>
-                </div>
-              ))}
+        {tmdbData?.name && (
+          <div className={styles.section1}>
+            <div className={styles.posterContainer}>
+              <Image
+                src={poster_image}
+                height={350}
+                width={233}
+                alt={`${name} - movie poster`}
+                quality={80}
+              />
             </div>
-            <div className={styles.plot}>{plot}</div>
-            <div className={styles.director}>
-              <div className={styles.title}>Creators:</div>
-              <div className={styles.data}>
-                {creatorsArray.map((creator: { id: number; name: string }) => (
-                  <div className={styles.credit} key={creator.id}>
-                    <Link href={`/people/${creator.id}`}>{creator.name}</Link>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className={styles.writer}>
-              <div className={styles.title}>Production Company:</div>
-              <div className={styles.data}>
-                {productionArray
-                  .slice(0, 3)
-                  .map((company: { id: number; name: string }) => (
-                    <div className={styles.credit} key={company.id}>
-                      {company.name}
+            <div className={styles.info}>
+              <h1 className={styles.movieName}>{`${name} (${
+                year || "N/A"
+              })`}</h1>
+              <div className={styles.genres}>
+                {tmdbData?.genres?.map(
+                  (genre: { id: number; name: string }) => (
+                    <div
+                      className={styles.genre}
+                      key={genre.id}
+                      style={{ backgroundColor: genreAndColors[genre.id] }}
+                    >
+                      <Link href={`/tv/genres/${genre.id}/1`}>
+                        {genre.name}
+                      </Link>
                     </div>
-                  ))}
+                  )
+                )}
               </div>
-            </div>
-            <div className={styles.cast}>
-              <div className={styles.title}>Cast:</div>
-              <div className={styles.data}>
-                {castArray
-                  .slice(0, 3)
-                  .map((cast: { id: number; name: string }) => (
-                    <div className={styles.credit} key={cast.id}>
-                      <Link href={`/people/${cast.id}`}>{cast.name}</Link>
-                    </div>
-                  ))}
-              </div>
-            </div>
-            <div className={styles.runtime}>
-              <div className={styles.title}>Runtime:</div>
-              <div className={styles.data}>{runtime}</div>
-            </div>
-            <div className={styles.ratings}>
-              <div className={styles.source}>
-                <Image src={imdb} alt='imdb' height={40} width={40} />
-                <div className={styles.rating}>{imdbRating}</div>
-              </div>
-              <div className={styles.source}>
-                <Image src={tmdb} alt='tmdb' height={40} width={40} />
-                <div className={styles.rating}>{tmdb_rating}</div>
-              </div>
-            </div>
-            <div className={styles.streamingInfo}>
-              <div className={styles.title}>Watch Options in India: </div>
-
-              <div className={styles.streamingData}>
-                {watchOptionsArrayIN !== "N/A" && watchOptionsArrayIN.length > 0
-                  ? watchOptionsArrayIN.map(
-                      (option: {
-                        provider_id: number;
-                        provider_name: string;
-                        logo_path: string;
-                      }) => (
-                        <div key={option.provider_id}>
-                          <Image
-                            src={`https://image.tmdb.org/t/p/original/${option.logo_path}`}
-                            alt={`${option.provider_name} - logo`}
-                            height={40}
-                            width={40}
-                          />
-                        </div>
-                      )
+              <div className={styles.plot}>{plot}</div>
+              <div className={styles.director}>
+                <div className={styles.title}>Creators:</div>
+                <div className={styles.data}>
+                  {creatorsArray?.map(
+                    (creator: { id: number; name: string }) => (
+                      <div className={styles.credit} key={creator.id}>
+                        <Link href={`/people/${creator.id}`}>
+                          {creator.name}
+                        </Link>
+                      </div>
                     )
-                  : "N/A"}
+                  )}
+                </div>
+              </div>
+              <div className={styles.writer}>
+                <div className={styles.title}>Production Company:</div>
+                <div className={styles.data}>
+                  {productionArray
+                    ?.slice(0, 3)
+                    .map((company: { id: number; name: string }) => (
+                      <div className={styles.credit} key={company.id}>
+                        {company.name}
+                      </div>
+                    ))}
+                </div>
+              </div>
+              <div className={styles.cast}>
+                <div className={styles.title}>Cast:</div>
+                <div className={styles.data}>
+                  {castArray
+                    ?.slice(0, 3)
+                    .map((cast: { id: number; name: string }) => (
+                      <div className={styles.credit} key={cast.id}>
+                        <Link href={`/people/${cast.id}`}>{cast.name}</Link>
+                      </div>
+                    ))}
+                </div>
+              </div>
+              <div className={styles.runtime}>
+                <div className={styles.title}>Runtime:</div>
+                <div className={styles.data}>{runtime}</div>
+              </div>
+              <div className={styles.ratings}>
+                <div className={styles.source}>
+                  <Image src={imdb} alt='imdb' height={40} width={40} />
+                  <div className={styles.rating}>{imdbRating}</div>
+                </div>
+                <div className={styles.source}>
+                  <Image src={tmdb} alt='tmdb' height={40} width={40} />
+                  <div className={styles.rating}>{tmdb_rating}</div>
+                </div>
+              </div>
+              <div className={styles.streamingInfo}>
+                <div className={styles.title}>Watch Options in India: </div>
+
+                <div className={styles.streamingData}>
+                  {watchOptionsArrayIN !== "N/A" &&
+                  watchOptionsArrayIN.length > 0
+                    ? watchOptionsArrayIN?.map(
+                        (option: {
+                          provider_id: number;
+                          provider_name: string;
+                          logo_path: string;
+                        }) => (
+                          <div key={option.provider_id}>
+                            <Image
+                              src={`https://image.tmdb.org/t/p/original/${option.logo_path}`}
+                              alt={`${option.provider_name} - logo`}
+                              height={40}
+                              width={40}
+                            />
+                          </div>
+                        )
+                      )
+                    : "N/A"}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <CrewAndCast castArray={castArray} />
+        )}
+        {tmdbData?.name ? (
+          <CrewAndCast castArray={castArray} />
+        ) : (
+          <div style={{ color: "white", fontSize: "20px" }}>
+            TV Show Not Found
+          </div>
+        )}
         {isTrailerAvailable && (
           <div className={styles.trailer}>
             <iframe

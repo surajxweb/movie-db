@@ -19,7 +19,7 @@ type Movie = {
 const Recommendations: FC<RecommendationProps> = async ({ similarArray }) => {
   return (
     <div className={styles.container}>
-      {similarArray.length > 0 ? (
+      {similarArray?.length > 0 ? (
         <h2 className={styles.heading}>Recommendation Section</h2>
       ) : (
         <Link href='/'>

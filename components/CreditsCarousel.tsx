@@ -33,7 +33,7 @@ const CreditsCarousel: React.FC<CreditsCarouselProps> = ({ popularMovies }) => {
   return (
     <div className={styles.container}>
       <Slider className={styles.slider} {...settings}>
-        {popularMovies.map((movie) => (
+        {popularMovies?.map((movie) => (
           <div className={styles.movieCard} key={movie.id}>
             <Link href={`/movie/${movie.id}`}>
               <div className={styles.movieImage}>

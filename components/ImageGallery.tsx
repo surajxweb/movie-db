@@ -10,7 +10,7 @@ interface ImageItem {
 const ImageGalleryComponent: React.FC<{ images: ImageItem[] }> = ({
   images,
 }) => {
-  const imageItems = images.map((picture) => ({
+  const imageItems = images?.map((picture) => ({
     original: `https://image.tmdb.org/t/p/original${picture.file_path}`,
     thumbnail: `https://image.tmdb.org/t/p/w200${picture.file_path}`,
   }));

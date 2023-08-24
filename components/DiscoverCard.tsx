@@ -31,6 +31,7 @@ const DiscoverCard: FC<DiscoverCardProps> = ({
           <div className={styles.container}>
             <div className={styles.imageContainer}>
               <Image
+                unoptimized
                 src={`https://image.tmdb.org/t/p/original/${image}`}
                 alt={`${name} - poster`}
                 height={350}

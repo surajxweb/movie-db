@@ -9,7 +9,7 @@ const NavLinks: FC = () => {
     <div className={styles.container}>
       <Link href={`/`}>
         <div className={styles.logo}>
-          <Image src={logo} alt='logo' height={42} width={74.7} />
+          <Image unoptimized src={logo} alt='logo' height={42} width={74.7} />
         </div>
       </Link>
 

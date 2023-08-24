@@ -38,6 +38,7 @@ const Top100: NextPage = async () => {
     <div className={styles.container}>
       <div className={styles.header}>
         <Image
+          unoptimized
           src={top100_header}
           height={400}
           width={1500}

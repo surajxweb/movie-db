@@ -2,8 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  unoptimized: true,
   images: {
+    unoptimized: true,
     domains: ["m.media-amazon.com", "image.tmdb.org"], // Combine domains into a single array
   },
 };

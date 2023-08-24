@@ -38,6 +38,7 @@ const CreditsCarousel: React.FC<CreditsCarouselProps> = ({ popularMovies }) => {
             <Link href={`/movie/${movie.id}`}>
               <div className={styles.movieImage}>
                 <Image
+                  unoptimized
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                   alt={movie.title}
                   width={500}

@@ -19,6 +19,7 @@ const Top100Card: FC<Top100CardProps> = ({ image, name, year, rating, id }) => {
         <div className={styles.container}>
           <div className={styles.imageContainer}>
             <Image
+              unoptimized
               src={image}
               height={443.68}
               width={300}

@@ -17,7 +17,7 @@ import CrewAndCast from "@/components/CrewAndCast";
 const fetchTMDBData = async (id: string) => {
   try {
     const tmdbResponse = await fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=d308de6f3b996ae3b334cbb6527cffc7&append_to_response=credits,videos,similar,reviews`
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.TMDBchabi}&append_to_response=credits,videos,similar,reviews`
     );
     if (!tmdbResponse.ok) {
       console.log("Failed");
@@ -31,7 +31,7 @@ const fetchTMDBData = async (id: string) => {
 const fetchOMDBData = async (imdbid: string) => {
   try {
     const omdbResponse = await fetch(
-      `http://www.omdbapi.com/?i=${imdbid}&plot=short&apikey=42a36590`
+      `http://www.omdbapi.com/?i=${imdbid}&plot=short&apikey=${process.env.OMDBchabi}`
     );
     if (!omdbResponse.ok) {
       console.log("Failed");
@@ -45,7 +45,7 @@ const fetchOMDBData = async (imdbid: string) => {
 const fetchTheaterMovies = async () => {
   try {
     const fetchTheaterMovies = await fetch(
-      `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&region=in&api_key=d308de6f3b996ae3b334cbb6527cffc7`
+      `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&region=in&api_key=${process.env.TMDBchabi}`
     );
     if (!fetchTheaterMovies.ok) {
       console.log("Failed");
@@ -59,7 +59,7 @@ const fetchTheaterMovies = async () => {
 const fetchWatchProviders = async (id: string) => {
   try {
     const watchProvidersResponse = await fetch(
-      `https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=d308de6f3b996ae3b334cbb6527cffc7`
+      `https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=${process.env.TMDBchabi}`
     );
     if (!watchProvidersResponse.ok) {
       console.log("Failed");
@@ -161,6 +161,7 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
           <div className={styles.section1}>
             <div className={styles.posterContainer}>
               <Image
+                unoptimized
                 src={poster_image}
                 height={350}
                 width={233}
@@ -228,15 +229,28 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
               </div>
               <div className={styles.ratings}>
                 <div className={styles.source}>
-                  <Image src={imdb} alt='imdb' height={40} width={40} />
+                  <Image
+                    unoptimized
+                    src={imdb}
+                    alt='imdb'
+                    height={40}
+                    width={40}
+                  />
                   <div className={styles.rating}>{imdbRating}</div>
                 </div>
                 <div className={styles.source}>
-                  <Image src={tmdb} alt='tmdb' height={40} width={40} />
+                  <Image
+                    unoptimized
+                    src={tmdb}
+                    alt='tmdb'
+                    height={40}
+                    width={40}
+                  />
                   <div className={styles.rating}>{tmdb_rating}</div>
                 </div>
                 <div className={styles.source}>
                   <Image
+                    unoptimized
                     src={tomatoimage}
                     alt='rotton tomatoes'
                     height={40}
@@ -253,6 +267,7 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
                     target='_blank'
                   >
                     <Image
+                      unoptimized
                       src={bookmyshow}
                       alt='bookmyshow'
                       height={40}
@@ -272,6 +287,7 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
                           }) => (
                             <div key={option.provider_id}>
                               <Image
+                                unoptimized
                                 src={`https://image.tmdb.org/t/p/original/${option.logo_path}`}
                                 alt={`${option.provider_name} - logo`}
                                 height={40}
@@ -289,12 +305,15 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
         )}
         {/* Cast and Crew */}
         {tmdbData?.title ? (
-          <CrewAndCast castArray={castArray} />
+          castArray.length > 0 ? (
+            <CrewAndCast castArray={castArray} />
+          ) : null
         ) : (
           <div style={{ color: "white", fontSize: "20px" }}>
             Movie Not Found
           </div>
         )}
+
         {/* Trailer Videos */}
         {isTrailerAvailable && (
           <div className={styles.trailer}>

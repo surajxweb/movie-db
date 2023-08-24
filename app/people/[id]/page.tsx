@@ -11,7 +11,7 @@ import { BsInstagram } from "react-icons/bs";
 const fetchActorData = async (tmdbid: number) => {
   try {
     const actorResponse = await fetch(
-      `https://api.themoviedb.org/3/person/${tmdbid}?api_key=d308de6f3b996ae3b334cbb6527cffc7&append_to_response=combined_credits,external_ids,images`
+      `https://api.themoviedb.org/3/person/${tmdbid}?api_key=${process.env.TMDBchabi}&append_to_response=combined_credits,external_ids,images`
     );
     if (!actorResponse.ok) {
       console.log("Failed");
@@ -60,6 +60,7 @@ const ActorPage: NextPage<{ params: { id: number } }> = async ({ params }) => {
         <div className={styles.card}>
           <div className={styles.imageContainer}>
             <Image
+              unoptimized
               src={profile_photo}
               alt={`${name} - photo`}
               height={384}

@@ -7,7 +7,7 @@ import { BsLink45Deg } from "react-icons/bs";
 
 const fetchTrending = async () => {
   const trendingResponse = await fetch(
-    "https://api.themoviedb.org/3/trending/movie/day?api_key=d308de6f3b996ae3b334cbb6527cffc7"
+    `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.TMDBchabi}`
   );
 
   if (!trendingResponse.ok) {
@@ -19,7 +19,7 @@ const fetchTrending = async () => {
 
 const fetchShows = async () => {
   const showResponse = await fetch(
-    "https://api.themoviedb.org/3/trending/tv/day?api_key=d308de6f3b996ae3b334cbb6527cffc7"
+    `https://api.themoviedb.org/3/trending/tv/day?api_key=${process.env.TMDBchabi}`
   );
 
   if (!showResponse.ok) {
@@ -31,7 +31,7 @@ const fetchShows = async () => {
 
 const fetchPeople = async () => {
   const peopleResponse = await fetch(
-    "https://api.themoviedb.org/3/trending/person/week?api_key=d308de6f3b996ae3b334cbb6527cffc7"
+    `https://api.themoviedb.org/3/trending/person/week?api_key=${process.env.TMDBchabi}`
   );
 
   if (!peopleResponse.ok) {
@@ -43,7 +43,7 @@ const fetchPeople = async () => {
 
 const fetchTheaterMovies = async () => {
   const theaterMoviesResponse = await fetch(
-    "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&region=in&api_key=d308de6f3b996ae3b334cbb6527cffc7"
+    `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&region=in&api_key=${process.env.TMDBchabi}`
   );
 
   if (!theaterMoviesResponse.ok) {
@@ -54,7 +54,7 @@ const fetchTheaterMovies = async () => {
 
 const fetchUpcomingMovies = async () => {
   const uncomingMoviesResponse = await fetch(
-    "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1&region=us&api_key=d308de6f3b996ae3b334cbb6527cffc7"
+    `https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1&region=us&api_key=${process.env.TMDBchabi}`
   );
 
   if (!uncomingMoviesResponse.ok) {
@@ -65,7 +65,7 @@ const fetchUpcomingMovies = async () => {
 
 const fetchTopMovies = async () => {
   const topMoviesResponse = await fetch(
-    "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&api_key=d308de6f3b996ae3b334cbb6527cffc7"
+    `https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&api_key=${process.env.TMDBchabi}`
   );
 
   if (!topMoviesResponse.ok) {
@@ -76,7 +76,7 @@ const fetchTopMovies = async () => {
 
 const fetchTopShows = async () => {
   const topShowsResponse = await fetch(
-    "https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1&api_key=d308de6f3b996ae3b334cbb6527cffc7"
+    `https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1&api_key=${process.env.TMDBchabi}`
   );
 
   if (!topShowsResponse.ok) {
@@ -108,6 +108,7 @@ const Home = async () => {
     <div className={styles.container}>
       <div className={styles.header}>
         <Image
+          unoptimized
           src={header}
           height={400}
           width={1500}

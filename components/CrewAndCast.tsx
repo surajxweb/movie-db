@@ -25,6 +25,7 @@ const CrewAndCast: FC<CrewAndCastProps> = ({ castArray }) => {
           <div className={styles.cardContainer} key={cast.id}>
             <Link href={`/people/${cast.id}`}>
               <Image
+                unoptimized
                 src={`https://image.tmdb.org/t/p/original/${cast.profile_path}`}
                 height={384}
                 width={256}

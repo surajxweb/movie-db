@@ -23,10 +23,6 @@
   border-radius: 18px;
 }
 
-.links {
-  order: -1;
-}
-
 .link {
   list-style: none;
   margin: 5px;

@@ -10,7 +10,7 @@ import CrewAndCast from "@/components/CrewAndCast";
 
 const fetchTMDBData = async (id: string) => {
   const tmdbResponse = await fetch(
-    `https://api.themoviedb.org/3/tv/${id}?api_key=d308de6f3b996ae3b334cbb6527cffc7&append_to_response=credits,videos,similar,reviews`
+    `https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.TMDBchabi}&append_to_response=credits,videos,similar,reviews`
   );
   if (!tmdbResponse.ok) {
     console.log("Failed");
@@ -20,7 +20,7 @@ const fetchTMDBData = async (id: string) => {
 
 const fetchOMDBData = async (name: string, year: number) => {
   const omdbResponse = await fetch(
-    `http://www.omdbapi.com/?t=${name}&y=${year}&apikey=42a36590`
+    `http://www.omdbapi.com/?t=${name}&y=${year}&apikey=${process.env.OMDBchabi}`
   );
   if (!omdbResponse.ok) {
     console.log("Failed");
@@ -30,7 +30,7 @@ const fetchOMDBData = async (name: string, year: number) => {
 
 const fetchWatchProviders = async (id: string) => {
   const watchProvidersResponse = await fetch(
-    `https://api.themoviedb.org/3/tv/${id}/watch/providers?api_key=d308de6f3b996ae3b334cbb6527cffc7`
+    `https://api.themoviedb.org/3/tv/${id}/watch/providers?api_key=${process.env.TMDBchabi}`
   );
   if (!watchProvidersResponse.ok) {
     console.log("Failed");
@@ -102,6 +102,7 @@ const TVPage: NextPage<{ params: { id: string } }> = async ({ params }) => {
           <div className={styles.section1}>
             <div className={styles.posterContainer}>
               <Image
+                unoptimized
                 src={poster_image}
                 height={350}
                 width={233}
@@ -173,11 +174,23 @@ const TVPage: NextPage<{ params: { id: string } }> = async ({ params }) => {
               </div>
               <div className={styles.ratings}>
                 <div className={styles.source}>
-                  <Image src={imdb} alt='imdb' height={40} width={40} />
+                  <Image
+                    unoptimized
+                    src={imdb}
+                    alt='imdb'
+                    height={40}
+                    width={40}
+                  />
                   <div className={styles.rating}>{imdbRating}</div>
                 </div>
                 <div className={styles.source}>
-                  <Image src={tmdb} alt='tmdb' height={40} width={40} />
+                  <Image
+                    unoptimized
+                    src={tmdb}
+                    alt='tmdb'
+                    height={40}
+                    width={40}
+                  />
                   <div className={styles.rating}>{tmdb_rating}</div>
                 </div>
               </div>
@@ -195,6 +208,7 @@ const TVPage: NextPage<{ params: { id: string } }> = async ({ params }) => {
                         }) => (
                           <div key={option.provider_id}>
                             <Image
+                              unoptimized
                               src={`https://image.tmdb.org/t/p/original/${option.logo_path}`}
                               alt={`${option.provider_name} - logo`}
                               height={40}

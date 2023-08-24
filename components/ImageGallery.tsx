@@ -23,6 +23,7 @@ const ImageGalleryComponent: React.FC<{ images: ImageItem[] }> = ({
         renderItem={(item) => (
           <div className='image-gallery-image'>
             <Image
+              unoptimized
               src={item.original}
               alt=''
               width={200} // Set the desired width

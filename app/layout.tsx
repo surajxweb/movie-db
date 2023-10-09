@@ -1,10 +1,12 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
-import NavLinks from "@/components/NavLinks";
+import { Montserrat } from "next/font/google";
+import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { ClerkProvider } from "@clerk/nextjs";
+import Nothing from "@/components/Nothing";
 
-const poppins = Poppins({ subsets: ["latin"], weight: "400" });
+const bodyfont = Montserrat({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "The Movie Watcher",
@@ -17,16 +19,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
-      <body className={poppins.className}>
-        <header>
-          <NavLinks />
-        </header>
-        <main>{children}</main>
-        <footer>
-          <Footer />
-        </footer>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang='en'>
+        <body className={bodyfont.className}>
+          <header>
+            <Navbar />
+            <Nothing />
+          </header>
+          <main> {children}</main>
+          <footer>
+            <Footer />
+          </footer>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

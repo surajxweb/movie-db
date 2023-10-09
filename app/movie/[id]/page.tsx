@@ -140,7 +140,7 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
     .slice(0, 6);
   const similarArray = tmdbData?.similar?.results
     .filter((movie: { poster_path: string }) => movie.poster_path)
-    .slice(0, 5);
+    .slice(0, 10);
   const trailer = tmdbData?.videos?.results?.filter(
     (video: { type: string }) => video.type === "Trailer"
   );
@@ -185,6 +185,16 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
                     </div>
                   )
                 )}
+              </div>
+              <div className={styles.mobilePosterContainer}>
+                <Image
+                  unoptimized
+                  src={poster_image}
+                  height={350}
+                  width={233}
+                  alt={`${name} - movie poster`}
+                  quality={80}
+                />
               </div>
               <div className={styles.plot}>{plot}</div>
               <div className={styles.director}>
@@ -318,11 +328,10 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
         {isTrailerAvailable && (
           <div className={styles.trailer}>
             <iframe
-              width='800'
+              width='100%'
               height='450'
               src={`https://www.youtube.com/embed/${trailer[0].key}`}
               title='YouTube Video'
-              frameBorder='0'
               allowFullScreen
             ></iframe>
           </div>

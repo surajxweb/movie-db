@@ -10,7 +10,8 @@ import CrewAndCast from "@/components/CrewAndCast";
 
 const fetchTMDBData = async (id: string) => {
   const tmdbResponse = await fetch(
-    `https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.TMDBchabi}&append_to_response=credits,videos,similar,reviews`
+    `https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.TMDBchabi}&append_to_response=credits,videos,similar,reviews`,
+    { next: { revalidate: 3600 } }
   );
   if (!tmdbResponse.ok) {
     console.log("Failed");
@@ -20,7 +21,8 @@ const fetchTMDBData = async (id: string) => {
 
 const fetchOMDBData = async (name: string, year: number) => {
   const omdbResponse = await fetch(
-    `http://www.omdbapi.com/?t=${name}&y=${year}&apikey=${process.env.OMDBchabi}`
+    `http://www.omdbapi.com/?t=${name}&y=${year}&apikey=${process.env.OMDBchabi}`,
+    { next: { revalidate: 3600 } }
   );
   if (!omdbResponse.ok) {
     console.log("Failed");
@@ -30,7 +32,8 @@ const fetchOMDBData = async (name: string, year: number) => {
 
 const fetchWatchProviders = async (id: string) => {
   const watchProvidersResponse = await fetch(
-    `https://api.themoviedb.org/3/tv/${id}/watch/providers?api_key=${process.env.TMDBchabi}`
+    `https://api.themoviedb.org/3/tv/${id}/watch/providers?api_key=${process.env.TMDBchabi}`,
+    { next: { revalidate: 3600 } }
   );
   if (!watchProvidersResponse.ok) {
     console.log("Failed");
@@ -128,6 +131,16 @@ const TVPage: NextPage<{ params: { id: string } }> = async ({ params }) => {
                     </div>
                   )
                 )}
+              </div>
+              <div className={styles.mobilePosterContainer}>
+                <Image
+                  unoptimized
+                  src={poster_image}
+                  height={350}
+                  width={233}
+                  alt={`${name} - movie poster`}
+                  quality={80}
+                />
               </div>
               <div className={styles.plot}>{plot}</div>
               <div className={styles.director}>

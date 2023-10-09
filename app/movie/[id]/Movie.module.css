@@ -83,10 +83,12 @@
 
 .data {
   display: flex;
+  border: 1px solid khaki;
+  flex-flow: row wrap;
 }
 
 .credit {
-  margin-right: 5px;
+  margin: 3px 5px;
 }
 
 .credit:hover {
@@ -137,6 +139,56 @@
 }
 
 .trailer {
+  padding: 10px;
   margin: 20px auto;
-  width: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.posterContainer {
+  display: block;
+}
+
+.mobilePosterContainer {
+  display: none;
+  padding-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .contentContainer {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    padding: 0px;
+  }
+
+  .section1 {
+    margin: 0;
+  }
+  .mobilePosterContainer {
+    display: block;
+  }
+
+  .mobilePosterContainer img {
+    width: 100%;
+    height: auto;
+  }
+  .info {
+    padding: 20px 5px;
+    width: 100%;
+  }
+
+  .posterContainer {
+    display: none;
+  }
+  .movieName {
+    font-size: 28px;
+  }
+  .trailer {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.955);
+    margin: 0;
+    padding: 50px 20px;
+  }
 }

@@ -11,7 +11,8 @@ import { BsInstagram } from "react-icons/bs";
 const fetchActorData = async (tmdbid: number) => {
   try {
     const actorResponse = await fetch(
-      `https://api.themoviedb.org/3/person/${tmdbid}?api_key=${process.env.TMDBchabi}&append_to_response=combined_credits,external_ids,images`
+      `https://api.themoviedb.org/3/person/${tmdbid}?api_key=${process.env.TMDBchabi}&append_to_response=combined_credits,external_ids,images`,
+      { next: { revalidate: 3600 } }
     );
     if (!actorResponse.ok) {
       console.log("Failed");
@@ -86,6 +87,7 @@ const ActorPage: NextPage<{ params: { id: number } }> = async ({ params }) => {
             </div>
             {actorData?.external_ids?.instagram_id && (
               <Link
+                target='_blank'
                 href={`https://www.instagram.com/${actorData?.external_ids?.instagram_id}/`}
               >
                 <BsInstagram size='2.5em' className={styles.reactIcons} />
@@ -93,6 +95,7 @@ const ActorPage: NextPage<{ params: { id: number } }> = async ({ params }) => {
             )}
             {actorData?.external_ids?.twitter_id && (
               <Link
+                target='_blank'
                 href={`https://www.twitter.com/${actorData.external_ids.twitter_id}/`}
               >
                 <BsTwitter size='2.5em' className={styles.reactIcons} />

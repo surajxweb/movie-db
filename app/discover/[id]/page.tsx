@@ -18,7 +18,7 @@ export function generateStaticParams() {
 }
 
 const fetchMovieData = async (url: string) => {
-  const movieResponse = await fetch(url);
+  const movieResponse = await fetch(url, { next: { revalidate: 3600 } });
   if (!movieResponse.ok) {
     console.log("Could not fetch data.");
   }

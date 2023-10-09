@@ -1,5 +1,6 @@
 .container {
   padding: 20px;
+  width: 100%;
 }
 
 .form {
@@ -60,4 +61,32 @@
 .heading {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .form {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .question {
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+  }
+
+  .form input {
+    border-bottom: none;
+    font-size: 15px;
+  }
+  .radio {
+    font-size: 15px;
+    width: 100%;
+  }
+  .radios {
+    width: 100%;
+  }
 }

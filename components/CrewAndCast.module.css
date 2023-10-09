@@ -19,6 +19,7 @@
 
 .castList {
   display: flex;
+  flex-flow: row wrap;
   justify-content: space-around;
 }
 
@@ -34,4 +35,16 @@
 
 .character {
   font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin: 0;
+    width: 100%;
+    border-radius: 0;
+    padding: 5px 10px;
+  }
+  .castList {
+    padding: 10px 0;
+  }
 }

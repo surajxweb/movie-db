@@ -7,7 +7,8 @@ import { BsLink45Deg } from "react-icons/bs";
 
 const fetchTrending = async () => {
   const trendingResponse = await fetch(
-    `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.TMDBchabi}`
+    `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.TMDBchabi}`,
+    { next: { revalidate: 3600 } }
   );
 
   if (!trendingResponse.ok) {
@@ -19,7 +20,8 @@ const fetchTrending = async () => {
 
 const fetchShows = async () => {
   const showResponse = await fetch(
-    `https://api.themoviedb.org/3/trending/tv/day?api_key=${process.env.TMDBchabi}`
+    `https://api.themoviedb.org/3/trending/tv/day?api_key=${process.env.TMDBchabi}`,
+    { next: { revalidate: 3600 } }
   );
 
   if (!showResponse.ok) {
@@ -31,7 +33,8 @@ const fetchShows = async () => {
 
 const fetchPeople = async () => {
   const peopleResponse = await fetch(
-    `https://api.themoviedb.org/3/trending/person/week?api_key=${process.env.TMDBchabi}`
+    `https://api.themoviedb.org/3/trending/person/week?api_key=${process.env.TMDBchabi}`,
+    { next: { revalidate: 3600 } }
   );
 
   if (!peopleResponse.ok) {
@@ -43,7 +46,8 @@ const fetchPeople = async () => {
 
 const fetchTheaterMovies = async () => {
   const theaterMoviesResponse = await fetch(
-    `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&region=in&api_key=${process.env.TMDBchabi}`
+    `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1&region=in&api_key=${process.env.TMDBchabi}`,
+    { next: { revalidate: 3600 } }
   );
 
   if (!theaterMoviesResponse.ok) {
@@ -54,7 +58,8 @@ const fetchTheaterMovies = async () => {
 
 const fetchUpcomingMovies = async () => {
   const uncomingMoviesResponse = await fetch(
-    `https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1&region=us&api_key=${process.env.TMDBchabi}`
+    `https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1&region=us&api_key=${process.env.TMDBchabi}`,
+    { next: { revalidate: 3600 } }
   );
 
   if (!uncomingMoviesResponse.ok) {
@@ -65,7 +70,8 @@ const fetchUpcomingMovies = async () => {
 
 const fetchTopMovies = async () => {
   const topMoviesResponse = await fetch(
-    `https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&api_key=${process.env.TMDBchabi}`
+    `https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&api_key=${process.env.TMDBchabi}`,
+    { next: { revalidate: 3600 } }
   );
 
   if (!topMoviesResponse.ok) {
@@ -76,7 +82,8 @@ const fetchTopMovies = async () => {
 
 const fetchTopShows = async () => {
   const topShowsResponse = await fetch(
-    `https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1&api_key=${process.env.TMDBchabi}`
+    `https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1&api_key=${process.env.TMDBchabi}`,
+    { next: { revalidate: 3600 } }
   );
 
   if (!topShowsResponse.ok) {
@@ -105,7 +112,7 @@ const Home = async () => {
   const trendingPeople = await fetchPeople();
 
   return (
-    <div className={styles.container}>
+    <>
       <div className={styles.header}>
         <Image
           unoptimized
@@ -115,157 +122,159 @@ const Home = async () => {
           alt='discover cinema like never before'
         />
       </div>
-      {/* <h1 className={styles.heading}>Let&#39;s find you somthing to watch!</h1> */}
-      <section>
-        <h2 className={styles.subHeading}>
-          Trending Movies
-          <Link href={"/discover/trendingmovies"}>
-            load more <BsLink45Deg className='reactIcons' />
+      <div className={styles.container}>
+        {/* <h1 className={styles.heading}>Let&#39;s find you somthing to watch!</h1> */}
+        <section>
+          <h2 className={styles.subHeading}>
+            Trending Movies
+            <Link href={"/discover/trendingmovies"}>
+              load more <BsLink45Deg className='reactIcons' />
+            </Link>
+          </h2>
+          <div className={styles.listContainer}>
+            {trendingData.results.slice(0, 5).map((movie: Movie) => (
+              <DiscoverCard
+                key={movie.id}
+                name={movie.title}
+                image={movie.poster_path}
+                id={movie.id}
+                release_date={movie.release_date}
+                person_identity={movie.known_for_department}
+              />
+            ))}
+          </div>
+        </section>
+        <section>
+          <h2 className={styles.subHeading}>
+            Trending Shows
+            <Link href={"/discover/trendingshows"}>
+              load more <BsLink45Deg className='reactIcons' />
+            </Link>
+          </h2>
+          <div className={styles.listContainer}>
+            {trendingShows.results.slice(0, 5).map((movie: Movie) => (
+              <DiscoverCard
+                key={movie.id}
+                name={movie.name}
+                image={movie.poster_path}
+                id={movie.id}
+                release_date={movie.release_date}
+                person_identity={movie.known_for_department}
+              />
+            ))}
+          </div>
+        </section>
+        <section>
+          <h2 className={styles.subHeading}>
+            Trending People
+            <Link href={"/discover/trendingpeople"}>
+              load more <BsLink45Deg className='reactIcons' />
+            </Link>
+          </h2>
+          <div className={styles.listContainer}>
+            {trendingPeople.results.slice(0, 5).map((movie: Movie) => (
+              <DiscoverCard
+                key={movie.id}
+                name={movie.title || movie.name}
+                image={movie.poster_path || movie.profile_path}
+                id={movie.id}
+                release_date={movie.release_date}
+                person_identity={movie.known_for_department}
+              />
+            ))}
+          </div>
+        </section>
+        <section>
+          <h2 className={styles.subHeading}>
+            In Theatres
+            <Link href={"/discover/theatres"}>
+              load more <BsLink45Deg className='reactIcons' />
+            </Link>
+          </h2>
+          <div className={styles.listContainer}>
+            {theaterMovies.results.slice(0, 5).map((movie: Movie) => (
+              <DiscoverCard
+                key={movie.id}
+                name={movie.title}
+                image={movie.poster_path}
+                id={movie.id}
+                release_date={movie.release_date}
+                person_identity={movie.known_for_department}
+              />
+            ))}
+          </div>
+        </section>
+        <section>
+          <h2 className={styles.subHeading}>
+            Upcoming Movies
+            <Link href={"/discover/upcomingmovies"}>
+              load more <BsLink45Deg className='reactIcons' />
+            </Link>
+          </h2>
+          <div className={styles.listContainer}>
+            {upcomingMovies.results.slice(0, 5).map((movie: Movie) => (
+              <DiscoverCard
+                key={movie.id}
+                name={movie.title}
+                image={movie.poster_path}
+                id={movie.id}
+                release_date={movie.release_date}
+                person_identity={movie.known_for_department}
+              />
+            ))}
+          </div>
+        </section>
+        <section>
+          <h2 className={styles.subHeading}>
+            Top Rated Movies
+            <Link href={"/discover/topmovies"}>
+              load more <BsLink45Deg className='reactIcons' />
+            </Link>
+          </h2>
+          <div className={styles.listContainer}>
+            {topMovies.results.slice(0, 5).map((movie: Movie) => (
+              <DiscoverCard
+                key={movie.id}
+                name={movie.title}
+                image={movie.poster_path}
+                id={movie.id}
+                release_date={movie.release_date}
+                person_identity={movie.known_for_department}
+              />
+            ))}
+          </div>
+        </section>
+        <section>
+          <h2 className={styles.subHeading}>
+            Top Rated Shows
+            <Link href={"/discover/topshows"}>
+              load more
+              <BsLink45Deg className='reactIcons' />
+            </Link>
+          </h2>
+          <div className={styles.listContainer}>
+            {topShows.results.slice(0, 5).map((movie: Movie) => (
+              <DiscoverCard
+                key={movie.id}
+                name={movie.name}
+                image={movie.poster_path}
+                id={movie.id}
+                release_date={movie.release_date}
+                person_identity={movie.known_for_department}
+              />
+            ))}
+          </div>
+        </section>
+        <div className={styles.search}>
+          <div className={styles.text}>
+            Did not find what you are looking for?
+          </div>
+          <Link href={"/search"} className={styles.button}>
+            Search
           </Link>
-        </h2>
-        <div className={styles.listContainer}>
-          {trendingData.results.slice(0, 5).map((movie: Movie) => (
-            <DiscoverCard
-              key={movie.id}
-              name={movie.title}
-              image={movie.poster_path}
-              id={movie.id}
-              release_date={movie.release_date}
-              person_identity={movie.known_for_department}
-            />
-          ))}
         </div>
-      </section>
-      <section>
-        <h2 className={styles.subHeading}>
-          Trending Shows
-          <Link href={"/discover/trendingshows"}>
-            load more <BsLink45Deg className='reactIcons' />
-          </Link>
-        </h2>
-        <div className={styles.listContainer}>
-          {trendingShows.results.slice(0, 5).map((movie: Movie) => (
-            <DiscoverCard
-              key={movie.id}
-              name={movie.name}
-              image={movie.poster_path}
-              id={movie.id}
-              release_date={movie.release_date}
-              person_identity={movie.known_for_department}
-            />
-          ))}
-        </div>
-      </section>
-      <section>
-        <h2 className={styles.subHeading}>
-          Trending People
-          <Link href={"/discover/trendingpeople"}>
-            load more <BsLink45Deg className='reactIcons' />
-          </Link>
-        </h2>
-        <div className={styles.listContainer}>
-          {trendingPeople.results.slice(0, 5).map((movie: Movie) => (
-            <DiscoverCard
-              key={movie.id}
-              name={movie.title || movie.name}
-              image={movie.poster_path || movie.profile_path}
-              id={movie.id}
-              release_date={movie.release_date}
-              person_identity={movie.known_for_department}
-            />
-          ))}
-        </div>
-      </section>
-      <section>
-        <h2 className={styles.subHeading}>
-          In Theatres
-          <Link href={"/discover/theatres"}>
-            load more <BsLink45Deg className='reactIcons' />
-          </Link>
-        </h2>
-        <div className={styles.listContainer}>
-          {theaterMovies.results.slice(0, 5).map((movie: Movie) => (
-            <DiscoverCard
-              key={movie.id}
-              name={movie.title}
-              image={movie.poster_path}
-              id={movie.id}
-              release_date={movie.release_date}
-              person_identity={movie.known_for_department}
-            />
-          ))}
-        </div>
-      </section>
-      <section>
-        <h2 className={styles.subHeading}>
-          Upcoming Movies
-          <Link href={"/discover/upcomingmovies"}>
-            load more <BsLink45Deg className='reactIcons' />
-          </Link>
-        </h2>
-        <div className={styles.listContainer}>
-          {upcomingMovies.results.slice(0, 5).map((movie: Movie) => (
-            <DiscoverCard
-              key={movie.id}
-              name={movie.title}
-              image={movie.poster_path}
-              id={movie.id}
-              release_date={movie.release_date}
-              person_identity={movie.known_for_department}
-            />
-          ))}
-        </div>
-      </section>
-      <section>
-        <h2 className={styles.subHeading}>
-          Top Rated Movies
-          <Link href={"/discover/topmovies"}>
-            load more <BsLink45Deg className='reactIcons' />
-          </Link>
-        </h2>
-        <div className={styles.listContainer}>
-          {topMovies.results.slice(0, 5).map((movie: Movie) => (
-            <DiscoverCard
-              key={movie.id}
-              name={movie.title}
-              image={movie.poster_path}
-              id={movie.id}
-              release_date={movie.release_date}
-              person_identity={movie.known_for_department}
-            />
-          ))}
-        </div>
-      </section>
-      <section>
-        <h2 className={styles.subHeading}>
-          Top Rated Shows
-          <Link href={"/discover/topshows"}>
-            load more
-            <BsLink45Deg className='reactIcons' />
-          </Link>
-        </h2>
-        <div className={styles.listContainer}>
-          {topShows.results.slice(0, 5).map((movie: Movie) => (
-            <DiscoverCard
-              key={movie.id}
-              name={movie.name}
-              image={movie.poster_path}
-              id={movie.id}
-              release_date={movie.release_date}
-              person_identity={movie.known_for_department}
-            />
-          ))}
-        </div>
-      </section>
-      <div className={styles.search}>
-        <div className={styles.text}>
-          Did not find what you are looking for?
-        </div>
-        <Link href={"/search"} className={styles.button}>
-          Search
-        </Link>
       </div>
-    </div>
+    </>
   );
 };
 

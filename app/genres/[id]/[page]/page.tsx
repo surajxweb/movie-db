@@ -13,7 +13,8 @@ export function generateStaticParams() {
 
 const fetchGenreData = async (id: number, page: number) => {
   const genreResponse = await fetch(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.TMDBchabi}&with_genres=${id}&sort_by=popularity.desc&page=${page}`
+    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.TMDBchabi}&with_genres=${id}&sort_by=popularity.desc&page=${page}`,
+    { next: { revalidate: 3600 } }
   );
   if (!genreResponse.ok) {
     console.log("Error fetching data.");

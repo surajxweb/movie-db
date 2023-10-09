@@ -2,20 +2,20 @@ import { NextPage } from "next";
 import styles from "./Discover.module.css";
 import DiscoverCard from "@/components/DiscoverCard";
 
-export function generateStaticParams() {
-  const discoverPages = [
-    { id: "trendingmovies" },
-    { id: "trendingshows" },
-    { id: "theatres" },
-    { id: "upcomingmovies" },
-    { id: "topmovies" },
-    { id: "topshows" },
-    { id: "trendingpeople" },
-  ];
-  return discoverPages.map((page) => ({
-    params: { id: page.id },
-  }));
-}
+// export function generateStaticParams() {
+//   const discoverPages = [
+//     { id: "trendingmovies" },
+//     { id: "trendingshows" },
+//     { id: "theatres" },
+//     { id: "upcomingmovies" },
+//     { id: "topmovies" },
+//     { id: "topshows" },
+//     { id: "trendingpeople" },
+//   ];
+//   return discoverPages.map((page) => ({
+//     params: { id: page.id },
+//   }));
+// }
 
 const fetchMovieData = async (url: string) => {
   const movieResponse = await fetch(url, { next: { revalidate: 3600 } });

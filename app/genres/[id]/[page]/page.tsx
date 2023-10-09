@@ -4,12 +4,12 @@ import styles from "../Genres.module.css";
 import DiscoverCard from "@/components/DiscoverCard";
 import GenrePage from "@/components/GenrePage";
 
-export function generateStaticParams() {
-  const genresArray = Object.keys(genreAndColors);
-  return genresArray.map((page) => ({
-    params: { id: page },
-  }));
-}
+// export function generateStaticParams() {
+//   const genresArray = Object.keys(genreAndColors);
+//   return genresArray.map((page) => ({
+//     params: { id: page },
+//   }));
+// }
 
 const fetchGenreData = async (id: number, page: number) => {
   const genreResponse = await fetch(

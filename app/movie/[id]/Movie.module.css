@@ -67,10 +67,12 @@
 .genres {
   margin: 10px 0;
   font-weight: bold;
+  display: flex;
+  flex-flow: row wrap;
 }
 
 .genre {
-  margin-right: 10px;
+  margin: 5px 10px 0 0;
   padding: 5px 10px;
   border-radius: 20px;
   font-size: 12px;
@@ -83,7 +85,6 @@
 
 .data {
   display: flex;
-  border: 1px solid khaki;
   flex-flow: row wrap;
 }
 
@@ -165,6 +166,7 @@
 
   .section1 {
     margin: 0;
+    padding: 0;
   }
   .mobilePosterContainer {
     display: block;
@@ -175,8 +177,10 @@
     height: auto;
   }
   .info {
-    padding: 20px 5px;
+    padding: 20px 10px;
     width: 100%;
+    margin: 0;
+    max-width: 100%;
   }
 
   .posterContainer {

@@ -19,7 +19,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
       <html lang='en'>
         <body className={bodyfont.className}>
           <header>
@@ -32,6 +31,5 @@ export default function RootLayout({
           </footer>
         </body>
       </html>
-    </ClerkProvider>
   );
 }

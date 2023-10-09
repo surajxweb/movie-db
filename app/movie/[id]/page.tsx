@@ -98,7 +98,6 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
         person.job === "Story"
     )
     .slice(0, 3);
-  const writer = omdbData.Writer;
 
   const runtime = `${Math.floor(tmdbData?.runtime / 60)}h ${
     tmdbData?.runtime % 60
@@ -319,7 +318,7 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
             <CrewAndCast castArray={castArray} />
           ) : null
         ) : (
-          <div style={{ color: "white", fontSize: "20px" }}>
+          <div className={styles.notFound}>
             Movie Not Found
           </div>
         )}

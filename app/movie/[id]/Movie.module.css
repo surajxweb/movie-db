@@ -156,6 +156,12 @@
   padding-top: 10px;
 }
 
+.notFound {
+  color: white;
+  font-size: 20px;
+  padding: 20px 10px;
+}
+
 @media (max-width: 768px) {
   .contentContainer {
     width: 100%;

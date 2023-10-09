@@ -12,6 +12,7 @@
 .home {
   color: blueviolet;
   text-decoration: underline;
+  padding: 20px 10px;
 }
 
 .listContainer {

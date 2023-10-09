@@ -47,9 +47,9 @@
   font-size: 32px;
 }
 
-.plot {
+/* .plot {
   font-style: italic;
-}
+} */
 
 .genres,
 .streamingData {
@@ -140,6 +140,7 @@
 }
 
 .trailer {
+  max-width: 800px;
   padding: 10px;
   margin: 20px auto;
   display: flex;

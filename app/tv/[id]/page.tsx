@@ -84,7 +84,7 @@ const TVPage: NextPage<{ params: { id: string } }> = async ({ params }) => {
   // const reviewsArray = tmdbData.reviews.results.slice(0, 5);
   const similarArray = tmdbData?.similar?.results
     .filter((movie: { poster_path: string }) => movie.poster_path)
-    .slice(0, 5);
+    .slice(0, 10);
   const trailer = tmdbData?.videos?.results?.filter(
     (video: { type: string }) => video.type === "Trailer"
   );

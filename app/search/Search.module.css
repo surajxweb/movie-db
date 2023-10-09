@@ -21,10 +21,10 @@
 .form input {
   background-color: transparent;
   border: none;
-  border-bottom: 4px solid #ccc;
+  border-bottom: 2px solid #ccc;
   font-family: inherit;
   color: #ccc;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .form input:focus {

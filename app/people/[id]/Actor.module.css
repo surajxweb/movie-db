@@ -19,7 +19,7 @@
   flex-flow: row wrap;
   margin: 20px auto;
   padding: 20px;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .card * {
@@ -49,8 +49,9 @@
   white-space: pre-wrap;
   font: inherit;
   max-height: 200px;
-  font-style: italic;
   padding-right: 30px;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .reactIcons {
@@ -60,4 +61,27 @@
 
 .reactIcons:hover {
   transform: translateY(-4px);
+}
+
+.heading {
+  margin: 10px 0;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+  .card {
+    width: 100%;
+    padding: 10px;
+    border-radius: 0;
+  }
+  .imageContainer {
+    width: 100%;
+  }
+  .imageContainer img {
+    width: 100%;
+    height: auto;
+  }
 }

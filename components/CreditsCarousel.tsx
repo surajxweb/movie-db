@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -19,17 +19,40 @@ interface CreditsCarouselProps {
   popularMovies: Movie[];
 }
 
-const settings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 3.1,
-  centerMode: false,
-  slidesToScroll: 2.8,
-  swipeToSlide: true,
-};
-
 const CreditsCarousel: React.FC<CreditsCarouselProps> = ({ popularMovies }) => {
+  const [slidesToShow, setSlidesToShow] = useState(2);
+
+  useEffect(() => {
+    const updateSlidesToShow = () => {
+      const windowWidth = window.innerWidth;
+      if (windowWidth >= 768) {
+        setSlidesToShow(6); // Show 6 items on larger mobile screens (adjust the breakpoint as needed)
+      } else {
+        setSlidesToShow(2); // Show 2 items by default
+      }
+    };
+
+    // Initial call to set slidesToShow on component mount
+    updateSlidesToShow();
+
+    // Listen for window resize events to update slidesToShow
+    window.addEventListener("resize", updateSlidesToShow);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", updateSlidesToShow);
+    };
+  }, []);
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToScroll: 2,
+    swipeToSlide: true,
+    slidesToShow: slidesToShow,
+  };
+
   return (
     <div className={styles.container}>
       <Slider className={styles.slider} {...settings}>

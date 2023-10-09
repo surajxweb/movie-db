@@ -8,6 +8,15 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { GiCancel } from "react-icons/gi";
 import { useState } from "react";
 import { BsSearch } from "react-icons/bs";
+import { HiOutlineLogout } from "react-icons/hi";
+import { HiOutlineLogin } from "react-icons/hi";
+import {
+  SignedIn,
+  SignOutButton,
+  SignInButton,
+  SignedOut,
+  OrganizationSwitcher,
+} from "@clerk/nextjs";
 
 export default function Navbar() {
   const [listVisibility, setListVisibility] = useState(false);
@@ -40,9 +49,21 @@ export default function Navbar() {
           <Link href={"/watchlist"} className={styles.link}>
             Watchlist
           </Link>
-          <Link href={"/sign-in"} className={styles.link}>
-            Sign In / Sign Up
-          </Link>
+          <div className={styles.logout}>
+        <SignedIn>
+          <SignOutButton>
+              <div className={styles.link}>Logout</div>
+            
+          </SignOutButton>
+        </SignedIn>
+        <SignedOut>
+          <SignInButton>
+           
+              <div className={`${styles.link} ${styles.auth}`}>Login</div>
+           
+          </SignInButton>
+        </SignedOut>
+      </div>
         </ul>
 
         <div className={styles.navIcons}>

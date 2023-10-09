@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ClerkProvider } from "@clerk/nextjs";
 import Nothing from "@/components/Nothing";
+import {neobrutalism, dark} from "@clerk/themes";
 
 const bodyfont = Montserrat({ subsets: ["latin"], weight: "400" });
 
@@ -19,7 +20,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
+  //   <ClerkProvider
+  //   appearance={{
+  //     elements: {
+  //       baseTheme: neobrutalism,
+  //       formButtonPrimary: {
+  //         fontSize: 14,
+  //         textTransform: "none",
+  //         backgroundColor: "#373737",
+  //         "&:hover, &:focus, &:active": {
+  //           backgroundColor: "#636363",
+  //         },
+  //       },
+  //     },
+  //   }}
+  // >
+  <ClerkProvider
+      appearance={{
+        baseTheme: neobrutalism,
+      }}
+    >
       <html lang='en'>
         <body className={bodyfont.className}>
           <header>

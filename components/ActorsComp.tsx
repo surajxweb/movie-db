@@ -48,31 +48,31 @@ const ActorsComp: FC<ActorsCompProps> = ({
     );
 
   return (
-    <div>
+   
       <div className={styles.container}>
         <div className={styles.toggleButtons}>
-          <div
+          <button
             style={view === 1 ? activeButtonStyle : buttonCommonStyle}
             onClick={() => setView(1)}
             className={styles.button}
           >
             Popular Works
-          </div>
+          </button>
 
-          <div
+          <button
             style={view === 2 ? activeButtonStyle : buttonCommonStyle}
             onClick={() => setView(2)}
             className={styles.button}
           >
             Images
-          </div>
-          <div
+          </button>
+          <button
             style={view === 3 ? activeButtonStyle : buttonCommonStyle}
             onClick={() => setView(3)}
             className={styles.button}
           >
             Social Media
-          </div>
+          </button>
         </div>
         <div className={styles.displayCard}>
           {view === 1 && <CreditsCarousel popularMovies={popularCredits} />}
@@ -80,7 +80,7 @@ const ActorsComp: FC<ActorsCompProps> = ({
           {view === 3 && <SocialMedia socialID={socialID} />}
         </div>
       </div>
-    </div>
+    
   );
 };
 

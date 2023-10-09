@@ -46,7 +46,7 @@ const FormComponent: NextPage = () => {
     <div className={styles.container}>
       <div className={styles.form}>
         <div className={styles.question}>
-          <BsSearch size='3em' color='#ccc' className={styles.reactIcons} />
+          <BsSearch size='1.5em' color='#ccc' className={styles.reactIcons} />
           <input
             type='text'
             value={formData.userInput}

@@ -27,12 +27,7 @@
 }
 
 @media (max-width: 768px) {
-  .imageContainer img {
-    width: 100%;
-    height: auto;
-  }
-
   .container {
-    width: 120px;
+    width: 140px;
   }
 }

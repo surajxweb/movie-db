@@ -318,9 +318,7 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
             <CrewAndCast castArray={castArray} />
           ) : null
         ) : (
-          <div className={styles.notFound}>
-            Movie Not Found
-          </div>
+          <div className={styles.notFound}>Movie Not Found</div>
         )}
 
         {/* Trailer Videos */}

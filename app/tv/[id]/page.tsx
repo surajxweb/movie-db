@@ -239,9 +239,7 @@ const TVPage: NextPage<{ params: { id: string } }> = async ({ params }) => {
         {tmdbData?.name ? (
           <CrewAndCast castArray={castArray} />
         ) : (
-          <div className={styles.notFound}>
-            TV Show Not Found
-          </div>
+          <div className={styles.notFound}>TV Show Not Found</div>
         )}
         {isTrailerAvailable && (
           <div className={styles.trailer}>

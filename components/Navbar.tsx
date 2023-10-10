@@ -50,20 +50,17 @@ export default function Navbar() {
             Watchlist
           </Link>
           <div className={styles.logout}>
-        <SignedIn>
-          <SignOutButton>
-              <div className={styles.link}>Logout</div>
-            
-          </SignOutButton>
-        </SignedIn>
-        <SignedOut>
-          <SignInButton>
-           
-              <div className={`${styles.link} ${styles.auth}`}>Login</div>
-           
-          </SignInButton>
-        </SignedOut>
-      </div>
+            <SignedIn>
+              <SignOutButton>
+                <div className={styles.link}>Logout</div>
+              </SignOutButton>
+            </SignedIn>
+            <SignedOut>
+              <SignInButton>
+                <div className={`${styles.link} ${styles.auth}`}>Login</div>
+              </SignInButton>
+            </SignedOut>
+          </div>
         </ul>
 
         <div className={styles.navIcons}>

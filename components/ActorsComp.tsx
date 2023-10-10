@@ -48,39 +48,37 @@ const ActorsComp: FC<ActorsCompProps> = ({
     );
 
   return (
-   
-      <div className={styles.container}>
-        <div className={styles.toggleButtons}>
-          <button
-            style={view === 1 ? activeButtonStyle : buttonCommonStyle}
-            onClick={() => setView(1)}
-            className={styles.button}
-          >
-            Popular Works
-          </button>
+    <div className={styles.container}>
+      <div className={styles.toggleButtons}>
+        <button
+          style={view === 1 ? activeButtonStyle : buttonCommonStyle}
+          onClick={() => setView(1)}
+          className={styles.button}
+        >
+          Popular Works
+        </button>
 
-          <button
-            style={view === 2 ? activeButtonStyle : buttonCommonStyle}
-            onClick={() => setView(2)}
-            className={styles.button}
-          >
-            Images
-          </button>
-          <button
-            style={view === 3 ? activeButtonStyle : buttonCommonStyle}
-            onClick={() => setView(3)}
-            className={styles.button}
-          >
-            Social Media
-          </button>
-        </div>
-        <div className={styles.displayCard}>
-          {view === 1 && <CreditsCarousel popularMovies={popularCredits} />}
-          {view === 2 && <ImageGalleryComponent images={imageData} />}
-          {view === 3 && <SocialMedia socialID={socialID} />}
-        </div>
+        <button
+          style={view === 2 ? activeButtonStyle : buttonCommonStyle}
+          onClick={() => setView(2)}
+          className={styles.button}
+        >
+          Images
+        </button>
+        <button
+          style={view === 3 ? activeButtonStyle : buttonCommonStyle}
+          onClick={() => setView(3)}
+          className={styles.button}
+        >
+          Social Media
+        </button>
       </div>
-    
+      <div className={styles.displayCard}>
+        {view === 1 && <CreditsCarousel popularMovies={popularCredits} />}
+        {view === 2 && <ImageGalleryComponent images={imageData} />}
+        {view === 3 && <SocialMedia socialID={socialID} />}
+      </div>
+    </div>
   );
 };
 

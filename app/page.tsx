@@ -1,9 +1,8 @@
-import DiscoverCard from "@/components/DiscoverCard";
 import styles from "./Homepage.module.css";
 import Image from "next/image";
 import header from "@/resources/header.png";
 import Link from "next/link";
-import { BsLink45Deg } from "react-icons/bs";
+import DiscoverCarousel from "@/components/DiscoverCarousel";
 
 const fetchTrending = async () => {
   const trendingResponse = await fetch(
@@ -92,16 +91,6 @@ const fetchTopShows = async () => {
   return await topShowsResponse.json();
 };
 
-type Movie = {
-  id: number;
-  title: string;
-  poster_path: string;
-  name: string;
-  release_date: string;
-  known_for_department: string;
-  profile_path: string;
-};
-
 const Home = async () => {
   const trendingData = await fetchTrending();
   const trendingShows = await fetchShows();
@@ -125,144 +114,45 @@ const Home = async () => {
       <div className={styles.container}>
         {/* <h1 className={styles.heading}>Let&#39;s find you somthing to watch!</h1> */}
         <section>
-          <h2 className={styles.subHeading}>
-            Trending Movies
-            <Link href={"/discover/trendingmovies"}>
-              load more <BsLink45Deg className='reactIcons' />
-            </Link>
-          </h2>
+          <h2 className={styles.subHeading}>Trending Movies</h2>
           <div className={styles.listContainer}>
-            {trendingData.results.slice(0, 5).map((movie: Movie) => (
-              <DiscoverCard
-                key={movie.id}
-                name={movie.title}
-                image={movie.poster_path}
-                id={movie.id}
-                release_date={movie.release_date}
-                person_identity={movie.known_for_department}
-              />
-            ))}
+            <DiscoverCarousel discoverMovies={trendingData.results} />
           </div>
         </section>
         <section>
-          <h2 className={styles.subHeading}>
-            Trending Shows
-            <Link href={"/discover/trendingshows"}>
-              load more <BsLink45Deg className='reactIcons' />
-            </Link>
-          </h2>
+          <h2 className={styles.subHeading}>Trending Shows</h2>
           <div className={styles.listContainer}>
-            {trendingShows.results.slice(0, 5).map((movie: Movie) => (
-              <DiscoverCard
-                key={movie.id}
-                name={movie.name}
-                image={movie.poster_path}
-                id={movie.id}
-                release_date={movie.release_date}
-                person_identity={movie.known_for_department}
-              />
-            ))}
+            <DiscoverCarousel discoverMovies={trendingShows.results} />
           </div>
         </section>
         <section>
-          <h2 className={styles.subHeading}>
-            Trending People
-            <Link href={"/discover/trendingpeople"}>
-              load more <BsLink45Deg className='reactIcons' />
-            </Link>
-          </h2>
+          <h2 className={styles.subHeading}>Trending People</h2>
           <div className={styles.listContainer}>
-            {trendingPeople.results.slice(0, 5).map((movie: Movie) => (
-              <DiscoverCard
-                key={movie.id}
-                name={movie.title || movie.name}
-                image={movie.poster_path || movie.profile_path}
-                id={movie.id}
-                release_date={movie.release_date}
-                person_identity={movie.known_for_department}
-              />
-            ))}
+            <DiscoverCarousel discoverMovies={trendingPeople.results} />
           </div>
         </section>
         <section>
-          <h2 className={styles.subHeading}>
-            In Theatres
-            <Link href={"/discover/theatres"}>
-              load more <BsLink45Deg className='reactIcons' />
-            </Link>
-          </h2>
+          <h2 className={styles.subHeading}>In Theatres</h2>
           <div className={styles.listContainer}>
-            {theaterMovies.results.slice(0, 5).map((movie: Movie) => (
-              <DiscoverCard
-                key={movie.id}
-                name={movie.title}
-                image={movie.poster_path}
-                id={movie.id}
-                release_date={movie.release_date}
-                person_identity={movie.known_for_department}
-              />
-            ))}
+            <DiscoverCarousel discoverMovies={theaterMovies.results} />
           </div>
         </section>
         <section>
-          <h2 className={styles.subHeading}>
-            Upcoming Movies
-            <Link href={"/discover/upcomingmovies"}>
-              load more <BsLink45Deg className='reactIcons' />
-            </Link>
-          </h2>
+          <h2 className={styles.subHeading}>Upcoming Movies</h2>
           <div className={styles.listContainer}>
-            {upcomingMovies.results.slice(0, 5).map((movie: Movie) => (
-              <DiscoverCard
-                key={movie.id}
-                name={movie.title}
-                image={movie.poster_path}
-                id={movie.id}
-                release_date={movie.release_date}
-                person_identity={movie.known_for_department}
-              />
-            ))}
+            <DiscoverCarousel discoverMovies={upcomingMovies.results} />
           </div>
         </section>
         <section>
-          <h2 className={styles.subHeading}>
-            Top Rated Movies
-            <Link href={"/discover/topmovies"}>
-              load more <BsLink45Deg className='reactIcons' />
-            </Link>
-          </h2>
+          <h2 className={styles.subHeading}>Top Rated Movies</h2>
           <div className={styles.listContainer}>
-            {topMovies.results.slice(0, 5).map((movie: Movie) => (
-              <DiscoverCard
-                key={movie.id}
-                name={movie.title}
-                image={movie.poster_path}
-                id={movie.id}
-                release_date={movie.release_date}
-                person_identity={movie.known_for_department}
-              />
-            ))}
+            <DiscoverCarousel discoverMovies={topMovies.results} />
           </div>
         </section>
         <section>
-          <h2 className={styles.subHeading}>
-            Top Rated Shows
-            <Link href={"/discover/topshows"}>
-              load more
-              <BsLink45Deg className='reactIcons' />
-            </Link>
-          </h2>
+          <h2 className={styles.subHeading}>Top Rated Shows</h2>
           <div className={styles.listContainer}>
-            {topShows.results.slice(0, 5).map((movie: Movie) => (
-              <DiscoverCard
-                key={movie.id}
-                name={movie.name}
-                image={movie.poster_path}
-                id={movie.id}
-                release_date={movie.release_date}
-                person_identity={movie.known_for_department}
-              />
-            ))}
+            <DiscoverCarousel discoverMovies={topShows.results} />
           </div>
         </section>
         <div className={styles.search}>

@@ -7,6 +7,7 @@ import tmdb from "@/resources/logos/tmdb.png";
 import Link from "next/link";
 import Recommendations from "@/components/Recommendations";
 import CrewAndCast from "@/components/CrewAndCast";
+import ActionsBar from "@/components/ActionBar";
 
 const fetchTMDBData = async (id: string) => {
   const tmdbResponse = await fetch(
@@ -132,6 +133,9 @@ const TVPage: NextPage<{ params: { id: string } }> = async ({ params }) => {
                   )
                 )}
               </div>
+              {/* action kamine */}
+              <ActionsBar type={2} id={params?.id} />
+              {/* close action kalmeein */}
               <div className={styles.mobilePosterContainer}>
                 <Image
                   unoptimized

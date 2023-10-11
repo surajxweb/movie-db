@@ -3,7 +3,6 @@ import Link from "next/link";
 import logo from "@/resources/logo_yellow.png";
 import styles from "./Footer.module.css";
 import Image from "next/image";
-import tapLogo from "@/resources/tapLogo.png";
 
 const Footer: FC = () => {
   return (

@@ -11,6 +11,7 @@ import tomatoes from "@/resources/logos/tomatoes.jpg";
 import Link from "next/link";
 import Recommendations from "@/components/Recommendations";
 import CrewAndCast from "@/components/CrewAndCast";
+import ActionsBar from "@/components/ActionBar";
 
 //fetch api calls
 
@@ -167,6 +168,7 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
                 alt={`${name} - movie poster`}
                 quality={80}
               />
+              {/* <ActionsBar type={"movie"} id={params?.id} /> */}
             </div>
             <div className={styles.info}>
               <h1 className={styles.movieName}>{`${name} (${
@@ -185,6 +187,9 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
                   )
                 )}
               </div>
+              {/* action kamine */}
+              <ActionsBar type={1} id={params?.id} />
+              {/* close action kalmeein */}
               <div className={styles.mobilePosterContainer}>
                 <Image
                   unoptimized
@@ -309,6 +314,7 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
                   </div>
                 )}
               </div>
+              {/*  */}
             </div>
           </div>
         )}

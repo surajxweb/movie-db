@@ -17,6 +17,7 @@ export default authMiddleware({
     "/people/:id",
     "/search",
     "/search/api",
+    "/api/create-user",
 
     "/discover",
     "/discover/:id",

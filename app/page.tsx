@@ -32,7 +32,7 @@ const fetchShows = async () => {
 
 const fetchPeople = async () => {
   const peopleResponse = await fetch(
-    `https://api.themoviedb.org/3/trending/person/week?api_key=${process.env.TMDBchabi}`,
+    `https://api.themoviedb.org/3/trending/person/day?api_key=${process.env.TMDBchabi}`,
     { next: { revalidate: 3600 } }
   );
 

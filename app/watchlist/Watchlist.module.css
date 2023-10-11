@@ -1,0 +1,52 @@
+.container {
+  padding: 20px;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 10px;
+
+  min-height: 600px;
+}
+
+.tabs {
+  width: 100%;
+}
+
+.tabs button {
+  transition: all 0.5s;
+  /* color: rgb(239, 239, 48); */
+  cursor: pointer;
+  color: black;
+  font-weight: bold;
+  font-family: inherit;
+  font-size: 18px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: none;
+  width: 50%;
+}
+
+.list {
+  gap: 15px;
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row wrap;
+  align-items: center;
+  margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .content {
+    padding: 0;
+  }
+
+  .tabs button {
+    padding: 5px 10px;
+  }
+}

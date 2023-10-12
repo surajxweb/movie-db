@@ -5,6 +5,7 @@ import Wishlist from "@/components/WishlistCard";
 import { useAuth } from "@clerk/nextjs";
 import { useState, useEffect } from "react";
 import { BiMoviePlay } from "react-icons/bi";
+import Loader from "@/components/Loader";
 import { PiTelevisionBold } from "react-icons/pi";
 
 type DiscoverProps = {
@@ -22,9 +23,11 @@ const Page: NextPage<DiscoverProps> = ({
   const [movieWatchList, setmovieWatchList] = useState<[]>([]);
   const [tvWatchList, setTvWatchList] = useState<[]>([]);
   const [showmovie, setShowMovie] = useState(true);
+  const [isLoaoding, setIsLoading] = useState(false);
 
   useEffect(() => {
     // Call fetchAddress when the component mounts
+    setIsLoading(true);
     const fetchAddress = async () => {
       const response = await fetch(`/api/get-watch-list?query=${userId}`, {
         cache: "no-store",
@@ -34,6 +37,7 @@ const Page: NextPage<DiscoverProps> = ({
       setTvWatchList(tvWishList.reverse());
       const movieWishList = data?.movieList?.cinefreeks[0]?.movieWishList;
       setmovieWatchList(movieWishList.reverse());
+      setIsLoading(false);
     };
 
     fetchAddress();
@@ -42,7 +46,6 @@ const Page: NextPage<DiscoverProps> = ({
   return (
     <div className={styles.container}>
       <h1>itssuzikat&#39;s Watchlist</h1>
-
       <div className={styles.content}>
         <div className={styles.tabs}>
           <button
@@ -71,6 +74,7 @@ const Page: NextPage<DiscoverProps> = ({
 
         {showmovie && (
           <div className={styles.list}>
+            {isLoaoding && <Loader />}
             {movieWatchList.map((movie: any) => (
               <Wishlist key={movie} type={"movie"} id={movie} />
             ))}
@@ -79,6 +83,7 @@ const Page: NextPage<DiscoverProps> = ({
 
         {!showmovie && (
           <div className={styles.list}>
+            {isLoaoding && <Loader />}
             {tvWatchList.map((tvShow: any) => (
               <Wishlist key={tvShow} type={"tv"} id={tvShow} />
             ))}

@@ -45,7 +45,7 @@
 }
 
 .msection {
-  margin: 10px 10px 20px 10px;
+  margin: 10px;
 }
 
 .mheading {
@@ -58,12 +58,11 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
-  margin: 10px 10px 20px 10px;
+  margin: 10px;
 }
 
 .mlist {
   display: flex;
-
   gap: 2px;
   align-items: center;
   color: white;

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "./Cinefreeks.module.css";
+import styles from "./Cinefreaks.module.css";
 import { AiFillHeart } from "react-icons/ai";
 
 const Cinefreek = () => {
@@ -11,10 +11,10 @@ const Cinefreek = () => {
         recommendations.
         <div></div>
         <div>
-          Mean while check out my watchlist{" "}
+          Meanwhile check out my watchlist{" "}
           <Link
             style={{ textDecoration: "underline", textUnderlineOffset: "3px" }}
-            href={"/cinefreeks/clnk91wn626p10bppy5oe4h22"}
+            href={"/cinefreaks/clnk91wn626p10bppy5oe4h22"}
           >
             here!
           </Link>{" "}

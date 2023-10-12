@@ -59,8 +59,8 @@ export default function Navbar() {
           <Link href={"/search"} className={styles.link}>
             Search
           </Link>
-          <Link href={"/cinefreeks"} className={styles.link}>
-            Cinefreeks
+          <Link href={"/cinefreaks"} className={styles.link}>
+            Cinefreaks
           </Link>
           {/* <Link href={"/ratings"} className={styles.link}>
             Ratings
@@ -204,7 +204,7 @@ export default function Navbar() {
                   <div className={styles.mtext}>Watchlist</div>
                 </div>
               </Link>
-              <Link href={"/orders"}>
+              <Link href={"/cinefreaks"}>
                 <div className={styles.mlist}>
                   <TbMoodCrazyHappy size='1.5em' color='#fff' />
                   <div className={styles.mtext}>Cinefreaks</div>

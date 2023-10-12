@@ -46,6 +46,10 @@
     padding: 0;
   }
 
+  .list {
+    justify-content: space-around;
+  }
+
   .tabs button {
     padding: 5px 10px;
   }

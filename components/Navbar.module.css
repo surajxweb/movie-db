@@ -56,8 +56,6 @@
 
 .mlists {
   display: flex;
-
-  gap: 5px;
   flex-flow: row wrap;
   justify-content: flex-start;
   margin: 10px 10px 20px 10px;
@@ -66,14 +64,14 @@
 .mlist {
   display: flex;
 
-  gap: 10px;
+  gap: 2px;
   align-items: center;
   color: white;
   background-color: rgb(55, 55, 55);
   border-radius: 8px;
   font-size: 14px;
   margin: 10px;
-  padding: 8px 15px;
+  padding: 5px 10px;
   font-weight: bold;
   box-shadow:
     rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,

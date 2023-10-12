@@ -206,7 +206,7 @@ export default function Navbar() {
               </Link>
               <Link href={"/orders"}>
                 <div className={styles.mlist}>
-                  <IoMdClose size='1.5em' color='#fff' />
+                  <TbMoodCrazyHappy size='1.5em' color='#fff' />
                   <div className={styles.mtext}>Cinefreaks</div>
                 </div>
               </Link>

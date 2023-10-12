@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "./Actor.module.css";
 import Link from "next/link";
 import ActorsComp from "@/components/ActorsComp";
-import { BsTwitter } from "react-icons/bs";
+import { RiTwitterXLine } from "react-icons/ri";
 import { BsInstagram } from "react-icons/bs";
 
 //fetch api calls
@@ -98,7 +98,7 @@ const ActorPage: NextPage<{ params: { id: number } }> = async ({ params }) => {
                 target='_blank'
                 href={`https://www.twitter.com/${actorData.external_ids.twitter_id}/`}
               >
-                <BsTwitter size='2.5em' className={styles.reactIcons} />
+                <RiTwitterXLine size='2.5em' className={styles.reactIcons} />
               </Link>
             )}
             <div className={styles.bio}>

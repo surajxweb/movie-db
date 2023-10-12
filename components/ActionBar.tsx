@@ -11,6 +11,7 @@ import {
   AiFillLike,
   AiOutlineDislike,
   AiOutlineLike,
+  AiOutlineLoading3Quarters,
 } from "react-icons/ai";
 import { IoMdAddCircleOutline, IoMdAddCircle } from "react-icons/io";
 import { useAuth } from "@clerk/nextjs";
@@ -19,17 +20,23 @@ import { BiLogIn } from "react-icons/bi";
 const ActionsBar = ({ type, id }: { type: number; id: string }) => {
   const { userId } = useAuth();
   const [watchList, setWatchList] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchAddress = async () => {
-      const response = await fetch(`/api/get-watch-list?query=${userId}`);
+      setIsLoading(true);
+      const response = await fetch(`/api/get-watch-list?query=${userId}`, {
+        cache: "no-store",
+      });
       const data = await response.json();
       if (type === 1) {
         const movieWishList = data?.movieList?.cinefreeks[0]?.movieWishList;
         setWatchList(movieWishList);
+        setIsLoading(false);
       } else if (type === 2) {
         const tvWishList = data?.movieList?.cinefreeks[0]?.tvWishList;
         setWatchList(tvWishList);
+        setIsLoading(false);
       }
     };
 
@@ -39,16 +46,13 @@ const ActionsBar = ({ type, id }: { type: number; id: string }) => {
   const isIdInWishlist = watchList?.includes(id);
 
   const actioKaro = async () => {
+    setIsLoading(true);
     const kyaKare = isIdInWishlist ? "hatoWahaSe" : "aawoAndar";
     let updatedWatchList = [...watchList]; // Create a copy of the watchList
 
     if (kyaKare === "hatoWahaSe") {
-      console.log("hatane ki koshih krr raha hu");
-
       updatedWatchList = updatedWatchList.filter((content) => content !== id);
     } else if (kyaKare === "aawoAndar") {
-      console.log("andar daal raaha hu");
-
       updatedWatchList.push(id.toString());
     }
 
@@ -67,6 +71,7 @@ const ActionsBar = ({ type, id }: { type: number; id: string }) => {
     };
 
     const response = await fetch("/api/edit-watch-list", requestPayload);
+    setIsLoading(false);
   };
 
   return (
@@ -116,23 +121,28 @@ const ActionsBar = ({ type, id }: { type: number; id: string }) => {
             />
           )}
         </div> */}
-        <button
-          className={styles.wishlist}
-          style={{
-            backgroundColor: isIdInWishlist ? "rgb(237, 4, 4)" : "#111",
-          }}
-          onClick={actioKaro}
-        >
-          {isIdInWishlist ? (
-            <TiTick className={styles.icons} size='1.5em' />
-          ) : (
-            <IoMdAddCircleOutline className={styles.icons} size='1.5em' />
-          )}
+        {isLoading && (
+          <AiOutlineLoading3Quarters className={styles.loader} size='1.2em' />
+        )}
+        {!isLoading && (
+          <button
+            className={styles.wishlist}
+            style={{
+              backgroundColor: isIdInWishlist ? "rgb(237, 4, 4)" : "#111",
+            }}
+            onClick={actioKaro}
+          >
+            {isIdInWishlist ? (
+              <TiTick className={styles.icons} size='1.5em' />
+            ) : (
+              <IoMdAddCircleOutline className={styles.icons} size='1.5em' />
+            )}
 
-          <div>
-            {isIdInWishlist ? "Added to watchlist" : "Add to watchlist"}
-          </div>
-        </button>
+            <div>
+              {isIdInWishlist ? "Added to watchlist" : "Add to watchlist"}
+            </div>
+          </button>
+        )}
       </SignedIn>
       <SignedOut>
         <SignInButton>

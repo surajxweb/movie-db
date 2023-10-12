@@ -30,13 +30,15 @@ const FormComponent: NextPage = () => {
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(async () => {
-      const response = await fetch(
-        `/search/api?query=${formData.userInput}&category=${formData.category}`
-      );
-      const data = await response.json();
+      if (formData.userInput.length > 2) {
+        const response = await fetch(
+          `/search/api?query=${formData.userInput}&category=${formData.category}`
+        );
+        const data = await response.json();
 
-      // Do something with the API response
-      setSearchResults(data.movieData.results);
+        // Do something with the API response
+        setSearchResults(data.movieData.results);
+      }
     }, 1500);
 
     return () => clearTimeout(delayDebounceFn);
@@ -55,10 +57,10 @@ const FormComponent: NextPage = () => {
             }
             placeholder={`${
               formData.category === "tv"
-                ? "enter the tv show name"
+                ? "Enter the tv show name"
                 : formData.category === "movie"
-                ? "enter the movie name"
-                : "enter the person name"
+                ? "Enter the movie name"
+                : "Enter the person name"
             }`}
           />
         </div>

@@ -10,7 +10,6 @@ export async function POST(request: Request) {
   const type = requestData.type;
   const clerkUserId = requestData.clerkUserId;
   const list = requestData.list;
-  console.log("mutation ke liye list hai: ", list);
 
   // Define your GraphQL query as a string
   const movieQuery = `

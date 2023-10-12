@@ -1,23 +1,30 @@
 "use client";
-
+import { NextPage } from "next";
+import styles from "@/app/watchlist/Watchlist.module.css";
 import Wishlist from "@/components/WishlistCard";
-import styles from "./Watchlist.module.css";
 import { useAuth } from "@clerk/nextjs";
 import { useState, useEffect } from "react";
 import { BiMoviePlay } from "react-icons/bi";
 import { PiTelevisionBold } from "react-icons/pi";
-import Loader from "@/components/Loader";
 
-const Page = () => {
+type DiscoverProps = {
+  params: {
+    id: string;
+  };
+};
+
+const Page: NextPage<DiscoverProps> = ({
+  params,
+}: {
+  params: { id: string };
+}) => {
   const { userId } = useAuth();
   const [movieWatchList, setmovieWatchList] = useState<[]>([]);
   const [tvWatchList, setTvWatchList] = useState<[]>([]);
   const [showmovie, setShowMovie] = useState(true);
-  const [isLoaoding, setIsLoading] = useState(false);
 
   useEffect(() => {
     // Call fetchAddress when the component mounts
-    setIsLoading(true);
     const fetchAddress = async () => {
       const response = await fetch(`/api/get-watch-list?query=${userId}`, {
         cache: "no-store",
@@ -27,7 +34,6 @@ const Page = () => {
       setTvWatchList(tvWishList.reverse());
       const movieWishList = data?.movieList?.cinefreeks[0]?.movieWishList;
       setmovieWatchList(movieWishList.reverse());
-      setIsLoading(false);
     };
 
     fetchAddress();
@@ -35,7 +41,7 @@ const Page = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Your Watchlist</h1>
+      <h1>itssuzikat&#39;s Watchlist</h1>
 
       <div className={styles.content}>
         <div className={styles.tabs}>
@@ -65,7 +71,6 @@ const Page = () => {
 
         {showmovie && (
           <div className={styles.list}>
-            {isLoaoding && <Loader />}
             {movieWatchList.map((movie: any) => (
               <Wishlist key={movie} type={"movie"} id={movie} />
             ))}
@@ -74,7 +79,6 @@ const Page = () => {
 
         {!showmovie && (
           <div className={styles.list}>
-            {isLoaoding && <Loader />}
             {tvWatchList.map((tvShow: any) => (
               <Wishlist key={tvShow} type={"tv"} id={tvShow} />
             ))}

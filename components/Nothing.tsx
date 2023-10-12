@@ -1,5 +1,7 @@
+import styles from "./Nothing.module.css";
+
 const Nothing = () => {
-  return <div style={{ height: "55px" }}></div>;
+  return <div className={styles.container}></div>;
 };
 
 export default Nothing;

@@ -1,0 +1,10 @@
+.container {
+  height: 55px;
+  background-color: #111;
+}
+
+@media (max-width: 768px) {
+  .container {
+    height: 35px;
+  }
+}

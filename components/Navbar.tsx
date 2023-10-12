@@ -198,7 +198,7 @@ export default function Navbar() {
           <div className={styles.msection}>
             <div className={styles.mheading}>Accounts</div>
             <div className={styles.mlists}>
-              <Link href={"/profile"}>
+              <Link href={"/watchlist"}>
                 <div className={styles.mlist}>
                   <BsFillHouseHeartFill size='1.5em' color='#fff' />
                   <div className={styles.mtext}>Watchlist</div>

@@ -29,7 +29,7 @@ const Page: NextPage<DiscoverProps> = ({
     // Call fetchAddress when the component mounts
     setIsLoading(true);
     const fetchAddress = async () => {
-      const response = await fetch(`/api/get-watch-list?query=${userId}`, {
+      const response = await fetch(`/api/get-watch-list?query=user_2WZIUAVXuHs11ReFIcf35WxlR3I`, {
         cache: "no-store",
       });
       const data = await response.json();

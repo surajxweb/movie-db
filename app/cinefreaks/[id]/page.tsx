@@ -54,7 +54,7 @@ const Page: NextPage<DiscoverProps> = ({
 
   return (
     <div className={styles.container}>
-      <h1>{userName}&#39;s watchlist</h1>
+      {!isLoaoding && <h1>{userName}&#39;s watchlist</h1>}
       <div className={styles.content}>
         <div className={styles.tabs}>
           <button

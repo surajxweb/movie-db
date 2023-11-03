@@ -246,7 +246,7 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
                   <Image
                     unoptimized
                     src={imdb}
-                    alt='imdb'
+                    alt="imdb"
                     height={40}
                     width={40}
                   />
@@ -256,7 +256,7 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
                   <Image
                     unoptimized
                     src={tmdb}
-                    alt='tmdb'
+                    alt="tmdb"
                     height={40}
                     width={40}
                   />
@@ -266,7 +266,7 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
                   <Image
                     unoptimized
                     src={tomatoimage}
-                    alt='rotton tomatoes'
+                    alt="rotton tomatoes"
                     height={40}
                     width={40}
                   />
@@ -278,12 +278,12 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
                 {isAvailableInTheaters && (
                   <Link
                     href={"https://in.bookmyshow.com/explore/movies"}
-                    target='_blank'
+                    target="_blank"
                   >
                     <Image
                       unoptimized
                       src={bookmyshow}
-                      alt='bookmyshow'
+                      alt="bookmyshow"
                       height={40}
                       width={40}
                     />
@@ -331,10 +331,10 @@ const Page: NextPage<{ params: { id: string } }> = async ({ params }) => {
         {isTrailerAvailable && (
           <div className={styles.trailer}>
             <iframe
-              width='100%'
-              height='450'
+              width="100%"
+              height="450"
               src={`https://www.youtube.com/embed/${trailer[0].key}`}
-              title='YouTube Video'
+              title="YouTube Video"
               allowFullScreen
             ></iframe>
           </div>

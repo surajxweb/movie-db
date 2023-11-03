@@ -14,7 +14,7 @@ const Cinefreek = () => {
           Meanwhile check out my watchlist{" "}
           <Link
             style={{ textDecoration: "underline", textUnderlineOffset: "3px" }}
-            href={"/cinefreaks/clnk91wn626p10bppy5oe4h22"}
+            href={"/cinefreaks/itssuzikat"}
           >
             here!
           </Link>{" "}

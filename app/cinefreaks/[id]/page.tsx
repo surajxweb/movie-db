@@ -24,28 +24,37 @@ const Page: NextPage<DiscoverProps> = ({
   const [tvWatchList, setTvWatchList] = useState<[]>([]);
   const [showmovie, setShowMovie] = useState(true);
   const [isLoaoding, setIsLoading] = useState(false);
+  const [userName, setUserName] = useState("");
 
   useEffect(() => {
     // Call fetchAddress when the component mounts
     setIsLoading(true);
     const fetchAddress = async () => {
-      const response = await fetch(`/api/get-watch-list?query=user_2WZIUAVXuHs11ReFIcf35WxlR3I`, {
-        cache: "no-store",
-      });
+      const response = await fetch(
+        `/api/get-watch-list-by-username?query=${params.id}`,
+        {
+          cache: "no-store",
+        }
+      );
       const data = await response.json();
+      console.log(data);
+
       const tvWishList = data?.movieList?.cinefreeks[0]?.tvWishList;
       setTvWatchList(tvWishList.reverse());
       const movieWishList = data?.movieList?.cinefreeks[0]?.movieWishList;
       setmovieWatchList(movieWishList.reverse());
+      setUserName(data?.movieList?.cinefreeks[0]?.userName);
       setIsLoading(false);
     };
 
     fetchAddress();
-  }, [userId]);
+  }, [userId, params.id]);
+
+  console.log(userName);
 
   return (
     <div className={styles.container}>
-      <h1>itssuzikat&#39;s Watchlist</h1>
+      <h1>{userName}&#39;s watchlist</h1>
       <div className={styles.content}>
         <div className={styles.tabs}>
           <button

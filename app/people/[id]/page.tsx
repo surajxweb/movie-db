@@ -87,18 +87,18 @@ const ActorPage: NextPage<{ params: { id: number } }> = async ({ params }) => {
             </div>
             {actorData?.external_ids?.instagram_id && (
               <Link
-                target='_blank'
+                target="_blank"
                 href={`https://www.instagram.com/${actorData?.external_ids?.instagram_id}/`}
               >
-                <BsInstagram size='2.5em' className={styles.reactIcons} />
+                <BsInstagram size="2.5em" className={styles.reactIcons} />
               </Link>
             )}
             {actorData?.external_ids?.twitter_id && (
               <Link
-                target='_blank'
+                target="_blank"
                 href={`https://www.twitter.com/${actorData.external_ids.twitter_id}/`}
               >
-                <RiTwitterXLine size='2.5em' className={styles.reactIcons} />
+                <RiTwitterXLine size="2.5em" className={styles.reactIcons} />
               </Link>
             )}
             <div className={styles.bio}>

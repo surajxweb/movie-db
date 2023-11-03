@@ -10,7 +10,7 @@ const Footer: FC = () => {
       <div className={styles.container}>
         <div className={styles.logo}>
           <Link href={"/"}>
-            <Image unoptimized src={logo} height={200} width={300} alt='logo' />
+            <Image unoptimized src={logo} height={200} width={300} alt="logo" />
           </Link>
         </div>
         <ul className={styles.links}>
@@ -71,7 +71,7 @@ const Footer: FC = () => {
 
       <div className={styles.credits}>
         Designed & Built by{" "}
-        <Link target='_blank' href={"https://www.surajxweb.dev/"}>
+        <Link target="_blank" href={"https://www.surajxweb.dev/"}>
           Suraj Katyayan
         </Link>
         .

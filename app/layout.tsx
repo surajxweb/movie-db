@@ -41,7 +41,7 @@ export default function RootLayout({
         baseTheme: neobrutalism,
       }}
     >
-      <html lang='en'>
+      <html lang="en">
         <body className={bodyfont.className}>
           <header>
             <Navbar />

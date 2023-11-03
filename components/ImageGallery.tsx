@@ -21,11 +21,11 @@ const ImageGalleryComponent: React.FC<{ images: ImageItem[] }> = ({
         items={imageItems}
         showFullscreenButton={false}
         renderItem={(item) => (
-          <div className='image-gallery-image'>
+          <div className="image-gallery-image">
             <Image
               unoptimized
               src={item.original}
-              alt=''
+              alt=""
               width={200} // Set the desired width
               height={300} // Set the desired height
             />

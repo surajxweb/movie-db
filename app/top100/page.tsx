@@ -42,7 +42,7 @@ const Top100: NextPage = async () => {
           src={top100_header}
           height={400}
           width={1500}
-          alt='discover cinema like never before'
+          alt="discover cinema like never before"
         />
       </div>
       <h2 className={styles.subHeading}>Best of Cinema</h2>

@@ -22,7 +22,7 @@ const Recommendations: FC<RecommendationProps> = async ({ similarArray }) => {
       {similarArray?.length > 0 ? (
         <h2 className={styles.heading}>Recommendation Section</h2>
       ) : (
-        <Link href='/'>
+        <Link href="/">
           <h2 className={styles.home}>Go Home</h2>
         </Link>
       )}

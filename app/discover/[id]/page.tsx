@@ -102,7 +102,7 @@ const Discover: NextPage<DiscoverProps> = async ({
           </div>
         </>
       )}
-      {movieData?.length < 1 && <div className='error'>No Data Found!</div>}
+      {movieData?.length < 1 && <div className="error">No Data Found!</div>}
     </div>
   );
 };

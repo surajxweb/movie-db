@@ -194,7 +194,7 @@ const TVPage: NextPage<{ params: { id: string } }> = async ({ params }) => {
                   <Image
                     unoptimized
                     src={imdb}
-                    alt='imdb'
+                    alt="imdb"
                     height={40}
                     width={40}
                   />
@@ -204,7 +204,7 @@ const TVPage: NextPage<{ params: { id: string } }> = async ({ params }) => {
                   <Image
                     unoptimized
                     src={tmdb}
-                    alt='tmdb'
+                    alt="tmdb"
                     height={40}
                     width={40}
                   />
@@ -248,11 +248,11 @@ const TVPage: NextPage<{ params: { id: string } }> = async ({ params }) => {
         {isTrailerAvailable && (
           <div className={styles.trailer}>
             <iframe
-              width='800'
-              height='450'
+              width="800"
+              height="450"
               src={`https://www.youtube.com/embed/${trailer[0].key}`}
-              title='YouTube Video'
-              frameBorder='0'
+              title="YouTube Video"
+              frameBorder="0"
               allowFullScreen
             ></iframe>
           </div>

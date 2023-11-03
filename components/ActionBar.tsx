@@ -122,7 +122,7 @@ const ActionsBar = ({ type, id }: { type: number; id: string }) => {
           )}
         </div> */}
         {isLoading && (
-          <AiOutlineLoading3Quarters className={styles.loader} size='1.2em' />
+          <AiOutlineLoading3Quarters className={styles.loader} size="1.2em" />
         )}
         {!isLoading && (
           <button
@@ -133,9 +133,9 @@ const ActionsBar = ({ type, id }: { type: number; id: string }) => {
             onClick={actioKaro}
           >
             {isIdInWishlist ? (
-              <TiTick className={styles.icons} size='1.5em' />
+              <TiTick className={styles.icons} size="1.5em" />
             ) : (
-              <IoMdAddCircleOutline className={styles.icons} size='1.5em' />
+              <IoMdAddCircleOutline className={styles.icons} size="1.5em" />
             )}
 
             <div>
@@ -147,7 +147,7 @@ const ActionsBar = ({ type, id }: { type: number; id: string }) => {
       <SignedOut>
         <SignInButton>
           <button className={styles.signin}>
-            <BiLogIn className={styles.icons} size='1.5em' />
+            <BiLogIn className={styles.icons} size="1.5em" />
             <div>Sign In to add this to your list.</div>
           </button>
         </SignInButton>

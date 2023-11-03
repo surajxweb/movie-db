@@ -24,8 +24,8 @@ const SocialMedia: React.FC<SocialMediaProps> = ({ socialID }) => {
         <div className={styles.instagram}>
           <iframe
             style={iframeStyle}
-            width='350'
-            height='380'
+            width="350"
+            height="380"
             src={`https://www.instagram.com/${socialID.instagram_id}/embed/`}
             frameBorder={0}
           ></iframe>
@@ -34,7 +34,7 @@ const SocialMedia: React.FC<SocialMediaProps> = ({ socialID }) => {
       {socialID?.twitter_id?.length > 0 && (
         <div className={styles.twitter}>
           <TwitterTimelineEmbed
-            sourceType='profile'
+            sourceType="profile"
             screenName={socialID.twitter_id}
             options={{ height: 380 }}
           />

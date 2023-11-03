@@ -108,7 +108,7 @@ const Home = async () => {
           src={header}
           height={400}
           width={1500}
-          alt='discover cinema like never before'
+          alt="discover cinema like never before"
         />
       </div>
       <div className={styles.container}>

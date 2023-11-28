@@ -3,7 +3,7 @@
 import styles from "./Navbar.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import logo from "../resources/logo_yellow.png";
+import logo from "../resources/screenlogo.png";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
 import { useState } from "react";

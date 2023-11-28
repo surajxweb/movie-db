@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import Link from "next/link";
-import logo from "@/resources/logo_yellow.png";
+import logo from "../resources/screenlogo.png";
 import styles from "./Footer.module.css";
 import Image from "next/image";
 

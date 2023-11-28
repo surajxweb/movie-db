@@ -10,9 +10,9 @@ import { neobrutalism, dark } from "@clerk/themes";
 const bodyfont = Montserrat({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
-  title: "Cineverse by Suzi",
+  title: "ScreenVerse - A Cinematic Junction",
   description:
-    "Discover cinema like never before, explore friends and their recommendations, make your own watchlist.",
+    "Discover cinema like never before, explore friends and their recommendations, or make your own watchlist.",
 };
 
 export default function RootLayout({
